@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BH Apps - Menus Demo</string>
+
+    <string name="menu_item_text_home">Home</string>
+    <string name="menu_item_text_likes">Likes</string>
+    <string name="menu_item_text_bookmarks">Bookmarks</string>
+    <string name="menu_item_text_settings">Settings</string>
+
+</resources>

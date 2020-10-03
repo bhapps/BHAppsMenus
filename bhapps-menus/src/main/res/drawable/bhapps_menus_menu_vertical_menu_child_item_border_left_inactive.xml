@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bhapps_menus_menu_dimension_1dp">
+
+    <item
+            android:left="@dimen/bhapps_menus_menu_dimension_0dp"
+            android:right="@dimen/bhapps_menus_menu_dimension_negative_5dp"
+            android:top="@dimen/bhapps_menus_menu_dimension_negative_5dp"
+            android:bottom="@dimen/bhapps_menus_menu_dimension_negative_5dp">
+        <shape
+                android:shape="rectangle">
+            <stroke
+                    android:width="@dimen/bhapps_menus_menu_vertical_menu_child_item_border_thickness"
+                    android:color="@android:color/transparent" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <item
+            android:left="@dimen/bhapps_menus_menu_dimension_0dp"
+            android:right="@dimen/bhapps_menus_menu_dimension_negative_5dp"
+            android:top="@dimen/bhapps_menus_menu_dimension_negative_5dp"
+            android:bottom="@dimen/bhapps_menus_menu_dimension_negative_5dp">
+        <shape
+                android:shape="rectangle">
+            <stroke
+                    android:width="@dimen/bhapps_menus_menu_vertical_menu_child_item_border_thickness"
+                    android:color="@android:color/transparent" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</layer-list>

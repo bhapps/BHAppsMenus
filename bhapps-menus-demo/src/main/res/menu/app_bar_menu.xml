@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+                android:id="@+id/home"
+                android:title="@string/menu_item_text_home"
+                android:icon="@drawable/bhapps_menus_menu_vertical_menu_placeholder_icon"
+                app:color="#FF8888" />
+
+        <item
+                android:id="@+id/settings"
+                android:title="@string/menu_item_text_settings"
+                android:icon="@drawable/bhapps_menus_menu_vertical_menu_placeholder_icon"
+                app:color="@color/colorPrimary" />
+
+        <item
+                android:id="@+id/bookmarks"
+                android:title="@string/menu_item_text_bookmarks"
+                android:icon="@drawable/bhapps_menus_menu_vertical_menu_placeholder_icon"
+                app:color="#fa2" />
+
+</menu>

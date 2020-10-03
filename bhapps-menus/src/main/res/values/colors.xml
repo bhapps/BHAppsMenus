@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- BH Apps Menu colors -->
+    <color name="bhapps_menus_menu_vertical_menu_divider_title_color">#919090</color>
+    <color name="bhapps_menus_menu_vertical_menu_divider_color">#EBEBEB</color>
+    <color name="bhapps_menus_menu_vertical_menu_parent_item_icon_color">#919090</color>
+    <color name="bhapps_menus_menu_vertical_menu_parent_item_title_color">#919090</color>
+    <color name="bhapps_menus_menu_vertical_menu_parent_item_arrow_color">#919090</color>
+    <color name="bhapps_menus_menu_vertical_menu_parent_item_badge_color">#D81B60</color>
+    <color name="bhapps_menus_menu_vertical_menu_parent_item_active_color">#D81B60</color>
+    <color name="bhapps_menus_menu_vertical_menu_parent_item_active_background_color">#99FDF2F6</color>
+
+    <color name="bhapps_menus_menu_vertical_menu_child_item_active_color">#B41650</color>
+    <color name="bhapps_menus_menu_vertical_menu_child_item_active_background_color">#99FC9CC0</color>
+    <color name="bhapps_menus_menu_vertical_menu_child_item_icon_color">#919090</color>
+    <color name="bhapps_menus_menu_vertical_menu_child_item_title_color">#919090</color>
+    <color name="bhapps_menus_menu_vertical_menu_child_item_arrow_color">#919090</color>
+    <color name="bhapps_menus_menu_vertical_menu_child_item_badge_color">#D81B60</color>
+
+</resources>

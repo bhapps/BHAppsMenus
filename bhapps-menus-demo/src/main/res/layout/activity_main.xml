@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <bhapps.menus.vertical.verticalmenu.VerticalMenu
+            android:id="@+id/bhapps_menus_menu_vertical_menu_icons_only"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#F4F4F4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:vertical_menu_show_icons_only="true"
+            app:vertical_menu_alignment_position="1"
+
+            app:vertical_menu_show_shimmer_animation="true"
+            app:vertical_menu_show_shimmer_animation_duration="2500"
+
+            app:vertical_menu_show_animation_in="false"
+            app:vertical_menu_show_animation_in_type="1"
+            app:vertical_menu_show_animation_in_duration="250"
+
+            app:vertical_menu_border_is_visible="false"
+            app:vertical_menu_border_thickness="1dp"
+            app:vertical_menu_border_position="2"
+
+            app:vertical_menu_divider_is_visible="false"
+            app:vertical_menu_parent_items_background_color="@android:color/transparent"
+            app:vertical_menu_parent_items_indicator_is_visible="true"
+            app:vertical_menu_parent_items_indicator_color="@color/colorPrimary"
+            app:vertical_menu_parent_items_indicator_thickness="@dimen/bhapps_menus_menu_dimension_2dp"
+            app:vertical_menu_parent_items_indicator_position="1"
+            app:vertical_menu_parent_items_active_background_color="#D3D3D3"
+
+            app:vertical_menu_parent_items_icon_width="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_parent_items_icon_height="@dimen/bhapps_menus_menu_dimension_12dp"
+
+            app:vertical_menu_parent_items_icon_tint_color="#BFBFBF"
+            app:vertical_menu_parent_items_icon_is_visible="true"
+            app:vertical_menu_parent_items_icon_active_tint_color="@color/colorPrimary"
+
+            app:vertical_menu_parent_items_badge_margin_top="-6dp"
+
+            app:vertical_menu_parent_items_badge_text_is_visible="false"
+
+            app:vertical_menu_parent_items_badge_background_color="@color/colorPrimaryDark"
+            app:vertical_menu_parent_items_badge_border_color="@color/colorAccent"
+            app:vertical_menu_parent_items_badge_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+
+            app:vertical_menu_parent_items_badge_is_visible="true"
+            app:vertical_menu_parent_items_badge_is_cleared_on_active="true"
+
+            />
+
+        <bhapps.menus.vertical.verticalmenu.VerticalMenu
+            android:id="@+id/bhapps_menus_menu_vertical_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/bhapps_menus_menu_vertical_menu_icons_only"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:vertical_menu_enable_nested_scrolling="true"
+            app:vertical_menu_active_state_on_left="false"
+
+            app:vertical_menu_show_icons="true"
+            app:vertical_menu_show_parent_icons="true"
+            app:vertical_menu_show_child_icons="true"
+            app:vertical_menu_show_parent_divider="true"
+            app:vertical_menu_show_icons_only="false"
+
+            app:vertical_menu_border_is_visible="true"
+            app:vertical_menu_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+            app:vertical_menu_border_color="@color/defaultLightColor"
+            app:vertical_menu_border_position="1"
+
+            app:vertical_menu_show_shimmer_animation="true"
+            app:vertical_menu_show_shimmer_animation_duration="2500"
+
+            app:vertical_menu_show_animation_in="false"
+            app:vertical_menu_show_animation_in_type="1"
+            app:vertical_menu_show_animation_in_duration="250"
+
+            app:vertical_menu_divider_color="@color/colorPrimaryDark"
+            app:vertical_menu_divider_is_visible="true"
+
+            app:vertical_menu_parent_items_padding="@dimen/bhapps_menus_menu_dimension_12dp"
+
+            app:vertical_menu_parent_items_background_color="@android:color/transparent"
+
+            app:vertical_menu_parent_items_text_is_capitalized="false"
+            app:vertical_menu_parent_items_text_is_bold="false"
+            app:vertical_menu_parent_items_text_size="16sp"
+            app:vertical_menu_parent_items_text_is_visible="true"
+
+            app:vertical_menu_parent_items_indicator_is_visible="true"
+            app:vertical_menu_parent_items_indicator_thickness="@dimen/bhapps_menus_menu_dimension_5dp"
+            app:vertical_menu_parent_items_indicator_color="@color/colorPrimaryDark"
+            app:vertical_menu_parent_items_indicator_position="0"
+
+            app:vertical_menu_parent_items_active_text_color="@color/colorPrimaryDark"
+            app:vertical_menu_parent_items_active_text_is_bold="true"
+
+            app:vertical_menu_parent_items_icon_width="@dimen/bhapps_menus_menu_dimension_16dp"
+            app:vertical_menu_parent_items_icon_height="@dimen/bhapps_menus_menu_dimension_16dp"
+            app:vertical_menu_parent_items_icon_margin_left="@dimen/bhapps_menus_menu_dimension_5dp"
+            app:vertical_menu_parent_items_icon_margin_right="@dimen/bhapps_menus_menu_dimension_5dp"
+
+            app:vertical_menu_parent_items_icon_is_visible="true"
+            app:vertical_menu_parent_items_icon_active_tint_color="@color/colorPrimaryDark"
+
+            app:vertical_menu_parent_items_badge_padding="@dimen/bhapps_menus_menu_dimension_2dp"
+            app:vertical_menu_parent_items_badge_margin_right="@dimen/bhapps_menus_menu_dimension_12dp"
+
+            app:vertical_menu_parent_items_badge_text_color="@color/colorAccent"
+            app:vertical_menu_parent_items_badge_text_size="@dimen/bhapps_menus_menu_dimension_8dp"
+            app:vertical_menu_parent_items_badge_text_is_bold="false"
+            app:vertical_menu_parent_items_badge_text_is_visible="true"
+
+            app:vertical_menu_parent_items_badge_background_color="@color/colorPrimaryDark"
+            app:vertical_menu_parent_items_badge_border_color="@color/colorAccent"
+            app:vertical_menu_parent_items_badge_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+
+            app:vertical_menu_parent_items_badge_is_visible="true"
+            app:vertical_menu_parent_items_badge_is_cleared_on_active="true"
+
+            app:vertical_menu_parent_items_navigation_icon_is_visible="false"
+            app:vertical_menu_parent_items_navigation_icon_width="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_parent_items_navigation_icon_height="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_parent_items_navigation_icon_is_hidden_when_active="false"
+            app:vertical_menu_parent_items_navigation_icon_color="@color/colorAccent"
+            app:vertical_menu_parent_items_active_navigation_icon_color="@color/colorPrimaryDark"
+            app:vertical_menu_parent_items_navigation_icon_drawable="@drawable/arrow_forward_icon"
+            app:vertical_menu_parent_items_navigation_icon_margin_right="@dimen/bhapps_menus_menu_dimension_5dp"
+
+            app:vertical_menu_collapse_icon_width="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_collapse_icon_height="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_collapse_icon_padding="@dimen/bhapps_menus_menu_dimension_2dp"
+            app:vertical_menu_collapse_type="1"
+            app:vertical_menu_collapse_others="false"
+            app:vertical_menu_collapse_expand_delay="250"
+            app:vertical_menu_collapse_icon_rotate="180"
+            app:vertical_menu_collapse_icon_rotate_duration="250"
+            app:vertical_menu_collapse_icon_drawable="@drawable/bhapps_menus_menu_vertical_menu_parent_item_expandcollapse_arrow_icon"
+            app:vertical_menu_collapse_icon_is_visible="true"
+
+            app:vertical_menu_title_items_padding="16dp"
+            app:vertical_menu_title_items_text_size="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_title_items_text_is_capitalized="true"
+            app:vertical_menu_title_items_text_is_bold="true"
+            app:vertical_menu_title_items_divider_visible="true"
+            app:vertical_menu_title_items_divider_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+
+            app:vertical_menu_child_items_padding="@dimen/bhapps_menus_menu_dimension_8dp"
+
+            app:vertical_menu_child_items_background_color="@android:color/transparent"
+            app:vertical_menu_child_items_active_background_color="@color/defaultLightColor"
+
+            app:vertical_menu_child_items_text_is_capitalized="false"
+            app:vertical_menu_child_items_text_is_bold="false"
+            app:vertical_menu_child_items_text_size="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_child_items_text_is_visible="true"
+
+            app:vertical_menu_child_items_indicator_is_visible="true"
+            app:vertical_menu_child_items_indicator_thickness="@dimen/bhapps_menus_menu_dimension_5dp"
+            app:vertical_menu_child_items_indicator_color="@color/colorPrimary"
+            app:vertical_menu_child_items_indicator_position="0"
+
+            app:vertical_menu_child_items_active_text_color="@color/colorPrimary"
+            app:vertical_menu_child_items_active_text_is_bold="true"
+
+            app:vertical_menu_child_items_icon_width="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_child_items_icon_height="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_child_items_icon_padding="@dimen/bhapps_menus_menu_dimension_12dp"
+
+            app:vertical_menu_child_items_icon_is_visible="true"
+            app:vertical_menu_child_items_icon_active_tint_color="@color/colorPrimary"
+
+            app:vertical_menu_child_items_badge_padding="@dimen/bhapps_menus_menu_dimension_2dp"
+            app:vertical_menu_child_items_badge_margin_right="@dimen/bhapps_menus_menu_dimension_12dp"
+
+            app:vertical_menu_child_items_badge_text_color="@color/colorAccent"
+            app:vertical_menu_child_items_badge_text_size="@dimen/bhapps_menus_menu_dimension_8dp"
+            app:vertical_menu_child_items_badge_text_is_bold="false"
+            app:vertical_menu_child_items_badge_text_is_visible="true"
+
+            app:vertical_menu_child_items_badge_background_color="@color/colorPrimaryDark"
+            app:vertical_menu_child_items_badge_border_color="@color/colorAccent"
+            app:vertical_menu_child_items_badge_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+
+            app:vertical_menu_child_items_badge_is_visible="true"
+            app:vertical_menu_child_items_badge_is_cleared_on_active="true"
+
+            />
+
+        <bhapps.menus.vertical.verticalmenu.VerticalMenu
+            android:id="@+id/bhapps_menus_menu_vertical_menu_with_active_chip_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@+id/bhapps_menus_menu_vertical_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+                app:vertical_menu_is_responsive_menu="true"
+                app:vertical_menu_enable_nested_scrolling="true"
+                app:vertical_menu_active_state_on_left="false"
+
+                app:vertical_menu_show_icons="true"
+                app:vertical_menu_show_parent_icons="true"
+                app:vertical_menu_show_child_icons="true"
+                app:vertical_menu_show_parent_divider="false"
+                app:vertical_menu_show_icons_only="false"
+
+                app:vertical_menu_border_is_visible="true"
+                app:vertical_menu_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+                app:vertical_menu_border_color="@color/defaultLightColor"
+                app:vertical_menu_border_position="1"
+
+                app:vertical_menu_show_shimmer_animation="true"
+                app:vertical_menu_show_shimmer_animation_duration="2500"
+
+                app:vertical_menu_show_animation_in="false"
+                app:vertical_menu_show_animation_in_type="1"
+                app:vertical_menu_show_animation_in_duration="250"
+
+                app:vertical_menu_divider_is_visible="false"
+
+                app:vertical_menu_parent_items_padding="@dimen/bhapps_menus_menu_dimension_12dp"
+
+                app:vertical_menu_parent_items_background_color="@android:color/transparent"
+                app:vertical_menu_parent_items_active_background_drawable="@drawable/rounded_chip_as_background"
+
+                app:vertical_menu_parent_items_text_is_capitalized="false"
+                app:vertical_menu_parent_items_text_is_bold="false"
+                app:vertical_menu_parent_items_text_size="16sp"
+                app:vertical_menu_parent_items_text_is_visible="true"
+
+                app:vertical_menu_parent_items_indicator_is_visible="false"
+
+                app:vertical_menu_parent_items_active_text_color="@color/colorPrimary"
+                app:vertical_menu_parent_items_active_text_is_bold="true"
+
+                app:vertical_menu_parent_items_icon_width="@dimen/bhapps_menus_menu_dimension_16dp"
+                app:vertical_menu_parent_items_icon_height="@dimen/bhapps_menus_menu_dimension_16dp"
+                app:vertical_menu_parent_items_icon_margin_left="@dimen/bhapps_menus_menu_dimension_5dp"
+                app:vertical_menu_parent_items_icon_margin_right="@dimen/bhapps_menus_menu_dimension_5dp"
+
+                app:vertical_menu_parent_items_icon_is_visible="true"
+                app:vertical_menu_parent_items_icon_active_tint_color="@color/colorPrimary"
+
+                app:vertical_menu_parent_items_badge_padding="@dimen/bhapps_menus_menu_dimension_2dp"
+                app:vertical_menu_parent_items_badge_margin_right="@dimen/bhapps_menus_menu_dimension_12dp"
+
+                app:vertical_menu_parent_items_badge_text_color="@color/colorAccent"
+                app:vertical_menu_parent_items_badge_text_size="@dimen/bhapps_menus_menu_dimension_8dp"
+                app:vertical_menu_parent_items_badge_text_is_bold="false"
+                app:vertical_menu_parent_items_badge_text_is_visible="true"
+
+                app:vertical_menu_parent_items_badge_background_color="@color/colorPrimaryDark"
+                app:vertical_menu_parent_items_badge_border_color="@color/colorAccent"
+                app:vertical_menu_parent_items_badge_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+
+                app:vertical_menu_parent_items_badge_is_visible="true"
+                app:vertical_menu_parent_items_badge_is_cleared_on_active="true"
+
+                app:vertical_menu_parent_items_navigation_icon_is_visible="false"
+            />
+
+        <bhapps.menus.vertical.verticalmenu.VerticalMenu
+            android:id="@+id/bhapps_menus_menu_vertical_menu_with_active_gradient_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toEndOf="@+id/bhapps_menus_menu_vertical_menu_with_active_chip_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:vertical_menu_enable_nested_scrolling="true"
+
+            app:vertical_menu_active_state_on_left="false"
+
+            app:vertical_menu_show_icons="true"
+            app:vertical_menu_show_parent_icons="true"
+            app:vertical_menu_show_child_icons="true"
+            app:vertical_menu_show_parent_divider="false"
+            app:vertical_menu_show_icons_only="false"
+
+            app:vertical_menu_border_is_visible="true"
+            app:vertical_menu_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+            app:vertical_menu_border_color="@color/defaultLightColor"
+            app:vertical_menu_border_position="1"
+
+            app:vertical_menu_show_shimmer_animation="true"
+            app:vertical_menu_show_shimmer_animation_duration="2500"
+
+            app:vertical_menu_show_animation_in="false"
+            app:vertical_menu_show_animation_in_type="1"
+            app:vertical_menu_show_animation_in_duration="250"
+
+            app:vertical_menu_divider_is_visible="false"
+
+            app:vertical_menu_parent_items_padding="@dimen/bhapps_menus_menu_dimension_12dp"
+
+            app:vertical_menu_parent_items_background_color="@android:color/transparent"
+            app:vertical_menu_parent_items_active_background_drawable="@drawable/gradient_as_background"
+
+            app:vertical_menu_parent_items_text_is_capitalized="false"
+            app:vertical_menu_parent_items_text_is_bold="false"
+            app:vertical_menu_parent_items_text_size="16sp"
+            app:vertical_menu_parent_items_text_is_visible="true"
+
+            app:vertical_menu_parent_items_indicator_is_visible="true"
+            app:vertical_menu_parent_items_indicator_color="@color/colorAccent"
+            app:vertical_menu_parent_items_indicator_thickness="@dimen/bhapps_menus_menu_dimension_5dp"
+            app:vertical_menu_parent_items_indicator_position="1"
+
+            app:vertical_menu_parent_items_active_text_color="@color/colorPrimary"
+            app:vertical_menu_parent_items_active_text_is_bold="true"
+
+            app:vertical_menu_parent_items_icon_width="@dimen/bhapps_menus_menu_dimension_16dp"
+            app:vertical_menu_parent_items_icon_height="@dimen/bhapps_menus_menu_dimension_16dp"
+            app:vertical_menu_parent_items_icon_margin_left="@dimen/bhapps_menus_menu_dimension_5dp"
+            app:vertical_menu_parent_items_icon_margin_right="@dimen/bhapps_menus_menu_dimension_5dp"
+
+            app:vertical_menu_parent_items_icon_is_visible="true"
+            app:vertical_menu_parent_items_icon_active_tint_color="@color/colorPrimary"
+
+            app:vertical_menu_parent_items_badge_padding="@dimen/bhapps_menus_menu_dimension_2dp"
+            app:vertical_menu_parent_items_badge_margin_right="@dimen/bhapps_menus_menu_dimension_12dp"
+
+            app:vertical_menu_parent_items_badge_text_color="@color/colorAccent"
+            app:vertical_menu_parent_items_badge_text_size="@dimen/bhapps_menus_menu_dimension_8dp"
+            app:vertical_menu_parent_items_badge_text_is_bold="false"
+            app:vertical_menu_parent_items_badge_text_is_visible="true"
+
+            app:vertical_menu_parent_items_badge_background_color="@color/colorPrimaryDark"
+            app:vertical_menu_parent_items_badge_border_color="@color/colorAccent"
+            app:vertical_menu_parent_items_badge_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+
+            app:vertical_menu_parent_items_badge_is_visible="true"
+            app:vertical_menu_parent_items_badge_is_cleared_on_active="true"
+
+            app:vertical_menu_parent_items_navigation_icon_is_visible="false"
+            />
+
+        <bhapps.menus.vertical.verticalmenu.VerticalMenu
+            android:id="@+id/bhapps_menus_menu_vertical_menu_icons_only_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#F4F4F4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:vertical_menu_show_icons_only="true"
+            app:vertical_menu_alignment_position="1"
+
+            app:vertical_menu_show_shimmer_animation="true"
+            app:vertical_menu_show_shimmer_animation_duration="2500"
+
+            app:vertical_menu_show_animation_in="false"
+            app:vertical_menu_show_animation_in_type="1"
+            app:vertical_menu_show_animation_in_duration="250"
+
+            app:vertical_menu_border_is_visible="true"
+            app:vertical_menu_border_thickness="1dp"
+            app:vertical_menu_border_position="2"
+
+            app:vertical_menu_divider_is_visible="false"
+            app:vertical_menu_parent_items_padding="@dimen/bhapps_menus_menu_dimension_12dp"
+            app:vertical_menu_parent_items_background_color="@android:color/transparent"
+            app:vertical_menu_parent_items_indicator_is_visible="true"
+            app:vertical_menu_parent_items_indicator_color="@color/colorPrimary"
+            app:vertical_menu_parent_items_indicator_thickness="@dimen/bhapps_menus_menu_dimension_2dp"
+            app:vertical_menu_parent_items_indicator_position="2"
+
+            app:vertical_menu_parent_items_icon_tint_color="#BFBFBF"
+            app:vertical_menu_parent_items_icon_is_visible="true"
+            app:vertical_menu_parent_items_icon_active_tint_color="@color/colorPrimary"
+
+            app:vertical_menu_parent_items_badge_padding="@dimen/bhapps_menus_menu_dimension_5dp"
+            app:vertical_menu_parent_items_badge_margin_right="@dimen/bhapps_menus_menu_dimension_5dp"
+            app:vertical_menu_parent_items_badge_margin_top="-6dp"
+
+            app:vertical_menu_parent_items_badge_text_is_visible="false"
+
+            app:vertical_menu_parent_items_badge_background_color="@color/colorPrimaryDark"
+            app:vertical_menu_parent_items_badge_border_color="@color/colorAccent"
+            app:vertical_menu_parent_items_badge_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
+
+            app:vertical_menu_parent_items_badge_is_visible="true"
+            app:vertical_menu_parent_items_badge_is_cleared_on_active="true"
+
+            />
+
+        <LinearLayout
+                android:layout_width="@dimen/bhapps_menus_menu_dimension_0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@+id/bhapps_menus_menu_vertical_menu_with_active_gradient_background"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/bhapps_menus_menu_vertical_menu_icons_only_right"
+                android:background="@color/cardview_light_background"
+                android:padding="@dimen/bhapps_menus_menu_dimension_12dp">
+
+            <TextView
+                    android:id="@+id/selected_bhapps_menus_menu_vertical_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/bhapps_menus_menu_dimension_12dp"
+                    android:textColor="@color/cardview_dark_background"
+                    style="@style/TextAppearance.AppCompat.Body1">
+
+            </TextView>
+
+        </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
