@@ -11,6 +11,7 @@ import bhapps.menus.vertical.verticalmenu.adapters.VerticalMenuAdapter
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_BUILD_MENU_JSON_FILE
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_BUILD_MENU_USING
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuItem
+import bhapps.menus.vertical.verticalmenu.models.VerticalMenuParentItem
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuType
 import com.google.gson.stream.JsonReader
 import java.util.*
@@ -19,6 +20,60 @@ public object VerticalMenuHelper {
 
     fun View.dpToPx(dp: Int): Int {
         return (dp * context.resources.displayMetrics.density).toInt()
+    }
+
+    public fun generateVerticalMenuFromList(list: List<VerticalMenuParentItem>): List<VerticalMenuItem> {
+        val items = ArrayList<VerticalMenuItem>()
+        if(list.isNotEmpty()) {
+            try {
+
+                for (verticalMenuParentItem in list) {
+                    val group = verticalMenuParentItem.group
+                    items.add(
+                        VerticalMenuItem(
+                            verticalMenuParentItem.vertical_menu_type.value,
+                            verticalMenuParentItem.id,
+                            verticalMenuParentItem.group,
+                            verticalMenuParentItem.title,
+                            verticalMenuParentItem.icon,
+                            verticalMenuParentItem.vertical_menu_type,
+                            verticalMenuParentItem.parent,
+                            verticalMenuParentItem.active,
+                            verticalMenuParentItem.show_badge,
+                            verticalMenuParentItem.badge_label,
+                            "",
+                            "",
+                            ""
+                        )
+                    )
+                    if(verticalMenuParentItem.children !=null) {
+                        for (verticalMenuChildItem in verticalMenuParentItem.children!!) {
+                            items.add(
+                                VerticalMenuItem(
+                                    verticalMenuChildItem.vertical_menu_type.value,
+                                    verticalMenuChildItem.id,
+                                    group,
+                                    verticalMenuChildItem.title,
+                                    verticalMenuChildItem.icon,
+                                    verticalMenuChildItem.vertical_menu_type,
+                                    false,
+                                    verticalMenuChildItem.active,
+                                    verticalMenuChildItem.show_badge,
+                                    verticalMenuChildItem.badge_label,
+                                    "",
+                                    "",
+                                    ""
+                                )
+                            )
+                        }
+                    }
+                }
+            } catch (ex: Exception) {
+                Log.e("VerticalMenuHelper", "VerticalMenuHelper.generateVerticalMenuFromList(): " + ex.printStackTrace().toString())
+            }
+        }
+
+        return items
     }
 
     public fun generateVerticalMenuFromJsonFile(context: Context, file: String): List<VerticalMenuItem> {
@@ -90,10 +145,8 @@ public object VerticalMenuHelper {
 
                             }
 
-                            var iconFromString = context.resources.getIdentifier(
-                                icon,
-                                "drawable",
-                                context.packageName
+                            var iconFromString = context.resources.getDrawable(
+                                icon!!.toInt()
                             )
 
                             items.add(
@@ -201,10 +254,8 @@ public object VerticalMenuHelper {
                             }
 
 
-                            var iconFromString = context.resources.getIdentifier(
-                                icon,
-                                "drawable",
-                                context.packageName
+                            var iconFromString = context.resources.getDrawable(
+                                icon!!.toInt()
                             )
 
                             items.add(

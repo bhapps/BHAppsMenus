@@ -15,6 +15,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
 
+            app:vertical_menu_logo_width="46dp"
+            app:vertical_menu_logo_height="46dp"
+            app:vertical_menu_logo_drawable="@drawable/logo"
+            app:vertical_menu_logo_is_visible="true"
+            app:vertical_menu_logo_position="1"
+
             app:vertical_menu_show_icons_only="true"
             app:vertical_menu_alignment_position="1"
 
@@ -27,7 +33,7 @@
 
             app:vertical_menu_border_is_visible="false"
             app:vertical_menu_border_thickness="1dp"
-            app:vertical_menu_border_position="2"
+            app:vertical_menu_border_position="1"
 
             app:vertical_menu_divider_is_visible="false"
             app:vertical_menu_parent_items_background_color="@android:color/transparent"

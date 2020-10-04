@@ -144,9 +144,12 @@ class VerticalMenuAdapter(
             if (verticalMenuItemsUISettings["vertical_menu_show_icons"] as Boolean && verticalMenuItemsUISettings["vertical_menu_show_parent_icons"] as Boolean) {
                 if (verticalMenuItemsUISettings["vertical_menu_parent_items_icon_is_visible"] as Boolean) {
                     bhapps_menus_menu_vertical_menu_parent_item_parent_icon.visibility = View.VISIBLE
-                    bhapps_menus_menu_vertical_menu_parent_item_parent_icon.setImageResource(
-                        visibleItems!![position]!!.icon
-                    )
+
+                    try {
+                        bhapps_menus_menu_vertical_menu_parent_item_parent_icon.setImageDrawable(visibleItems!![position].icon)
+                    }catch (exception: Exception) {
+                        Log.e("setImageDrawable", "setImageDrawable.exception: " + exception.printStackTrace())
+                    }
 
                     if (verticalMenuItemsUISettings["vertical_menu_parent_items_icon_tint_color"] as Int != 0) {
                         bhapps_menus_menu_vertical_menu_parent_item_parent_icon.setColorFilter(
@@ -950,9 +953,12 @@ class VerticalMenuAdapter(
             if (verticalMenuItemsUISettings["vertical_menu_show_icons"] as Boolean && verticalMenuItemsUISettings["vertical_menu_show_parent_icons"] as Boolean) {
                 if (verticalMenuItemsUISettings["vertical_menu_parent_items_icon_is_visible"] as Boolean) {
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.visibility = View.VISIBLE
-                    bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.setImageResource(
-                        visibleItems!![position]!!.icon
-                    )
+
+                    try {
+                        bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.setImageDrawable(visibleItems!![position].icon)
+                    }catch (exception: Exception) {
+                        Log.e("setImageDrawable", "setImageDrawable.exception: " + exception.printStackTrace())
+                    }
 
                     if (verticalMenuItemsUISettings["vertical_menu_parent_items_icon_tint_color"] as Int != 0) {
                         bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.setColorFilter(
@@ -1602,9 +1608,12 @@ class VerticalMenuAdapter(
                 if (verticalMenuItemsUISettings["vertical_menu_show_icons"] as Boolean && verticalMenuItemsUISettings["vertical_menu_show_child_icons"] as Boolean) {
                     if (verticalMenuItemsUISettings["vertical_menu_child_items_icon_is_visible"] as Boolean) {
                         bhapps_menus_menu_vertical_menu_child_items_icon.visibility = View.VISIBLE
-                        bhapps_menus_menu_vertical_menu_child_items_icon.setImageResource(
-                            visibleItems!![position]!!.icon
-                        )
+
+                        try {
+                            bhapps_menus_menu_vertical_menu_child_items_icon.setImageDrawable(visibleItems!![position].icon)
+                        }catch (exception: Exception) {
+                            Log.e("setImageDrawable", "setImageDrawable.exception: " + exception.printStackTrace())
+                        }
 
                         if (verticalMenuItemsUISettings["vertical_menu_child_items_icon_tint_color"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_child_items_icon.setColorFilter(

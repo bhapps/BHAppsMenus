@@ -1,11 +1,13 @@
 package bhapps.menus.vertical.verticalmenu.models
 
+import android.graphics.drawable.Drawable
+
 class VerticalMenuItem(
     var item_type: Int,
     _id: Int,
     _group: String,
     _title: String,
-    _icon: Int,
+    _icon: Drawable?,
     _type: VerticalMenuType,
     _parent: Boolean,
     _active: Boolean,
@@ -18,7 +20,7 @@ class VerticalMenuItem(
 
     var id = -1
     var group: String
-    var icon = -1
+    var icon: Drawable?
     var title: String
     var vertical_menu_type: String
     var is_parent = false

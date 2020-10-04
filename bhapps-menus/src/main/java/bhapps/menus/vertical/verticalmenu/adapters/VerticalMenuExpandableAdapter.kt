@@ -18,8 +18,7 @@ import java.util.*
 
 abstract class VerticalMenuExpandableAdapter<T : VerticalMenuItem>(
     protected var mContext: Context
-) :
-    RecyclerView.Adapter<VerticalMenuExpandableAdapter<VerticalMenuItem>.ViewHolder>() {
+) : RecyclerView.Adapter<VerticalMenuExpandableAdapter<VerticalMenuItem>.ViewHolder>() {
     protected var allItems: MutableList<T> = mutableListOf()
     protected var visibleItems: MutableList<T>? = mutableListOf()
     private var indexList: MutableList<Int> = mutableListOf()

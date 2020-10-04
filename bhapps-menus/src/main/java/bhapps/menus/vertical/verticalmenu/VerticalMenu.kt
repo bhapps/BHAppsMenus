@@ -37,6 +37,7 @@ class VerticalMenu
         BhappsMenusMenuVerticalMenuLayoutBinding.inflate(LayoutInflater.from(context), this, true)
 
     var bhappsMenusMenuVerticalMenuLayout = bindingForBhappsMenusMenuVerticalMenuLayout.bhappsMenusMenuVerticalMenuLayout
+    var bhappsMenusMenuVerticalMenuLogo = bindingForBhappsMenusMenuVerticalMenuLayout.bhappsMenusMenuVerticalMenuLogo
     var bhappsMenusMenuVerticalMenuWidthHolder = bindingForBhappsMenusMenuVerticalMenuLayout.bhappsMenusMenuVerticalMenuWidthHolder
     var bhappsMenusMenuVerticalMenuRecycleView = bindingForBhappsMenusMenuVerticalMenuLayout.bhappsMenusMenuVerticalMenuRecycleView
     var bhappsMenusMenuVerticalMenuShimmerLayout = bindingForBhappsMenusMenuVerticalMenuLayout.bhappsMenusMenuVerticalMenuShimmerLayout
@@ -127,6 +128,22 @@ class VerticalMenu
     var _vertical_menu_divider_margin_top: Int = 0
     var _vertical_menu_divider_margin_bottom: Int = 0
     var _vertical_menu_divider_is_visible: Boolean = true
+
+    var _vertical_menu_logo_width: Int = 0
+    var _vertical_menu_logo_height: Int = 0
+    var _vertical_menu_logo_padding: Int = 0
+    var _vertical_menu_logo_padding_left: Int = 0
+    var _vertical_menu_logo_padding_right: Int = 0
+    var _vertical_menu_logo_padding_top: Int = 0
+    var _vertical_menu_logo_padding_bottom: Int = 0
+    var _vertical_menu_logo_margin: Int = 0
+    var _vertical_menu_logo_margin_left: Int = 0
+    var _vertical_menu_logo_margin_right: Int = 0
+    var _vertical_menu_logo_margin_top: Int = 0
+    var _vertical_menu_logo_margin_bottom: Int = 0
+    var _vertical_menu_logo_drawable: Drawable? = null
+    var _vertical_menu_logo_is_visible: Boolean = false
+    var _vertical_menu_logo_position: Int = 1
 
     //endregion get/set vertical_menu values
 
@@ -612,6 +629,66 @@ class VerticalMenu
     var vertical_menu_divider_is_visible: Boolean
         get() = _vertical_menu_divider_is_visible
         set(value) { _vertical_menu_divider_is_visible =  value
+    }
+    var vertical_menu_logo_width: Int 
+        get() = _vertical_menu_logo_width
+        set(@DpAnnotation value) { 	_vertical_menu_logo_width = dpToPx(value)
+    }
+    var vertical_menu_logo_height: Int 
+        get() = _vertical_menu_logo_height
+        set(@DpAnnotation value) { 	_vertical_menu_logo_height = dpToPx(value)
+    }
+    var vertical_menu_logo_padding: Int 
+        get() = _vertical_menu_logo_padding
+        set(@DpAnnotation value) { 	_vertical_menu_logo_padding = dpToPx(value)
+    }
+    var vertical_menu_logo_padding_left: Int 
+        get() = _vertical_menu_logo_padding_left
+        set(@DpAnnotation value) { 	_vertical_menu_logo_padding_left = dpToPx(value)
+    }
+    var vertical_menu_logo_padding_right: Int 
+        get() = _vertical_menu_logo_padding_right
+        set(@DpAnnotation value) { 	_vertical_menu_logo_padding_right = dpToPx(value)
+    }
+    var vertical_menu_logo_padding_top: Int 
+        get() = _vertical_menu_logo_padding_top
+        set(@DpAnnotation value) { 	_vertical_menu_logo_padding_top = dpToPx(value)
+    }
+    var vertical_menu_logo_padding_bottom: Int 
+        get() = _vertical_menu_logo_padding_bottom
+        set(@DpAnnotation value) { 	_vertical_menu_logo_padding_bottom = dpToPx(value)
+    }
+    var vertical_menu_logo_margin: Int 
+        get() = _vertical_menu_logo_margin
+        set(@DpAnnotation value) { 	_vertical_menu_logo_margin = dpToPx(value)
+    }
+    var vertical_menu_logo_margin_left: Int 
+        get() = _vertical_menu_logo_margin_left
+        set(@DpAnnotation value) { 	_vertical_menu_logo_margin_left = dpToPx(value)
+    }
+    var vertical_menu_logo_margin_right: Int 
+        get() = _vertical_menu_logo_margin_right
+        set(@DpAnnotation value) { 	_vertical_menu_logo_margin_right = dpToPx(value)
+    }
+    var vertical_menu_logo_margin_top: Int 
+        get() = _vertical_menu_logo_margin_top
+        set(@DpAnnotation value) { 	_vertical_menu_logo_margin_top = dpToPx(value)
+    }
+    var vertical_menu_logo_margin_bottom: Int 
+        get() = _vertical_menu_logo_margin_bottom
+        set(@DpAnnotation value) { 	_vertical_menu_logo_margin_bottom = dpToPx(value)
+    }
+    var vertical_menu_logo_drawable: Drawable?
+        get() = _vertical_menu_logo_drawable
+        set(value) { _vertical_menu_logo_drawable = value	
+    }
+    var vertical_menu_logo_is_visible: Boolean 
+        get() = _vertical_menu_logo_is_visible
+        set(value) { _vertical_menu_logo_is_visible =  value
+    }
+    var vertical_menu_logo_position: Int 
+        get() = _vertical_menu_logo_position
+        set(value) { _vertical_menu_logo_position =  value	
     }
     //endregion get/set vertical_menu values
 
@@ -1677,6 +1754,65 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_is_visible,
             this._vertical_menu_divider_is_visible
         )
+        this._vertical_menu_logo_width = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_width, 
+            this._vertical_menu_logo_width
+        )
+        this._vertical_menu_logo_height = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_height, 
+            this._vertical_menu_logo_height
+        )
+        this._vertical_menu_logo_padding = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_padding, 
+            this._vertical_menu_logo_padding
+        )
+        this._vertical_menu_logo_padding_left = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_padding_left, 
+            this._vertical_menu_logo_padding_left
+        )
+        this._vertical_menu_logo_padding_right = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_padding_right, 
+            this._vertical_menu_logo_padding_right
+        )
+        this._vertical_menu_logo_padding_top = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_padding_top, 
+            this._vertical_menu_logo_padding_top
+        )
+        this._vertical_menu_logo_padding_bottom = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_padding_bottom, 
+            this._vertical_menu_logo_padding_bottom
+        )
+        this._vertical_menu_logo_margin = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_margin, 
+            this._vertical_menu_logo_margin
+        )
+        this._vertical_menu_logo_margin_left = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_margin_left, 
+            this._vertical_menu_logo_margin_left
+        )
+        this._vertical_menu_logo_margin_right = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_margin_right, 
+            this._vertical_menu_logo_margin_right
+        )
+        this._vertical_menu_logo_margin_top = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_margin_top, 
+            this._vertical_menu_logo_margin_top
+        )
+        this._vertical_menu_logo_margin_bottom = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_margin_bottom, 
+            this._vertical_menu_logo_margin_bottom
+        )
+        this._vertical_menu_logo_drawable = typedArray.getDrawable(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_drawable
+        )
+        this._vertical_menu_logo_is_visible = typedArray.getBoolean(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_is_visible, 
+            this._vertical_menu_logo_is_visible
+        )
+        this._vertical_menu_logo_position = typedArray.getInt(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_logo_position, 
+            this._vertical_menu_logo_position
+        )
         //endregion get/set vertical_menu values
 
         //region get/set vertical_menu_parent values
@@ -2498,6 +2634,22 @@ class VerticalMenu
         verticalMenuItemsUISettings["vertical_menu_divider_margin_top"] = this@VerticalMenu.vertical_menu_divider_margin_top
         verticalMenuItemsUISettings["vertical_menu_divider_margin_bottom"] = this@VerticalMenu.vertical_menu_divider_margin_bottom
         verticalMenuItemsUISettings["vertical_menu_divider_is_visible"] = this@VerticalMenu.vertical_menu_divider_is_visible
+
+        verticalMenuItemsUISettings["vertical_menu_logo_width"] = this@VerticalMenu.vertical_menu_logo_width
+        verticalMenuItemsUISettings["vertical_menu_logo_height"] = this@VerticalMenu.vertical_menu_logo_height
+        verticalMenuItemsUISettings["vertical_menu_logo_padding"] = this@VerticalMenu.vertical_menu_logo_padding
+        verticalMenuItemsUISettings["vertical_menu_logo_padding_left"] = this@VerticalMenu.vertical_menu_logo_padding_left
+        verticalMenuItemsUISettings["vertical_menu_logo_padding_right"] = this@VerticalMenu.vertical_menu_logo_padding_right
+        verticalMenuItemsUISettings["vertical_menu_logo_padding_top"] = this@VerticalMenu.vertical_menu_logo_padding_top
+        verticalMenuItemsUISettings["vertical_menu_logo_padding_bottom"] = this@VerticalMenu.vertical_menu_logo_padding_bottom
+        verticalMenuItemsUISettings["vertical_menu_logo_margin"] = this@VerticalMenu.vertical_menu_logo_margin
+        verticalMenuItemsUISettings["vertical_menu_logo_margin_left"] = this@VerticalMenu.vertical_menu_logo_margin_left
+        verticalMenuItemsUISettings["vertical_menu_logo_margin_right"] = this@VerticalMenu.vertical_menu_logo_margin_right
+        verticalMenuItemsUISettings["vertical_menu_logo_margin_top"] = this@VerticalMenu.vertical_menu_logo_margin_top
+        verticalMenuItemsUISettings["vertical_menu_logo_margin_bottom"] = this@VerticalMenu.vertical_menu_logo_margin_bottom
+        verticalMenuItemsUISettings["vertical_menu_logo_drawable"] = this@VerticalMenu.vertical_menu_logo_drawable
+        verticalMenuItemsUISettings["vertical_menu_logo_is_visible"] = this@VerticalMenu.vertical_menu_logo_is_visible
+        verticalMenuItemsUISettings["vertical_menu_logo_position"] = this@VerticalMenu.vertical_menu_logo_position
         
         verticalMenuItemsUISettings["vertical_menu_parent_items_width"] = this@VerticalMenu.vertical_menu_parent_items_width
         verticalMenuItemsUISettings["vertical_menu_parent_items_height"] = this@VerticalMenu.vertical_menu_parent_items_height
@@ -2840,13 +2992,13 @@ class VerticalMenu
             )
             if (this@VerticalMenu.vertical_menu_alignment_position == 1) {
                 //top align
-                layoutParamsForRecycleView.topToTop = bhappsMenusMenuVerticalMenuLayout.id
+                layoutParamsForRecycleView.topToBottom = bhappsMenusMenuVerticalMenuLogo.id
                 layoutParamsForRecycleView.startToStart = bhappsMenusMenuVerticalMenuLayout.id
                 layoutParamsForRecycleView.endToEnd = bhappsMenusMenuVerticalMenuLayout.id
                 bhappsMenusMenuVerticalMenuRecycleView.layoutParams = layoutParamsForRecycleView
             } else if (this@VerticalMenu.vertical_menu_alignment_position == 2) {
                 //center align
-                layoutParamsForRecycleView.topToTop = bhappsMenusMenuVerticalMenuLayout.id
+                layoutParamsForRecycleView.topToBottom = bhappsMenusMenuVerticalMenuLogo.id
                 layoutParamsForRecycleView.bottomToBottom = bhappsMenusMenuVerticalMenuLayout.id
                 layoutParamsForRecycleView.startToStart = bhappsMenusMenuVerticalMenuLayout.id
                 layoutParamsForRecycleView.endToEnd = bhappsMenusMenuVerticalMenuLayout.id
@@ -2862,7 +3014,7 @@ class VerticalMenu
                     setWidth,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT
                 )
-                layoutParamsForRecycleView.topToTop = bhappsMenusMenuVerticalMenuLayout.id
+                layoutParamsForRecycleView.topToBottom = bhappsMenusMenuVerticalMenuLogo.id
                 layoutParamsForRecycleView.startToStart = bhappsMenusMenuVerticalMenuLayout.id
                 layoutParamsForRecycleView.endToEnd = bhappsMenusMenuVerticalMenuLayout.id
                 bhappsMenusMenuVerticalMenuRecycleView.layoutParams = layoutParamsForRecycleView
@@ -2889,6 +3041,94 @@ class VerticalMenu
             bhappsMenusMenuVerticalMenuShimmerLayout.visibility = View.GONE
             bhappsMenusMenuVerticalMenuShimmerLayout.stopShimmer()
             bhappsMenusMenuVerticalMenuRecycleView.visibility = View.VISIBLE
+        }
+        
+        if(!this@VerticalMenu.vertical_menu_logo_is_visible){
+            bhappsMenusMenuVerticalMenuLogo.visibility = View.GONE
+        }else{
+            if(this@VerticalMenu.vertical_menu_logo_drawable !=null){
+                bhappsMenusMenuVerticalMenuLogo.visibility = View.VISIBLE
+
+                if(this@VerticalMenu.vertical_menu_logo_width !=null){
+                    bhappsMenusMenuVerticalMenuLogo.layoutParams.width = this@VerticalMenu.vertical_menu_logo_width
+                }
+
+                if(this@VerticalMenu.vertical_menu_logo_height !=null) {
+                    bhappsMenusMenuVerticalMenuLogo.layoutParams.height = this@VerticalMenu.vertical_menu_logo_height
+                }
+
+                bhappsMenusMenuVerticalMenuLogo.setImageDrawable(this@VerticalMenu.vertical_menu_logo_drawable)
+
+                if(this@VerticalMenu.vertical_menu_logo_padding > 0){
+                    //setPadding(int left, int top, int right, int bottom)
+                    bhappsMenusMenuVerticalMenuLogo.setPadding(
+                        this@VerticalMenu.vertical_menu_logo_padding,
+                        this@VerticalMenu.vertical_menu_logo_padding,
+                        this@VerticalMenu.vertical_menu_logo_padding,
+                        this@VerticalMenu.vertical_menu_logo_padding
+                    )
+                }else{
+                    //setPadding(int left, int top, int right, int bottom)
+                    bhappsMenusMenuVerticalMenuLogo.setPadding(
+                        this@VerticalMenu.vertical_menu_logo_padding_left,
+                        this@VerticalMenu.vertical_menu_logo_padding_top,
+                        this@VerticalMenu.vertical_menu_logo_padding_right,
+                        this@VerticalMenu.vertical_menu_logo_padding_bottom
+                    )
+                }
+
+                var bhappsMenusMenuVerticalMenuLogoLayoutParams = ConstraintLayout.LayoutParams(
+                    ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                    ConstraintLayout.LayoutParams.WRAP_CONTENT
+                )
+                if(this@VerticalMenu.vertical_menu_logo_margin > 0){
+                    bhappsMenusMenuVerticalMenuLogoLayoutParams.setMargins(
+                        this@VerticalMenu.vertical_menu_logo_margin,
+                        this@VerticalMenu.vertical_menu_logo_margin,
+                        this@VerticalMenu.vertical_menu_logo_margin,
+                        this@VerticalMenu.vertical_menu_logo_margin
+                    )
+                }else{
+                    bhappsMenusMenuVerticalMenuLogoLayoutParams.setMargins(
+                        this@VerticalMenu.vertical_menu_logo_margin_left,
+                        this@VerticalMenu.vertical_menu_logo_margin_top,
+                        this@VerticalMenu.vertical_menu_logo_margin_right,
+                        this@VerticalMenu.vertical_menu_logo_margin_bottom
+                    )
+                }
+
+                if(this@VerticalMenu.vertical_menu_logo_position !=null){
+                    if(this@VerticalMenu.vertical_menu_logo_position == 1){
+                        //left align
+                        bhappsMenusMenuVerticalMenuLogoLayoutParams.startToStart = bhappsMenusMenuVerticalMenuLayout.id
+                        bhappsMenusMenuVerticalMenuLogoLayoutParams.topToTop = bhappsMenusMenuVerticalMenuLayout.id
+
+                    }else if(this@VerticalMenu.vertical_menu_logo_position == 2){
+                        //right align
+                        bhappsMenusMenuVerticalMenuLogoLayoutParams.endToEnd = bhappsMenusMenuVerticalMenuLayout.id
+                        bhappsMenusMenuVerticalMenuLogoLayoutParams.topToTop = bhappsMenusMenuVerticalMenuLayout.id
+
+                    }else if(this@VerticalMenu.vertical_menu_logo_position == 3){
+                        //center align
+                        bhappsMenusMenuVerticalMenuLogoLayoutParams.startToStart = bhappsMenusMenuVerticalMenuLayout.id
+                        bhappsMenusMenuVerticalMenuLogoLayoutParams.endToEnd = bhappsMenusMenuVerticalMenuLayout.id
+                        bhappsMenusMenuVerticalMenuLogoLayoutParams.topToTop = bhappsMenusMenuVerticalMenuLayout.id
+                    }
+                }
+
+                if(this@VerticalMenu.vertical_menu_logo_width !=null){
+                    bhappsMenusMenuVerticalMenuLogoLayoutParams.width = this@VerticalMenu.vertical_menu_logo_width
+                }
+
+                if(this@VerticalMenu.vertical_menu_logo_height !=null) {
+                    bhappsMenusMenuVerticalMenuLogoLayoutParams.height = this@VerticalMenu.vertical_menu_logo_height
+                }
+
+                bhappsMenusMenuVerticalMenuLogo.layoutParams = bhappsMenusMenuVerticalMenuLogoLayoutParams
+                
+            }else{
+                bhappsMenusMenuVerticalMenuLogo.visibility = View.GONE
+            }
         }
 
         if(!this@VerticalMenu.vertical_menu_border_is_visible){

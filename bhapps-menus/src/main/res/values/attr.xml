@@ -36,6 +36,22 @@
         <attr name="vertical_menu_show_animation_in_type" format="integer" />
         <attr name="vertical_menu_show_animation_in_duration" format="integer" />
 
+        <attr name="vertical_menu_logo_width" format="dimension" />
+        <attr name="vertical_menu_logo_height" format="dimension" />
+        <attr name="vertical_menu_logo_padding" format="dimension" />
+        <attr name="vertical_menu_logo_padding_left" format="dimension" />
+        <attr name="vertical_menu_logo_padding_right" format="dimension" />
+        <attr name="vertical_menu_logo_padding_top" format="dimension" />
+        <attr name="vertical_menu_logo_padding_bottom" format="dimension" />
+        <attr name="vertical_menu_logo_margin" format="dimension" />
+        <attr name="vertical_menu_logo_margin_left" format="dimension" />
+        <attr name="vertical_menu_logo_margin_right" format="dimension" />
+        <attr name="vertical_menu_logo_margin_top" format="dimension" />
+        <attr name="vertical_menu_logo_margin_bottom" format="dimension" />
+        <attr name="vertical_menu_logo_drawable" format="integer" />
+        <attr name="vertical_menu_logo_is_visible" format="boolean" />
+        <attr name="vertical_menu_logo_position" format="integer" />
+
         <attr name="vertical_menu_parent_items_width" format="dimension" />
         <attr name="vertical_menu_parent_items_height" format="dimension" />
         <attr name="vertical_menu_parent_items_padding" format="dimension" />
