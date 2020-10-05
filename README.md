@@ -14,7 +14,7 @@ Android BH Apps Menus has functions for fast prototyping and development of Andr
 * Add fixes to icon/title/badge layouts
 * Add fixes to badge layout (right sided menus)
 * Add settings for menu items title text view (paddings, margins)
-* Add menu build function to process HashMap<ParentMenuItem, ~~List<ChildMenuItem>>~~, ~~JSON (String)~~, XML etc
+* Add menu build function to process HashMap<ParentMenuItem, List<ChildMenuItem>>, ~~List/ArrayList~~, ~~JSON (String)~~, XML etc
 * Add option to pass shimmer animation layout to menu
 * Add Horizontal Menu
 * Add doc links to methods etc
