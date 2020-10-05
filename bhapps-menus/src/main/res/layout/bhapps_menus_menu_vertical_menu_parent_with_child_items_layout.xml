@@ -62,10 +62,12 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/bhapps_menus_menu_vertical_menu_parent_item_title_color"
                     android:textSize="@dimen/bhapps_menus_menu_vertical_menu_parent_item_badge_text_size"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     />
 
         </bhapps.menus.vertical.verticalmenu.views.BadgeConstraintView>

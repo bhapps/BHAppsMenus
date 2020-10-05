@@ -38,12 +38,15 @@ public object VerticalMenuHelper {
                             verticalMenuParentItem.icon,
                             verticalMenuParentItem.vertical_menu_type,
                             verticalMenuParentItem.parent,
+                            -1,
                             verticalMenuParentItem.active,
                             verticalMenuParentItem.show_badge,
                             verticalMenuParentItem.badge_label,
                             "",
                             "",
-                            ""
+                            "",
+                            false,
+                            false
                         )
                     )
                     if(verticalMenuParentItem.children !=null) {
@@ -57,12 +60,15 @@ public object VerticalMenuHelper {
                                     verticalMenuChildItem.icon,
                                     verticalMenuChildItem.vertical_menu_type,
                                     false,
+                                    verticalMenuParentItem.id,
                                     verticalMenuChildItem.active,
                                     verticalMenuChildItem.show_badge,
                                     verticalMenuChildItem.badge_label,
                                     "",
                                     "",
-                                    ""
+                                    "",
+                                    verticalMenuChildItem.is_first_item,
+                                    verticalMenuChildItem.is_last_item
                                 )
                             )
                         }
@@ -158,6 +164,7 @@ public object VerticalMenuHelper {
                                     iconFromString,
                                     typeFromString,
                                     parent,
+                                    -1,
                                     active,
                                     show_badge,
                                     badge_label!!,
@@ -267,6 +274,7 @@ public object VerticalMenuHelper {
                                     iconFromString,
                                     typeFromString!!,
                                     parent,
+                                    -1,
                                     active,
                                     show_badge,
                                     badge_label!!,

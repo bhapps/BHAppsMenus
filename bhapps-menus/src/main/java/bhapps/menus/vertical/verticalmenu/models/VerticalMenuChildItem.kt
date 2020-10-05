@@ -10,6 +10,7 @@ class VerticalMenuChildItem(
     var icon: Drawable? = null,
     var vertical_menu_type: VerticalMenuType = VerticalMenuType.CHILD,
     var parent: Boolean = true,
+    var parent_id: Int = -1,
     var active: Boolean = false,
     var show_badge: Boolean = true,
     var badge_label: String = "",

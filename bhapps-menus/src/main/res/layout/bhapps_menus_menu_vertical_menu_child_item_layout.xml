@@ -46,21 +46,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
 
-            <TextView
-                    android:id="@+id/bhapps_menus_menu_vertical_menu_child_items_badge_label"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="@color/bhapps_menus_menu_vertical_menu_parent_item_title_color"
-                    android:textSize="@dimen/bhapps_menus_menu_vertical_menu_parent_item_badge_text_size"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+                <TextView
+                        android:id="@+id/bhapps_menus_menu_vertical_menu_child_items_badge_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/bhapps_menus_menu_vertical_menu_child_item_title_color"
+                        android:textSize="@dimen/bhapps_menus_menu_vertical_menu_child_item_badge_text_size"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
 
         </bhapps.menus.vertical.verticalmenu.views.BadgeConstraintView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+            android:id="@+id/bhapps_menus_menu_vertical_menu_child_items_divider"
+            android:layout_width="@dimen/bhapps_menus_menu_dimension_0dp"
+            android:layout_height="@dimen/bhapps_menus_menu_dimension_1dp"
+            android:background="@color/bhapps_menus_menu_vertical_menu_divider_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     <View
             android:id="@+id/bhapps_menus_menu_vertical_menu_child_items_indicator"
@@ -70,5 +81,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

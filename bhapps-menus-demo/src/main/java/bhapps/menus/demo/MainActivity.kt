@@ -254,10 +254,12 @@ class MainActivity : AppCompatActivity() {
         verticalMenuParentItem1Child1.title = "Orders"
         verticalMenuParentItem1Child1.vertical_menu_type = VerticalMenuType.CHILD
         verticalMenuParentItem1Child1.parent = false
+        verticalMenuParentItem1Child1.parent_id = verticalMenuParentItem1.id
         verticalMenuParentItem1Child1.active = false
         verticalMenuParentItem1Child1.show_badge = true
         verticalMenuParentItem1Child1.badge_label = "22"
-        verticalMenuParentItem1ChildList.add(verticalMenuParentItem1Child1)
+        verticalMenuParentItem1Child1.is_first_item = true
+        verticalMenuParentItem1ChildList.add(0, verticalMenuParentItem1Child1)
 
         var verticalMenuParentItem1Child2 = VerticalMenuChildItem(Random.nextInt(1, 999))
         verticalMenuParentItem1Child2.id = Random.nextInt(1, 999)
@@ -266,10 +268,12 @@ class MainActivity : AppCompatActivity() {
         verticalMenuParentItem1Child2.title = "Tax"
         verticalMenuParentItem1Child2.vertical_menu_type = VerticalMenuType.CHILD
         verticalMenuParentItem1Child2.parent = false
+        verticalMenuParentItem1Child1.parent_id = verticalMenuParentItem1.id
         verticalMenuParentItem1Child2.active = false
         verticalMenuParentItem1Child2.show_badge = true
         verticalMenuParentItem1Child2.badge_label = "2"
-        verticalMenuParentItem1ChildList.add(verticalMenuParentItem1Child2)
+        verticalMenuParentItem1Child1.is_last_item = true
+        verticalMenuParentItem1ChildList.add(0, verticalMenuParentItem1Child2)
 
         verticalMenuParentItem1.children = verticalMenuParentItem1ChildList
         list.add(verticalMenuParentItem1)
