@@ -594,7 +594,7 @@ class VerticalMenuAdapter(
 
             //region set setOnClickListener
             view.setOnClickListener { view ->
-                onItemClickListener!!.onItemClick(view, visibleItems!![position]!!.id)
+                onItemClickListener!!.onItemClick(view, visibleItems!![position]!!.id, position, visibleItems!![position]!!)
 
                 setActiveState(
                     context,
@@ -1924,7 +1924,7 @@ class VerticalMenuAdapter(
             }
             
             view.setOnClickListener { view ->
-                onItemClickListener!!.onItemClick(view, visibleItems!![position]!!.id)
+                onItemClickListener!!.onItemClick(view, visibleItems!![position]!!.id, position, visibleItems!![position]!!)
                 
                 setActiveState(
                     context,
@@ -2329,6 +2329,6 @@ class VerticalMenuAdapter(
     }
 
     interface OnItemClickListener {
-        fun onItemClick(view: View?, itemId: Int)
+        fun onItemClick(view: View?, itemId: Int, position: Int, verticalMenuItem: VerticalMenuItem)
     }
 }
