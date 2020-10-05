@@ -8,7 +8,7 @@ Android BH Apps Menus has functions for fast prototyping and development of Andr
 
 # To be Done
 
-* Add responsive methods & functions
+* ~~Add responsive methods & functions~~
 * ~~Add method/functions for child menu item to modify parent menu item~~
 * Add menu item animations
 * Add fixes to icon/title/badge layouts
