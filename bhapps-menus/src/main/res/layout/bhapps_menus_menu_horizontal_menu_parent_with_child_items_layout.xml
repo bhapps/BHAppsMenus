@@ -2,16 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_layout_wrapper"
-        android:layout_width="match_parent"
+        android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_layout_wrapper"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_layout"
-            android:layout_width="match_parent"
+            android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_layout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             app:layout_constraintStart_toStartOf="parent"
@@ -20,49 +20,49 @@
             app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
-                android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_icon"
-                android:layout_width="@dimen/bhapps_menus_menu_vertical_menu_parent_item_icon_width"
-                android:layout_height="@dimen/bhapps_menus_menu_vertical_menu_parent_item_icon_height"
+                android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_icon"
+                android:layout_width="@dimen/bhapps_menus_menu_horizontal_menu_parent_item_icon_width"
+                android:layout_height="@dimen/bhapps_menus_menu_horizontal_menu_parent_item_icon_height"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         <!-- todo: implement TextView/Title UI attr/app values -->
         <TextView
-                android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_title"
+                android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/bhapps_menus_menu_vertical_menu_parent_item_title_color"
+                android:textColor="@color/bhapps_menus_menu_horizontal_menu_parent_item_title_color"
                 android:singleLine="true"
                 android:ellipsize="end"
-                app:layout_constraintStart_toEndOf="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_icon"
+                app:layout_constraintStart_toEndOf="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         <ImageView
-                android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow"
-                android:layout_width="@dimen/bhapps_menus_menu_vertical_menu_parent_item_padding"
-                android:layout_height="@dimen/bhapps_menus_menu_vertical_menu_parent_item_padding"
+                android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_arrow"
+                android:layout_width="@dimen/bhapps_menus_menu_horizontal_menu_parent_item_padding"
+                android:layout_height="@dimen/bhapps_menus_menu_horizontal_menu_parent_item_padding"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:tint="@color/bhapps_menus_menu_vertical_menu_parent_item_icon_color"
-                app:srcCompat="@drawable/bhapps_menus_menu_vertical_menu_parent_item_expandcollapse_arrow_icon" />
+                app:tint="@color/bhapps_menus_menu_horizontal_menu_parent_item_icon_color"
+                app:srcCompat="@drawable/bhapps_menus_menu_horizontal_menu_parent_item_expandcollapse_arrow_icon" />
 
-        <bhapps.menus.vertical.verticalmenu.views.BadgeConstraintView
-                android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_badge"
+        <bhapps.menus.horizontal.horizontalmenu.views.BadgeConstraintView
+                android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_badge"
                 android:layout_width="@dimen/bhapps_menus_menu_dimension_24dp"
                 android:layout_height="@dimen/bhapps_menus_menu_dimension_24dp"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow"
+                app:layout_constraintEnd_toStartOf="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_arrow"
                 app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
-                    android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label"
+                    android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_badge_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:textColor="@color/bhapps_menus_menu_vertical_menu_parent_item_title_color"
-                    android:textSize="@dimen/bhapps_menus_menu_vertical_menu_parent_item_badge_text_size"
+                    android:textColor="@color/bhapps_menus_menu_horizontal_menu_parent_item_title_color"
+                    android:textSize="@dimen/bhapps_menus_menu_horizontal_menu_parent_item_badge_text_size"
                     android:textAlignment="center"
                     android:gravity="center"
                     app:layout_constraintStart_toStartOf="parent"
@@ -71,12 +71,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     />
 
-        </bhapps.menus.vertical.verticalmenu.views.BadgeConstraintView>
+        </bhapps.menus.horizontal.horizontalmenu.views.BadgeConstraintView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-            android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_indicator"
+            android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_indicator"
             android:layout_width="@dimen/bhapps_menus_menu_dimension_2dp"
             android:layout_height="@dimen/bhapps_menus_menu_dimension_0dp"
             android:background="@android:color/transparent"
@@ -85,12 +85,12 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     <View
-            android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_divider"
+            android:id="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_divider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bhapps_menus_menu_dimension_1dp"
-            android:background="@color/bhapps_menus_menu_vertical_menu_divider_color"
+            android:background="@color/bhapps_menus_menu_horizontal_menu_divider_color"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_layout"
+            app:layout_constraintEnd_toEndOf="@+id/bhapps_menus_menu_horizontal_menu_parent_with_child_items_layout"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,32 @@
 package bhapps.menus.demo
 
-import android.content.res.Configuration
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import bhapps.menus.horizontal.horizontalmenu.HorizontalMenu
+import bhapps.menus.horizontal.horizontalmenu.adapters.HorizontalMenuAdapter
+import bhapps.menus.horizontal.horizontalmenu.helpers.HorizontalMenuHelper
+import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuItem
+import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuParentItem
+import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuType
 import bhapps.menus.vertical.verticalmenu.VerticalMenu
 import bhapps.menus.vertical.verticalmenu.adapters.VerticalMenuAdapter
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.setActiveState
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.setBadgeStateAndBadgeLabel
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuChildItem
+import bhapps.menus.vertical.verticalmenu.models.VerticalMenuItem
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuParentItem
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuType
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var bhapps_menus_menu_horizontal_menu_with_active_chip_background: HorizontalMenu
+    lateinit var bhapps_menus_menu_horizontal_menu_with_active_chip_background_adapter: HorizontalMenuAdapter
+    
     lateinit var bhapps_menus_menu_vertical_menu_icons_only: VerticalMenu
     lateinit var bhapps_menus_menu_vertical_menu_icons_only_adapter: VerticalMenuAdapter
 
@@ -37,7 +45,109 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        buildHorizontalMenu()
         buildVerticalMenu()
+    }
+
+    fun buildHorizontalMenu() {
+
+        //region bhapps_menus_menu_horizontal_menu_with_active_chip_background
+        bhapps_menus_menu_horizontal_menu_with_active_chip_background = findViewById(
+            R.id.bhapps_menus_menu_horizontal_menu_with_active_chip_background
+        )
+        bhapps_menus_menu_horizontal_menu_with_active_chip_background_adapter = HorizontalMenuAdapter(
+            this,
+            HorizontalMenuHelper.generateHorizontalMenuFromList(
+                buildHorizontalMenuWithParentsOnlyFromList()
+            ),
+            object : HorizontalMenuAdapter.OnItemClickListener {
+                override fun onItemClick(
+                    view: View?,
+                    itemId: Int,
+                    position: Int,
+                    horizontalMenuItem: HorizontalMenuItem
+                ) {
+                    onHorizontalMenuItemSelected(
+                        view,
+                        itemId
+                    )
+                }
+            }
+        )
+
+        bhapps_menus_menu_horizontal_menu_with_active_chip_background.buildHorizontalMenu(
+            bhapps_menus_menu_horizontal_menu_with_active_chip_background_adapter
+        )
+
+        bhapps.menus.horizontal.horizontalmenu.helpers.HorizontalMenuHelper.setBadgeStateAndBadgeLabel(
+            this,
+            bhapps_menus_menu_horizontal_menu_with_active_chip_background_adapter,
+            "dashboard",
+            100,
+            "22"
+        )
+        bhapps.menus.horizontal.horizontalmenu.helpers.HorizontalMenuHelper.setActiveState(
+            this,
+            bhapps_menus_menu_horizontal_menu_with_active_chip_background_adapter,
+            "dashboard",
+            100
+        )
+        //endregion bhapps_menus_menu_horizontal_menu_with_active_chip_background
+
+    }
+
+    fun buildHorizontalMenuWithParentsOnlyFromList(): List<HorizontalMenuParentItem> {
+        var list = ArrayList<HorizontalMenuParentItem>()
+
+        var horizontalMenuParentItem0 = HorizontalMenuParentItem(Random.nextInt(1, 999))
+        var horizontalMenuParentItem0Group = Random.nextInt(1, 999).toString()
+        horizontalMenuParentItem0.id = Random.nextInt(1, 999)
+        horizontalMenuParentItem0.group = horizontalMenuParentItem0Group
+        horizontalMenuParentItem0.icon = this.getDrawable(R.drawable.dashboard_icon)
+        horizontalMenuParentItem0.title = "Dashboard"
+        horizontalMenuParentItem0.horizontal_menu_type = HorizontalMenuType.PARENT
+        horizontalMenuParentItem0.parent = true
+        horizontalMenuParentItem0.active = true
+        horizontalMenuParentItem0.show_badge = true
+        horizontalMenuParentItem0.badge_label = "102"
+        list.add(horizontalMenuParentItem0)
+
+        var horizontalMenuParentItem1 = HorizontalMenuParentItem(Random.nextInt(1, 999))
+        var horizontalMenuParentItem1Group = Random.nextInt(1, 999).toString()
+        horizontalMenuParentItem1.id = Random.nextInt(1, 999)
+        horizontalMenuParentItem1.group = horizontalMenuParentItem1Group
+        horizontalMenuParentItem1.icon = this.getDrawable(R.drawable.data_usage_icon)
+        horizontalMenuParentItem1.title = "Analytics"
+        horizontalMenuParentItem1.horizontal_menu_type = HorizontalMenuType.PARENT
+        horizontalMenuParentItem1.parent = true
+        horizontalMenuParentItem1.active = false
+        horizontalMenuParentItem1.show_badge = true
+        horizontalMenuParentItem1.badge_label = "5"
+        list.add(horizontalMenuParentItem1)
+
+        var horizontalMenuParentItem2 = HorizontalMenuParentItem(Random.nextInt(1, 999))
+        var horizontalMenuParentItem2Group = Random.nextInt(1, 999).toString()
+        horizontalMenuParentItem2.id = Random.nextInt(1, 999)
+        horizontalMenuParentItem2.group = horizontalMenuParentItem2Group
+        horizontalMenuParentItem2.icon = this.getDrawable(R.drawable.shield_sync_outline_icon)
+        horizontalMenuParentItem2.title = "Settings"
+        horizontalMenuParentItem2.horizontal_menu_type = HorizontalMenuType.PARENT
+        horizontalMenuParentItem2.parent = true
+        horizontalMenuParentItem2.active = false
+        horizontalMenuParentItem2.show_badge = true
+        horizontalMenuParentItem2.badge_label = ""
+        list.add(horizontalMenuParentItem2)
+
+        Log.e("buildMenuFromList", "list.count: " + list.count())
+        return list
+
+    }
+
+    fun onHorizontalMenuItemSelected(view: View?, itemId: Int) {
+        var selected_bhapps_menus_menu_horizontal_menu: TextView = findViewById(R.id.selected_bhapps_menus_menu_horizontal_menu)
+        selected_bhapps_menus_menu_horizontal_menu.text =
+            "Selected: bhapps_menus_menu_horizontal_menu\n" +
+                    "Id: " + itemId
     }
 
     fun buildVerticalMenu() {
@@ -47,10 +157,15 @@ class MainActivity : AppCompatActivity() {
         bhapps_menus_menu_vertical_menu_icons_only_adapter = VerticalMenuAdapter(
             this,
             VerticalMenuHelper.generateVerticalMenuFromList(
-                buildMenuWithParentsOnlyFromList()
+                buildVerticalMenuWithParentsOnlyFromList()
             ),
             object : VerticalMenuAdapter.OnItemClickListener {
-                override fun onItemClick(view: View?, itemId: Int) {
+                override fun onItemClick(
+                    view: View?,
+                    itemId: Int,
+                    position: Int,
+                    verticalMenuItem: VerticalMenuItem
+                ) {
                     onVerticalMenuIconsOnlyMenuItemSelected(
                         view,
                         itemId
@@ -81,7 +196,12 @@ class MainActivity : AppCompatActivity() {
                 buildMenuWithMultipleTypesFromList()
             ),
             object : VerticalMenuAdapter.OnItemClickListener {
-                override fun onItemClick(view: View?, itemId: Int) {
+                override fun onItemClick(
+                    view: View?,
+                    itemId: Int,
+                    position: Int,
+                    verticalMenuItem: VerticalMenuItem
+                ) {
                     onVerticalMenuItemSelected(
                         view,
                         itemId
@@ -110,11 +230,16 @@ class MainActivity : AppCompatActivity() {
         bhapps_menus_menu_vertical_menu_with_active_chip_background_adapter = VerticalMenuAdapter(
             this,
             VerticalMenuHelper.generateVerticalMenuFromList(
-                buildMenuWithParentsOnlyFromList()
+                buildVerticalMenuWithParentsOnlyFromList()
             ),
             object : VerticalMenuAdapter.OnItemClickListener {
-                override fun onItemClick(view: View?, itemId: Int) {
-                    onVerticalMenuIconsOnlyMenuItemSelected(
+                override fun onItemClick(
+                    view: View?,
+                    itemId: Int,
+                    position: Int,
+                    verticalMenuItem: VerticalMenuItem
+                ) {
+                    onVerticalMenuItemSelected(
                         view,
                         itemId
                     )
@@ -148,11 +273,16 @@ class MainActivity : AppCompatActivity() {
         bhapps_menus_menu_vertical_menu_with_active_gradient_background_adapter = VerticalMenuAdapter(
             this,
             VerticalMenuHelper.generateVerticalMenuFromList(
-                buildMenuWithParentsOnlyFromList()
+                buildVerticalMenuWithParentsOnlyFromList()
             ),
             object : VerticalMenuAdapter.OnItemClickListener {
-                override fun onItemClick(view: View?, itemId: Int) {
-                    onVerticalMenuIconsOnlyMenuItemSelected(
+                override fun onItemClick(
+                    view: View?,
+                    itemId: Int,
+                    position: Int,
+                    verticalMenuItem: VerticalMenuItem
+                ) {
+                    onVerticalMenuItemSelected(
                         view,
                         itemId
                     )
@@ -184,10 +314,15 @@ class MainActivity : AppCompatActivity() {
         bhapps_menus_menu_vertical_menu_icons_only_right_adapter = VerticalMenuAdapter(
             this,
             VerticalMenuHelper.generateVerticalMenuFromList(
-                buildMenuWithParentsOnlyFromList()
+                buildVerticalMenuWithParentsOnlyFromList()
             ),
             object : VerticalMenuAdapter.OnItemClickListener {
-                override fun onItemClick(view: View?, itemId: Int) {
+                override fun onItemClick(
+                    view: View?,
+                    itemId: Int,
+                    position: Int,
+                    verticalMenuItem: VerticalMenuItem
+                ) {
                     onVerticalMenuIconsOnlyMenuItemSelected(
                         view,
                         itemId
@@ -296,7 +431,7 @@ class MainActivity : AppCompatActivity() {
         
     }
 
-    fun buildMenuWithParentsOnlyFromList(): List<VerticalMenuParentItem> {
+    fun buildVerticalMenuWithParentsOnlyFromList(): List<VerticalMenuParentItem> {
         var list = ArrayList<VerticalMenuParentItem>()
 
         var verticalMenuParentItem0 = VerticalMenuParentItem(Random.nextInt(1, 999))

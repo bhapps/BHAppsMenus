@@ -1,15 +1,15 @@
-package bhapps.menus.vertical.verticalmenu.models
+package bhapps.menus.horizontal.horizontalmenu.models
 
 import android.graphics.drawable.Drawable
-import bhapps.menus.vertical.verticalmenu.models.VerticalMenuType
+import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuType
 
-class VerticalMenuItem(
+class HorizontalMenuItem(
     var item_type: Int,
     _id: Int,
     _group: String,
     _title: String,
     _icon: Drawable?,
-    _type: VerticalMenuType,
+    _type: HorizontalMenuType,
     _parent: Boolean,
     _parent_id: Int,
     _active: Boolean,
@@ -26,7 +26,7 @@ class VerticalMenuItem(
     var group: String
     var icon: Drawable?
     var title: String
-    var vertical_menu_type: String
+    var horizontal_menu_type: String
     var is_parent: Boolean =  false
     var parent_id: Int
     var active: Boolean =  false
@@ -43,7 +43,7 @@ class VerticalMenuItem(
         group = _group
         title = _title
         icon = _icon
-        vertical_menu_type = _type.toString()
+        horizontal_menu_type = _type.toString()
         is_parent = _parent
         parent_id = _parent_id
         active = _active

@@ -11,26 +11,16 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.Fragment
 import bhapps.menus.R
 import bhapps.menus.vertical.verticalmenu.extensions.getIntToDp
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_CHILDITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
-import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_SHOWACTIVESTATEONLEFT
-import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_SHOWICONS
-import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_SHOWPARENTDIVIDER
-import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_SHOWPARENTICONS
-import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_USESTYLESFROMTHEMES
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.drawBadgeWithColors
-import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.navigateToAction
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.removeBadgeStateAndBadgeLabel
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.setActiveState
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.setBadgeLabelAsPerLimit
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuItem
 import bhapps.menus.vertical.verticalmenu.views.BadgeConstraintView
-import bhapps.menus.vertical.verticalmenu.views.BadgeTextView
-import com.google.android.material.badge.BadgeDrawable
-import com.google.android.material.badge.BadgeUtils
 
 class VerticalMenuAdapter(
     context: Context,

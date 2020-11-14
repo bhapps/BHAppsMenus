@@ -1,14 +1,14 @@
-package bhapps.menus.vertical.verticalmenu.models
+package bhapps.menus.horizontal.horizontalmenu.models
 
 import android.graphics.drawable.Drawable
-import bhapps.menus.vertical.verticalmenu.models.VerticalMenuType
+import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuType
 
-class VerticalMenuChildItem(
+class HorizontalMenuChildItem(
     var id: Int,
     var group: String = "",
     var title: String = "",
     var icon: Drawable? = null,
-    var vertical_menu_type: VerticalMenuType = VerticalMenuType.CHILD,
+    var horizontal_menu_type: HorizontalMenuType = HorizontalMenuType.CHILD,
     var parent: Boolean = true,
     var parent_id: Int = -1,
     var active: Boolean = false,

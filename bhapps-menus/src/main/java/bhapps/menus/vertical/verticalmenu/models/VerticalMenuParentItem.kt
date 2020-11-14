@@ -1,6 +1,8 @@
 package bhapps.menus.vertical.verticalmenu.models
 
 import android.graphics.drawable.Drawable
+import bhapps.menus.vertical.verticalmenu.models.VerticalMenuType
+import bhapps.menus.vertical.verticalmenu.models.VerticalMenuChildItem
 
 class VerticalMenuParentItem(
     var id: Int,

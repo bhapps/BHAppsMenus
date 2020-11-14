@@ -58,4 +58,47 @@
     <dimen name="bhapps_menus_menu_vertical_menu_child_item_badge_label_padding">2dp</dimen>
     <dimen name="bhapps_menus_menu_vertical_menu_child_item_badge_text_size">8sp</dimen>
 
+    <!-- BH Apps Menu (Horizontal) Dimensions -->
+    <dimen name="bhapps_menus_menu_horizontal_menu_height">56dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_min_height">56dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_max_height">56dp</dimen>
+
+    <dimen name="bhapps_menus_menu_horizontal_menu_divider_padding">12dp</dimen>
+
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_divider_title_text_size">12sp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_width">56dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_height">50dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_padding">16dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_border_thickness">3dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_active_padding_top">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_active_padding_bottom">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_icon_width">16dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_icon_height">16dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_badge_label_margin_start">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_badge_label_margin_end">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_badge_label_padding">2dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_badge_min_width">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_badge_min_height">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_badge_text_size">8sp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_badge_width">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_parent_item_badge_height">12dp</dimen>
+
+    <!-- Child Items Dimensions -->
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_width">56dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_height">46dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_padding">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_border_thickness">3dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_active_padding_top">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_active_padding_bottom">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_icon_width">16dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_icon_height">16dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_badge_width">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_badge_height">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_badge_min_width">16dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_badge_min_height">16dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_badge_label_margin_start">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_badge_label_margin_end">12dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_badge_label_padding">2dp</dimen>
+    <dimen name="bhapps_menus_menu_horizontal_menu_child_item_badge_text_size">8sp</dimen>
+
 </resources>

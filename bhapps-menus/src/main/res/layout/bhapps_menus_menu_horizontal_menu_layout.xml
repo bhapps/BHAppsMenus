@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/bhapps_menus_menu_horizontal_menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+  <View
+          android:id="@+id/bhapps_menus_menu_horizontal_menu_width_holder"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/bhapps_menus_menu_dimension_0dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"/>
+
+  <ImageView
+          android:id="@+id/bhapps_menus_menu_horizontal_menu_logo"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:visibility="gone"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"/>
+
+  <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/bhapps_menus_menu_horizontal_menu_recycle_view"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:layout_constraintStart_toEndOf="@+id/bhapps_menus_menu_horizontal_menu_logo"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:visibility="gone"/>
+
+  <com.facebook.shimmer.ShimmerFrameLayout
+          android:id="@+id/bhapps_menus_menu_horizontal_menu_shimmer_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          android:visibility="gone">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+      <include
+              layout="@layout/bhapps_menus_menu_horizontal_menu_shimmer_layout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+  </com.facebook.shimmer.ShimmerFrameLayout>
+
+  <View
+          android:id="@+id/bhapps_menus_menu_horizontal_menu_border"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/bhapps_menus_menu_dimension_1dp"
+          android:background="@color/bhapps_menus_menu_horizontal_menu_divider_color"
+          app:layout_constraintStart_toEndOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

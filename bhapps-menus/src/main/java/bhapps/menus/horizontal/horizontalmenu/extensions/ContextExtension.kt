@@ -1,4 +1,4 @@
-package bhapps.menus.vertical.verticalmenu.extensions
+package bhapps.menus.horizontal.horizontalmenu.extensions
 
 import android.content.Context
 import android.graphics.drawable.Drawable

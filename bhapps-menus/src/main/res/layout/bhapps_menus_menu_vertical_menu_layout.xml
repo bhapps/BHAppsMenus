@@ -36,7 +36,7 @@
           android:layout_height="match_parent"
           android:orientation="vertical"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/bhapps_menus_menu_vertical_menu_logo"
           app:layout_constraintBottom_toBottomOf="parent"
           android:visibility="gone">
 

@@ -1,12 +1,10 @@
 package bhapps.menus.vertical.verticalmenu
 
 import android.content.Context
-import android.content.res.Configuration
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.ColorInt
@@ -21,7 +19,6 @@ import bhapps.menus.vertical.verticalmenu.config.INDEX_UNSELECTED
 import bhapps.menus.vertical.verticalmenu.extensions.getIntToDp
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.dpToPx
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuItem
-
 
 class VerticalMenu
     @JvmOverloads
