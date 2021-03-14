@@ -354,6 +354,17 @@ public object VerticalMenuHelper {
         }
     }
 
+    public fun setNoActiveStates(
+        adapter: VerticalMenuAdapter
+    ) {
+        if(adapter!!.itemCount > 0) {
+            adapter!!.items.forEach { it ->
+                it.active = false
+            }
+            adapter.notifyDataSetChanged()
+        }
+    }
+
     public fun setBadgeStateAndBadgeLabel(context: Context, adapter: VerticalMenuAdapter, group: String, id: Int, badgeValue: String) {
 
         if(group !=null){
