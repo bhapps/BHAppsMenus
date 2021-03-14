@@ -304,6 +304,25 @@ public object VerticalMenuHelper {
         }
     }
 
+    public fun setMenuItemTitle(title: String, adapter: VerticalMenuAdapter, group: String, id: Int) {
+        if(group !=null){
+            if(id !=null){
+                if(adapter!!.itemCount > 0) {
+                    adapter!!.items.forEach { it ->
+                        if (it != null) {
+                            if(it.group == group){
+                                if(it.id == id){
+                                    it.title = title
+                                }
+                            }
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+            }
+        }
+    }
+
     public fun setActiveState(
         context: Context,
         adapter: VerticalMenuAdapter,
