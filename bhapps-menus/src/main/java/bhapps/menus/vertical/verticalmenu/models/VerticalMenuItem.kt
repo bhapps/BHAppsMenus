@@ -17,14 +17,8 @@ class VerticalMenuItem(
     _badge_label: String,
     _activity: String,
     _fragment: String,
-    _keyValueHashMap: HashMap<String, Any>,
     _key: String,
-    _stringAsKeyValue: String,
-    _intAsKeyValue: Int,
-    _doubleAsKeyValue: Double,
-    _longAsKeyValue: Long,
-    _booleanAsKeyValue: Boolean = false,
-    _anyAsKeyValue: Any,
+    _value: Any,
     _dialog: String,
     _is_first_item: Boolean = false,
     _is_last_item: Boolean = false
@@ -42,14 +36,8 @@ class VerticalMenuItem(
     var badge_label = ""
     var activity: String
     var fragment: String
-    var keyValueHashMap: HashMap<String, Any>
     var key: String?
-    var stringAsKeyValue: String?
-    var intAsKeyValue: Int?
-    var doubleAsKeyValue: Double?
-    var longAsKeyValue: Long?
-    var booleanAsKeyValue: Boolean? = false
-    var anyAsKeyValue: Any?
+    var value: Any?
     var dialog: String
     var is_first_item: Boolean =  false
     var is_last_item: Boolean = false
@@ -67,14 +55,8 @@ class VerticalMenuItem(
         badge_label = _badge_label
         activity = _activity
         fragment = _fragment
-        keyValueHashMap =_keyValueHashMap
         key = _key
-        stringAsKeyValue = _stringAsKeyValue
-        intAsKeyValue = _intAsKeyValue
-        doubleAsKeyValue = _doubleAsKeyValue
-        longAsKeyValue = _longAsKeyValue
-        booleanAsKeyValue = _booleanAsKeyValue
-        anyAsKeyValue = _anyAsKeyValue
+        value = _value
         dialog = _dialog
         is_first_item = _is_first_item
         is_last_item =_is_last_item

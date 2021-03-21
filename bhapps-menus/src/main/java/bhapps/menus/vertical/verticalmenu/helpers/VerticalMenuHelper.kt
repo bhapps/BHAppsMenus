@@ -45,12 +45,6 @@ public object VerticalMenuHelper {
                     _fragment: String,
                     _keyValueHashMap: HashMap<String, Any>,
                     _key: String,
-                    _stringAsKeyValue: String,
-                    _intAsKeyValue: Int,
-                    _doubleAsKeyValue: Double,
-                    _longAsKeyValue: Long,
-                    _booleanAsKeyValue: Boolean,
-                    _anyAsKeyValue: Any,
                     _dialog: String,
                     _is_first_item: Boolean = false,
                     _is_last_item: Boolean = false
@@ -71,14 +65,8 @@ public object VerticalMenuHelper {
                             verticalMenuParentItem.badge_label,
                             verticalMenuParentItem.activity!!,
                             verticalMenuParentItem.fragment!!,
-                            verticalMenuParentItem.keyValueHashMap!!,
                             verticalMenuParentItem.key!!,
-                            verticalMenuParentItem.stringAsKeyValue!!,
-                            verticalMenuParentItem.intAsKeyValue!!,
-                            verticalMenuParentItem.doubleAsKeyValue!!,
-                            verticalMenuParentItem.longAsKeyValue!!,
-                            verticalMenuParentItem.booleanAsKeyValue!!,
-                            verticalMenuParentItem.anyAsKeyValue!!,
+                            verticalMenuParentItem.value!!,
                             verticalMenuParentItem.dialog!!,
                             verticalMenuParentItem.is_first_item!!,
                             verticalMenuParentItem.is_last_item!!
@@ -101,14 +89,8 @@ public object VerticalMenuHelper {
                                     verticalMenuChildItem.badge_label,
                                     verticalMenuChildItem.activity!!,
                                     verticalMenuChildItem.fragment!!,
-                                    verticalMenuChildItem.keyValueHashMap!!,
                                     verticalMenuChildItem.key!!,
-                                    verticalMenuChildItem.stringAsKeyValue!!,
-                                    verticalMenuChildItem.intAsKeyValue!!,
-                                    verticalMenuChildItem.doubleAsKeyValue!!,
-                                    verticalMenuChildItem.longAsKeyValue!!,
-                                    verticalMenuChildItem.booleanAsKeyValue!!,
-                                    verticalMenuChildItem.anyAsKeyValue!!,
+                                    verticalMenuChildItem.value!!,
                                     verticalMenuChildItem.dialog!!,
                                     verticalMenuChildItem.is_first_item!!,
                                     verticalMenuChildItem.is_last_item!!
@@ -118,7 +100,7 @@ public object VerticalMenuHelper {
                     }
                 }
             } catch (ex: Exception) {
-                Log.e("VerticalMenuHelper", "VerticalMenuHelper.generateVerticalMenuFromList(): " + ex.message.toString())
+                Log.e("VerticalMenuHelper", "VerticalMenuHelper.generateVerticalMenuFromList(): " + ex.message)
             }
         }
 
