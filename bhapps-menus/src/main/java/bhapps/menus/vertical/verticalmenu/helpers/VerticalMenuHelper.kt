@@ -118,7 +118,7 @@ public object VerticalMenuHelper {
                     }
                 }
             } catch (ex: Exception) {
-                Log.e("VerticalMenuHelper", "VerticalMenuHelper.generateVerticalMenuFromList(): " + ex.printStackTrace().toString())
+                Log.e("VerticalMenuHelper", "VerticalMenuHelper.generateVerticalMenuFromList(): " + ex.message.toString())
             }
         }
 
