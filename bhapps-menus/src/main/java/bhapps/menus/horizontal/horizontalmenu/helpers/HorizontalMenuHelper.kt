@@ -13,6 +13,7 @@ import bhapps.menus.horizontal.horizontalmenu.helpers.HorizontalMenuConfig.HORIZ
 import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuItem
 import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuParentItem
 import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuType
+import bhapps.menus.vertical.verticalmenu.adapters.VerticalMenuAdapter
 import com.google.gson.stream.JsonReader
 import java.util.*
 
@@ -300,6 +301,25 @@ public object HorizontalMenuHelper {
         }
     }
 
+    public fun setMenuItemTitle(title: String, adapter: HorizontalMenuAdapter, group: String, id: Int) {
+        if(group !=null){
+            if(id !=null){
+                if(adapter!!.itemCount > 0) {
+                    adapter!!.items.forEach { it ->
+                        if (it != null) {
+                            if(it.group == group){
+                                if(it.id == id){
+                                    it.title = title
+                                }
+                            }
+                        }
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+            }
+        }
+    }
+
     public fun setActiveState(
         context: Context,
         adapter: HorizontalMenuAdapter,
@@ -328,6 +348,17 @@ public object HorizontalMenuHelper {
                     adapter.notifyDataSetChanged()
                 }
             }
+        }
+    }
+
+    public fun setNoActiveStates(
+        adapter: HorizontalMenuAdapter
+    ) {
+        if(adapter!!.itemCount > 0) {
+            adapter!!.items.forEach { it ->
+                it.active = false
+            }
+            adapter.notifyDataSetChanged()
         }
     }
 
