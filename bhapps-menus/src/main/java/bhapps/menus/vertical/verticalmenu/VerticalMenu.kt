@@ -13,11 +13,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import bhapps.menus.R
 import bhapps.menus.databinding.BhappsMenusMenuVerticalMenuLayoutBinding
+import bhapps.menus.helpers.Helpers.dpToPx
 import bhapps.menus.vertical.verticalmenu.adapters.VerticalMenuAdapter
 import bhapps.menus.vertical.verticalmenu.annotations.DpAnnotation
 import bhapps.menus.vertical.verticalmenu.config.INDEX_UNSELECTED
 import bhapps.menus.vertical.verticalmenu.extensions.getIntToDp
-import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuHelper.dpToPx
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuItem
 
 class VerticalMenu

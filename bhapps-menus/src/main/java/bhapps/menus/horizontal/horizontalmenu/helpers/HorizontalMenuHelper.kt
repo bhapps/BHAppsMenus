@@ -18,10 +18,6 @@ import java.util.*
 
 public object HorizontalMenuHelper {
 
-    fun View.dpToPx(dp: Int): Int {
-        return (dp * context.resources.displayMetrics.density).toInt()
-    }
-
     public fun generateHorizontalMenuFromList(list: List<HorizontalMenuParentItem>): List<HorizontalMenuItem> {
         val items = ArrayList<HorizontalMenuItem>()
         if(list.isNotEmpty()) {

@@ -238,7 +238,7 @@ class HorizontalMenuAdapter(
 
             if (horizontalMenuItemsUISettings["horizontal_menu_parent_items_text_size"] as Int != 0) {
                 bhapps_menus_menu_horizontal_menu_parent_item_parent_title.textSize =
-                    (horizontalMenuItemsUISettings["horizontal_menu_parent_items_text_size"] as Int).toFloat()
+                    bhapps.menus.helpers.Helpers.getIntToDp(view.context, (horizontalMenuItemsUISettings["horizontal_menu_parent_items_text_size"] as Int)).toFloat()
             }
 
             if (horizontalMenuItemsUISettings["horizontal_menu_parent_items_text_color"] as Int != 0) {
@@ -351,7 +351,7 @@ class HorizontalMenuAdapter(
 
                         if (horizontalMenuItemsUISettings["horizontal_menu_parent_items_badge_text_size"] as Int != 0) {
                             bhapps_menus_menu_horizontal_menu_parent_item_parent_badge_label.textSize =
-                                (horizontalMenuItemsUISettings["horizontal_menu_parent_items_badge_text_size"] as Int).toFloat()
+                                bhapps.menus.helpers.Helpers.getIntToDp(view.context, (horizontalMenuItemsUISettings["horizontal_menu_parent_items_badge_text_size"] as Int)).toFloat()
                         }
 
                         bhapps_menus_menu_horizontal_menu_parent_item_parent_badge_label.text = visibleItems!![position].badge_label
@@ -1050,7 +1050,7 @@ class HorizontalMenuAdapter(
 
             if (horizontalMenuItemsUISettings["horizontal_menu_parent_items_text_size"] as Int != 0) {
                 bhapps_menus_menu_horizontal_menu_parent_with_child_items_title.textSize =
-                    (horizontalMenuItemsUISettings["horizontal_menu_parent_items_text_size"] as Int).toFloat()
+                    bhapps.menus.helpers.Helpers.getIntToDp(view.context, (horizontalMenuItemsUISettings["horizontal_menu_parent_items_text_size"] as Int)).toFloat()
             }
 
             if (horizontalMenuItemsUISettings["horizontal_menu_parent_items_text_color"] as Int != 0) {
@@ -1150,7 +1150,7 @@ class HorizontalMenuAdapter(
 
                         if (horizontalMenuItemsUISettings["horizontal_menu_parent_items_badge_text_size"] as Int != 0) {
                             bhapps_menus_menu_horizontal_menu_parent_with_child_items_badge_label.textSize =
-                                (horizontalMenuItemsUISettings["horizontal_menu_parent_items_badge_text_size"] as Int).toFloat()
+                                bhapps.menus.helpers.Helpers.getIntToDp(view.context, (horizontalMenuItemsUISettings["horizontal_menu_parent_items_badge_text_size"] as Int)).toFloat()
                         }
 
                         bhapps_menus_menu_horizontal_menu_parent_with_child_items_badge_label.text = visibleItems!![position].badge_label
@@ -1715,7 +1715,7 @@ class HorizontalMenuAdapter(
 
             if (horizontalMenuItemsUISettings["horizontal_menu_child_items_text_size"] as Int != 0) {
                 bhapps_menus_menu_horizontal_menu_child_items_title.textSize =
-                    (horizontalMenuItemsUISettings["horizontal_menu_child_items_text_size"] as Int).toFloat()
+                    bhapps.menus.helpers.Helpers.getIntToDp(view.context, (horizontalMenuItemsUISettings["horizontal_menu_child_items_text_size"] as Int)).toFloat()
             }
 
             if (horizontalMenuItemsUISettings["horizontal_menu_child_items_text_color"] as Int != 0) {
@@ -1829,7 +1829,7 @@ class HorizontalMenuAdapter(
 
                         if (horizontalMenuItemsUISettings["horizontal_menu_child_items_badge_text_size"] as Int != 0) {
                             bhapps_menus_menu_horizontal_menu_child_items_badge_label.textSize =
-                                (horizontalMenuItemsUISettings["horizontal_menu_child_items_badge_text_size"] as Int).toFloat()
+                                bhapps.menus.helpers.Helpers.getIntToDp(view.context, (horizontalMenuItemsUISettings["horizontal_menu_child_items_badge_text_size"] as Int)).toFloat()
                         }
 
                         bhapps_menus_menu_horizontal_menu_child_items_badge_label.text = visibleItems!![position].badge_label
@@ -2199,7 +2199,7 @@ class HorizontalMenuAdapter(
 
             if (horizontalMenuItemsUISettings["horizontal_menu_title_items_text_size"] as Int != 0) {
                 bhapps_menus_menu_horizontal_menu_title_item_parent_title.textSize =
-                    (horizontalMenuItemsUISettings["horizontal_menu_title_items_text_size"] as Int).toFloat()
+                    bhapps.menus.helpers.Helpers.getIntToDp(view.context, (horizontalMenuItemsUISettings["horizontal_menu_title_items_text_size"] as Int)).toFloat()
             }
 
             if (horizontalMenuItemsUISettings["horizontal_menu_title_items_text_color"] as Int != 0) {

@@ -20,7 +20,7 @@ import bhapps.menus.horizontal.horizontalmenu.annotations.DpAnnotation
 import bhapps.menus.horizontal.horizontalmenu.config.DEFAULT_HEIGHT
 import bhapps.menus.horizontal.horizontalmenu.config.INDEX_UNSELECTED
 import bhapps.menus.horizontal.horizontalmenu.extensions.getIntToDp
-import bhapps.menus.horizontal.horizontalmenu.helpers.HorizontalMenuHelper.dpToPx
+import bhapps.menus.helpers.Helpers.dpToPx
 import bhapps.menus.horizontal.horizontalmenu.models.HorizontalMenuItem
 
 class HorizontalMenu

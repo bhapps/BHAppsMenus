@@ -18,10 +18,6 @@ import java.util.*
 
 public object VerticalMenuHelper {
 
-    fun View.dpToPx(dp: Int): Int {
-        return (dp * context.resources.displayMetrics.density).toInt()
-    }
-
     public fun generateVerticalMenuFromList(list: List<VerticalMenuParentItem>): List<VerticalMenuItem> {
         val items = ArrayList<VerticalMenuItem>()
         if(list.isNotEmpty()) {
