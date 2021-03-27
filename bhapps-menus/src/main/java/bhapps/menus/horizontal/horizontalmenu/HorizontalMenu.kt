@@ -2949,7 +2949,7 @@ class HorizontalMenu
         if(this@HorizontalMenu.horizontal_menu_margin > 0){
             //setMargins(int left, int top, int right, int bottom)
             var layoutParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT,
                 ConstraintLayout.LayoutParams.WRAP_CONTENT
             )
             layoutParams.setMargins(
@@ -2962,7 +2962,7 @@ class HorizontalMenu
         }else{
             //setMargins(int left, int top, int right, int bottom)
             var layoutParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT,
                 ConstraintLayout.LayoutParams.WRAP_CONTENT
             )
             layoutParams.setMargins(
