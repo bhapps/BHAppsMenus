@@ -461,7 +461,7 @@
             android:id="@+id/bhapps_menus_menu_horizontal_menu_with_active_chip_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
+            android:background="@color/defaultLightColor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -473,7 +473,7 @@
             app:horizontal_menu_border_is_visible="true"
             app:horizontal_menu_border_thickness="@dimen/bhapps_menus_menu_dimension_1dp"
             app:horizontal_menu_border_color="@color/defaultLightColor"
-            app:horizontal_menu_border_position="1"
+            app:horizontal_menu_border_position="2"
 
             app:horizontal_menu_logo_width="46dp"
             app:horizontal_menu_logo_height="46dp"

@@ -38,7 +38,6 @@ class HorizontalMenu
 
     var bhappsMenusMenuHorizontalMenuLayout = bindingForBhappsMenusMenuHorizontalMenuLayout.bhappsMenusMenuHorizontalMenuLayout
     var bhappsMenusMenuHorizontalMenuLogo = bindingForBhappsMenusMenuHorizontalMenuLayout.bhappsMenusMenuHorizontalMenuLogo
-    var bhappsMenusMenuHorizontalMenuWidthHolder = bindingForBhappsMenusMenuHorizontalMenuLayout.bhappsMenusMenuHorizontalMenuWidthHolder
     var bhappsMenusMenuHorizontalMenuRecycleView = bindingForBhappsMenusMenuHorizontalMenuLayout.bhappsMenusMenuHorizontalMenuRecycleView
     var bhappsMenusMenuHorizontalMenuShimmerLayout = bindingForBhappsMenusMenuHorizontalMenuLayout.bhappsMenusMenuHorizontalMenuShimmerLayout
     var bhappsMenusMenuHorizontalMenuBorder = bindingForBhappsMenusMenuHorizontalMenuLayout.bhappsMenusMenuHorizontalMenuBorder
@@ -2903,7 +2902,6 @@ class HorizontalMenu
                 setHeight = this@HorizontalMenu.horizontal_menu_height
             }
 
-            bhappsMenusMenuHorizontalMenuWidthHolder.layoutParams.height = this@HorizontalMenu.horizontal_menu_height
             bhappsMenusMenuHorizontalMenuRecycleView.layoutParams.height = this@HorizontalMenu.horizontal_menu_height
             bhappsMenusMenuHorizontalMenuShimmerLayout.layoutParams.height = this@HorizontalMenu.horizontal_menu_height
         }else{
@@ -2922,7 +2920,6 @@ class HorizontalMenu
                 setHeight = getIntToDp
             }
 
-            bhappsMenusMenuHorizontalMenuWidthHolder.layoutParams.height = getIntToDp
             bhappsMenusMenuHorizontalMenuRecycleView.layoutParams.height = getIntToDp
             bhappsMenusMenuHorizontalMenuShimmerLayout.layoutParams.height = getIntToDp
 
@@ -2976,7 +2973,6 @@ class HorizontalMenu
 
         if(currentScreenOrientationIsPortrait){
             bhappsMenusMenuHorizontalMenuLayout.layoutParams.height = setResponsiveHeight + setBorderThckiness
-            bhappsMenusMenuHorizontalMenuWidthHolder.layoutParams.height = setResponsiveHeight
             bhappsMenusMenuHorizontalMenuRecycleView.layoutParams.height = setResponsiveHeight
             bhappsMenusMenuHorizontalMenuShimmerLayout.layoutParams.height = setResponsiveHeight
         }
@@ -3006,13 +3002,23 @@ class HorizontalMenu
                 layoutParamsForRecycleView.endToEnd = bhappsMenusMenuHorizontalMenuLayout.id
                 layoutParamsForRecycleView.bottomToBottom = bhappsMenusMenuHorizontalMenuLayout.id
                 bhappsMenusMenuHorizontalMenuRecycleView.layoutParams = layoutParamsForRecycleView
-            }else{
+            }else {
                 //default align (left)
                 layoutParamsForRecycleView.topToTop = bhappsMenusMenuHorizontalMenuLayout.id
                 layoutParamsForRecycleView.startToEnd = bhappsMenusMenuHorizontalMenuLogo.id
                 layoutParamsForRecycleView.bottomToBottom = bhappsMenusMenuHorizontalMenuLayout.id
                 bhappsMenusMenuHorizontalMenuRecycleView.layoutParams = layoutParamsForRecycleView
             }
+        }else{
+            var layoutParamsForRecycleView = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                setHeight
+            )
+            //default align (left)
+            layoutParamsForRecycleView.topToTop = bhappsMenusMenuHorizontalMenuLayout.id
+            layoutParamsForRecycleView.startToEnd = bhappsMenusMenuHorizontalMenuLogo.id
+            layoutParamsForRecycleView.bottomToBottom = bhappsMenusMenuHorizontalMenuLayout.id
+            bhappsMenusMenuHorizontalMenuRecycleView.layoutParams = layoutParamsForRecycleView
         }
 
         if(this@HorizontalMenu.horizontal_menu_show_shimmer_animation){
