@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.res.ResourcesCompat
 import bhapps.menus.R
 import bhapps.menus.vertical.verticalmenu.extensions.getIntToDp
 import bhapps.menus.vertical.verticalmenu.helpers.VerticalMenuConfig.VERTICALMENU_CHILDITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
@@ -36,6 +37,7 @@ class VerticalMenuAdapter(
     var getInactiveTextColourIsSet: Boolean = false
 
     var verticalMenuItemsUISettings = HashMap<String, Any?>()
+    var verticalMenuItemsUITypefaces = HashMap<String, Typeface?>()
 
     init {
         this.context = context
@@ -65,7 +67,10 @@ class VerticalMenuAdapter(
 
             if(verticalMenuItemsUISettings["vertical_menu_width"] !=null){
                 if(verticalMenuItemsUISettings["vertical_menu_width"] as Int != 0){
-                    bhapps_menus_menu_vertical_menu_parent_item_layout.layoutParams.width = verticalMenuItemsUISettings["vertical_menu_width"] as Int
+                    if(!(verticalMenuItemsUISettings["vertical_menu_is_matched_width"] as Boolean)) {
+                        bhapps_menus_menu_vertical_menu_parent_item_layout.layoutParams.width =
+                            verticalMenuItemsUISettings["vertical_menu_width"] as Int
+                    }
                 }
             }
 
@@ -108,7 +113,7 @@ class VerticalMenuAdapter(
                     ConstraintLayout.LayoutParams(
                         ConstraintLayout.LayoutParams.MATCH_PARENT,
                         ConstraintLayout.LayoutParams.WRAP_CONTENT
-                )
+                    )
                 bhapps_menus_menu_vertical_menu_parent_item_layout_layout_params.setMargins(
                     verticalMenuItemsUISettings["vertical_menu_parent_items_margin"] as Int,
                     verticalMenuItemsUISettings["vertical_menu_parent_items_margin"] as Int,
@@ -122,7 +127,7 @@ class VerticalMenuAdapter(
                     ConstraintLayout.LayoutParams(
                         ConstraintLayout.LayoutParams.MATCH_PARENT,
                         ConstraintLayout.LayoutParams.WRAP_CONTENT
-                )
+                    )
                 bhapps_menus_menu_vertical_menu_parent_item_layout_layout_params.setMargins(
                     verticalMenuItemsUISettings["vertical_menu_parent_items_margin_left"] as Int,
                     verticalMenuItemsUISettings["vertical_menu_parent_items_margin_top"] as Int,
@@ -139,9 +144,14 @@ class VerticalMenuAdapter(
                     bhapps_menus_menu_vertical_menu_parent_item_parent_icon.visibility = View.VISIBLE
 
                     try {
-                        bhapps_menus_menu_vertical_menu_parent_item_parent_icon.setImageDrawable(visibleItems!![position].icon)
+                        bhapps_menus_menu_vertical_menu_parent_item_parent_icon.setImageDrawable(
+                            visibleItems!![position].icon
+                        )
                     }catch (exception: Exception) {
-                        Log.e("setImageDrawable", "setImageDrawable.exception: " + exception.printStackTrace())
+                        Log.e(
+                            "setImageDrawable",
+                            "setImageDrawable.exception: " + exception.printStackTrace()
+                        )
                     }
 
                     if (verticalMenuItemsUISettings["vertical_menu_parent_items_icon_tint_color"] as Int != 0) {
@@ -209,10 +219,10 @@ class VerticalMenuAdapter(
                         bhapps_menus_menu_vertical_menu_parent_item_parent_icon_layout_params.endToStart = bhapps_menus_menu_vertical_menu_parent_item_parent_title.id
 
                         bhapps_menus_menu_vertical_menu_parent_item_parent_icon_layout_params.setMargins(
-                                verticalMenuItemsUISettings["vertical_menu_parent_items_icon_margin_left"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_parent_items_icon_margin_top"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_parent_items_icon_margin_right"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_parent_items_icon_margin_bottom"] as Int
+                            verticalMenuItemsUISettings["vertical_menu_parent_items_icon_margin_left"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_parent_items_icon_margin_top"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_parent_items_icon_margin_right"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_parent_items_icon_margin_bottom"] as Int
                         )
                         bhapps_menus_menu_vertical_menu_parent_item_parent_icon.layoutParams = bhapps_menus_menu_vertical_menu_parent_item_parent_icon_layout_params
                     }
@@ -231,6 +241,24 @@ class VerticalMenuAdapter(
             bhapps_menus_menu_vertical_menu_parent_item_parent_title.text =
                 visibleItems!![position]!!.title
 
+            //region set Typeface
+            if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"] !=null) {
+                setTextTypeFace(
+                    context,
+                    bhapps_menus_menu_vertical_menu_parent_item_parent_title,
+                    verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString(),
+                    verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                )
+            }else{
+                setTextTypeFace(
+                    context,
+                    bhapps_menus_menu_vertical_menu_parent_item_parent_title,
+                    null,
+                    verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                )
+            }
+            //endregion set Typeface
+
             if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_capitalized"] as Boolean) {
                 bhapps_menus_menu_vertical_menu_parent_item_parent_title.isAllCaps =
                     verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_capitalized"] as Boolean
@@ -238,7 +266,10 @@ class VerticalMenuAdapter(
 
             if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_size"] as Int != 0) {
                 bhapps_menus_menu_vertical_menu_parent_item_parent_title.textSize =
-                    bhapps.menus.helpers.Helpers.getIntToDp(view.context, (verticalMenuItemsUISettings["vertical_menu_parent_items_text_size"] as Int)).toFloat()
+                    bhapps.menus.helpers.Helpers.getIntToDp(
+                        view.context,
+                        (verticalMenuItemsUISettings["vertical_menu_parent_items_text_size"] as Int)
+                    ).toFloat()
             }
 
             if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_color"] as Int != 0) {
@@ -255,12 +286,6 @@ class VerticalMenuAdapter(
                     getInactiveTextColour = bhapps_menus_menu_vertical_menu_parent_item_parent_title.currentTextColor
                     getInactiveTextColourIsSet = true
                 }
-            }
-
-            if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean) {
-                bhapps_menus_menu_vertical_menu_parent_item_parent_title.setTypeface(null, Typeface.BOLD)
-            }else{
-                bhapps_menus_menu_vertical_menu_parent_item_parent_title.setTypeface(null, Typeface.NORMAL)
             }
             //endregion set title
 
@@ -286,10 +311,10 @@ class VerticalMenuAdapter(
                             //setPadding(int left, int top, int right, int bottom)
                             //set default padding if values not passed
                             bhapps_menus_menu_vertical_menu_parent_item_parent_badge.setPadding(
-                                    verticalMenuItemsUISettings["vertical_menu_parent_items_badge_padding_left"] as Int,
-                                    verticalMenuItemsUISettings["vertical_menu_parent_items_badge_padding_top"] as Int,
-                                    verticalMenuItemsUISettings["vertical_menu_parent_items_badge_padding_right"] as Int,
-                                    verticalMenuItemsUISettings["vertical_menu_parent_items_badge_padding_bottom"] as Int
+                                verticalMenuItemsUISettings["vertical_menu_parent_items_badge_padding_left"] as Int,
+                                verticalMenuItemsUISettings["vertical_menu_parent_items_badge_padding_top"] as Int,
+                                verticalMenuItemsUISettings["vertical_menu_parent_items_badge_padding_right"] as Int,
+                                verticalMenuItemsUISettings["vertical_menu_parent_items_badge_padding_bottom"] as Int
                             )
                         }
                         //endregion set padding
@@ -326,20 +351,29 @@ class VerticalMenuAdapter(
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_width"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params.width = verticalMenuItemsUISettings["vertical_menu_parent_items_badge_width"] as Int
                         }else{
-                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params.width = getIntToDp(context, VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP)
+                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params.width = getIntToDp(
+                                context,
+                                VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
+                            )
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_height"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params.height = verticalMenuItemsUISettings["vertical_menu_parent_items_badge_height"] as Int
                         }else{
-                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params.height = getIntToDp(context, VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP)
+                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params.height = getIntToDp(
+                                context,
+                                VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
+                            )
                         }
                         bhapps_menus_menu_vertical_menu_parent_item_parent_badge.layoutParams = bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params
                         //endregion set margin
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_size"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.textSize =
-                            bhapps.menus.helpers.Helpers.getIntToDp(view.context, (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_size"] as Int)).toFloat()
+                            bhapps.menus.helpers.Helpers.getIntToDp(
+                                view.context,
+                                (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_size"] as Int)
+                            ).toFloat()
                         }
 
                         bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.text = visibleItems!![position].badge_label
@@ -350,14 +384,23 @@ class VerticalMenuAdapter(
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_is_bold"] as Boolean) {
-                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.setTypeface(null, Typeface.BOLD)
+                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.setTypeface(
+                                null,
+                                Typeface.BOLD
+                            )
                         }else{
-                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.setTypeface(null, Typeface.NORMAL)
+                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.setTypeface(
+                                null,
+                                Typeface.NORMAL
+                            )
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_is_visible"] as Boolean) {
                             bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.visibility = View.VISIBLE
-                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.text = setBadgeLabelAsPerLimit(view.context, visibleItems!![position].badge_label)
+                            bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.text = setBadgeLabelAsPerLimit(
+                                view.context,
+                                visibleItems!![position].badge_label
+                            )
                         }else{
                             bhapps_menus_menu_vertical_menu_parent_item_parent_badge_label.visibility = View.GONE
                         }
@@ -403,10 +446,10 @@ class VerticalMenuAdapter(
                 }else{
                     //setPadding(int left, int top, int right, int bottom)
                     bhapps_menus_menu_vertical_menu_parent_item_navigation_icon.setPadding(
-                            verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_padding_left"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_padding_top"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_padding_right"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_padding_bottom"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_padding_left"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_padding_top"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_padding_right"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_padding_bottom"] as Int
                     )
                 }
                 //endregion set padding
@@ -488,10 +531,10 @@ class VerticalMenuAdapter(
                     }else{
                         //setPadding(int left, int top, int right, int bottom)
                         bhapps_menus_menu_vertical_menu_parent_item_divider.setPadding(
-                                verticalMenuItemsUISettings["vertical_menu_divider_padding_left"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_padding_top"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_padding_right"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_padding_bottom"] as Int
+                            verticalMenuItemsUISettings["vertical_menu_divider_padding_left"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_padding_top"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_padding_right"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_padding_bottom"] as Int
                         )
                     }
                     //endregion set padding
@@ -529,10 +572,10 @@ class VerticalMenuAdapter(
                         bhapps_menus_menu_vertical_menu_parent_item_divider_layout_params.endToEnd = bhapps_menus_menu_vertical_menu_parent_item_layout.id
 
                         bhapps_menus_menu_vertical_menu_parent_item_divider_layout_params.setMargins(
-                                verticalMenuItemsUISettings["vertical_menu_divider_margin_left"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_margin_top"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_margin_right"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_margin_bottom"] as Int
+                            verticalMenuItemsUISettings["vertical_menu_divider_margin_left"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_margin_top"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_margin_right"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_margin_bottom"] as Int
                         )
                         bhapps_menus_menu_vertical_menu_parent_item_divider.layoutParams = bhapps_menus_menu_vertical_menu_parent_item_divider_layout_params
                     }
@@ -584,7 +627,12 @@ class VerticalMenuAdapter(
 
             //region set setOnClickListener
             view.setOnClickListener { view ->
-                onItemClickListener!!.onItemClick(view, visibleItems!![position]!!.id, position, visibleItems!![position]!!)
+                onItemClickListener!!.onItemClick(
+                    view,
+                    visibleItems!![position]!!.id,
+                    position,
+                    visibleItems!![position]!!
+                )
 
                 setActiveState(
                     context,
@@ -637,10 +685,20 @@ class VerticalMenuAdapter(
                     }
                 }
 
-                if (verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_is_bold"] as Boolean) {
-                    bhapps_menus_menu_vertical_menu_parent_item_parent_title.setTypeface(null, Typeface.BOLD)
+                if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString() !=null) {
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_parent_item_parent_title,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString(),
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_is_bold"] as Boolean
+                    )
                 }else{
-                    bhapps_menus_menu_vertical_menu_parent_item_parent_title.setTypeface(null, Typeface.NORMAL)
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_parent_item_parent_title,
+                        null,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_is_bold"] as Boolean
+                    )
                 }
 
                 if (verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_color"] as Int != 0) {
@@ -695,10 +753,20 @@ class VerticalMenuAdapter(
                     bhapps_menus_menu_vertical_menu_parent_item_parent_icon.setColorFilter(0)
                 }
 
-                if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean) {
-                    bhapps_menus_menu_vertical_menu_parent_item_parent_title.setTypeface(null, Typeface.BOLD)
+                if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString() !=null) {
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_parent_item_parent_title,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString(),
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                    )
                 }else{
-                    bhapps_menus_menu_vertical_menu_parent_item_parent_title.setTypeface(null, Typeface.NORMAL)
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_parent_item_parent_title,
+                        null,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                    )
                 }
 
                 if (verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_color"] as Int != 0) {
@@ -730,7 +798,7 @@ class VerticalMenuAdapter(
                     ConstraintLayout.LayoutParams(
                         ConstraintLayout.LayoutParams.WRAP_CONTENT,
                         ConstraintLayout.LayoutParams.WRAP_CONTENT
-                )
+                    )
 
                 bhapps_menus_menu_vertical_menu_parent_item_parent_icon_layout_params.topToTop = bhapps_menus_menu_vertical_menu_parent_item_layout.id
                 bhapps_menus_menu_vertical_menu_parent_item_parent_icon_layout_params.bottomToBottom = bhapps_menus_menu_vertical_menu_parent_item_layout.id
@@ -747,7 +815,7 @@ class VerticalMenuAdapter(
                                 ConstraintLayout.LayoutParams(
                                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                                     ConstraintLayout.LayoutParams.WRAP_CONTENT
-                            )
+                                )
 
                             bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params.topToTop = bhapps_menus_menu_vertical_menu_parent_item_layout.id
                             bhapps_menus_menu_vertical_menu_parent_item_parent_badge_layout_params.bottomToBottom = bhapps_menus_menu_vertical_menu_parent_item_layout.id
@@ -789,7 +857,10 @@ class VerticalMenuAdapter(
                             //show indicator right
                             val layoutParamsForIndicatorPosition =
                                 ConstraintLayout.LayoutParams(
-                                    getIntToDp(context, vertical_menu_parent_items_indicator_thickness),
+                                    getIntToDp(
+                                        context,
+                                        vertical_menu_parent_items_indicator_thickness
+                                    ),
                                     ConstraintLayout.LayoutParams.MATCH_CONSTRAINT
                                 )
 
@@ -866,7 +937,11 @@ class VerticalMenuAdapter(
 
             if(verticalMenuItemsUISettings["vertical_menu_width"] !=null){
                 if(verticalMenuItemsUISettings["vertical_menu_width"] as Int != 0){
-                    bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.layoutParams.width = verticalMenuItemsUISettings["vertical_menu_width"] as Int
+                    if(!(verticalMenuItemsUISettings["vertical_menu_is_matched_width"] as Boolean)) {
+                        bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.layoutParams.width =
+                            verticalMenuItemsUISettings["vertical_menu_width"] as Int
+                    }
+
                 }
             }
 
@@ -939,9 +1014,14 @@ class VerticalMenuAdapter(
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.visibility = View.VISIBLE
 
                     try {
-                        bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.setImageDrawable(visibleItems!![position].icon)
+                        bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.setImageDrawable(
+                            visibleItems!![position].icon
+                        )
                     }catch (exception: Exception) {
-                        Log.e("setImageDrawable", "setImageDrawable.exception: " + exception.printStackTrace())
+                        Log.e(
+                            "setImageDrawable",
+                            "setImageDrawable.exception: " + exception.printStackTrace()
+                        )
                     }
 
                     if (verticalMenuItemsUISettings["vertical_menu_parent_items_icon_tint_color"] as Int != 0) {
@@ -949,7 +1029,9 @@ class VerticalMenuAdapter(
                             verticalMenuItemsUISettings["vertical_menu_parent_items_icon_tint_color"] as Int
                         )
                     }else{
-                        bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.setColorFilter(0)
+                        bhapps_menus_menu_vertical_menu_parent_with_child_items_icon.setColorFilter(
+                            0
+                        )
                     }
 
                     val bhapps_menus_menu_vertical_menu_parent_with_child_items_icon_layout_params =
@@ -1029,6 +1111,24 @@ class VerticalMenuAdapter(
             bhapps_menus_menu_vertical_menu_parent_with_child_items_title.text =
                 visibleItems!![position]!!.title
 
+            //region set Typeface
+            if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString() !=null) {
+                setTextTypeFace(
+                    context,
+                    bhapps_menus_menu_vertical_menu_parent_with_child_items_title,
+                    verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString(),
+                    verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                )
+            }else{
+                setTextTypeFace(
+                    context,
+                    bhapps_menus_menu_vertical_menu_parent_with_child_items_title,
+                    null,
+                    verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                )
+            }
+            //endregion set Typeface
+
             if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_capitalized"] as Boolean) {
                 bhapps_menus_menu_vertical_menu_parent_with_child_items_title.isAllCaps =
                     verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_capitalized"] as Boolean
@@ -1036,7 +1136,10 @@ class VerticalMenuAdapter(
 
             if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_size"] as Int != 0) {
                 bhapps_menus_menu_vertical_menu_parent_with_child_items_title.textSize =
-                bhapps.menus.helpers.Helpers.getIntToDp(view.context, (verticalMenuItemsUISettings["vertical_menu_parent_items_text_size"] as Int)).toFloat()
+                bhapps.menus.helpers.Helpers.getIntToDp(
+                    view.context,
+                    (verticalMenuItemsUISettings["vertical_menu_parent_items_text_size"] as Int)
+                ).toFloat()
             }
 
             if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_color"] as Int != 0) {
@@ -1054,11 +1157,6 @@ class VerticalMenuAdapter(
                 }
             }
 
-            if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean) {
-                bhapps_menus_menu_vertical_menu_parent_with_child_items_title.setTypeface(null, Typeface.BOLD)
-            }else{
-                bhapps_menus_menu_vertical_menu_parent_with_child_items_title.setTypeface(null, Typeface.NORMAL)
-            }
             //endregion set title
 
             //region set badge
@@ -1096,7 +1194,7 @@ class VerticalMenuAdapter(
                             ConstraintLayout.LayoutParams(
                                 ConstraintLayout.LayoutParams.WRAP_CONTENT,
                                 ConstraintLayout.LayoutParams.WRAP_CONTENT
-                        )
+                            )
                         if(verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin"] as Int > 0){
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.topToTop = bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.id
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.bottomToBottom = bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.id
@@ -1113,30 +1211,39 @@ class VerticalMenuAdapter(
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.bottomToBottom = bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.id
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.endToStart = bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.id
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.setMargins(
-                                    verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin_left"] as Int,
-                                    verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin_top"] as Int,
-                                    verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin_right"] as Int,
-                                    verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin_bottom"] as Int
+                                verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin_left"] as Int,
+                                verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin_top"] as Int,
+                                verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin_right"] as Int,
+                                verticalMenuItemsUISettings["vertical_menu_parent_items_badge_margin_bottom"] as Int
                             )
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_width"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.width = verticalMenuItemsUISettings["vertical_menu_parent_items_badge_width"] as Int
                         }else{
-                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.width = getIntToDp(context, VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP)
+                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.width = getIntToDp(
+                                context,
+                                VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
+                            )
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_height"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.height = verticalMenuItemsUISettings["vertical_menu_parent_items_badge_height"] as Int
                         }else{
-                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.height = getIntToDp(context, VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP)
+                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params.height = getIntToDp(
+                                context,
+                                VERTICALMENU_PARENTITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
+                            )
                         }
                         bhapps_menus_menu_vertical_menu_parent_with_child_items_badge.layoutParams = bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_layout_params
                         //endregion set margin
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_size"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.textSize =
-                            bhapps.menus.helpers.Helpers.getIntToDp(view.context, (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_size"] as Int)).toFloat()
+                            bhapps.menus.helpers.Helpers.getIntToDp(
+                                view.context,
+                                (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_size"] as Int)
+                            ).toFloat()
                         }
 
                         bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.text = visibleItems!![position].badge_label
@@ -1147,14 +1254,23 @@ class VerticalMenuAdapter(
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_is_bold"] as Boolean) {
-                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.setTypeface(null, Typeface.BOLD)
+                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.setTypeface(
+                                null,
+                                Typeface.BOLD
+                            )
                         }else{
-                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.setTypeface(null, Typeface.NORMAL)
+                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.setTypeface(
+                                null,
+                                Typeface.NORMAL
+                            )
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_is_visible"] as Boolean) {
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.visibility = View.VISIBLE
-                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.text = setBadgeLabelAsPerLimit(view.context, visibleItems!![position].badge_label)
+                            bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.text = setBadgeLabelAsPerLimit(
+                                view.context,
+                                visibleItems!![position].badge_label
+                            )
                         }else{
                             bhapps_menus_menu_vertical_menu_parent_with_child_items_badge_label.visibility = View.GONE
                         }
@@ -1200,10 +1316,10 @@ class VerticalMenuAdapter(
                 }else{
                     //setPadding(int left, int top, int right, int bottom)
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.setPadding(
-                            verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_left"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_top"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_right"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_bottom"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_left"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_top"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_right"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_bottom"] as Int
                     )
                 }
                 //endregion set padding
@@ -1241,10 +1357,10 @@ class VerticalMenuAdapter(
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params.endToEnd = bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.id
 
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params.setMargins(
-                            verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_left"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_top"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_right"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_bottom"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_left"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_top"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_right"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_bottom"] as Int
                     )
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.layoutParams = bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params
                 }
@@ -1307,10 +1423,10 @@ class VerticalMenuAdapter(
                         bhapps_menus_menu_vertical_menu_parent_with_child_items_divider_layout_params.endToEnd = bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.id
 
                         bhapps_menus_menu_vertical_menu_parent_with_child_items_divider_layout_params.setMargins(
-                                verticalMenuItemsUISettings["vertical_menu_divider_margin_left"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_margin_top"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_margin_right"] as Int,
-                                verticalMenuItemsUISettings["vertical_menu_divider_margin_bottom"] as Int
+                            verticalMenuItemsUISettings["vertical_menu_divider_margin_left"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_margin_top"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_margin_right"] as Int,
+                            verticalMenuItemsUISettings["vertical_menu_divider_margin_bottom"] as Int
                         )
                         bhapps_menus_menu_vertical_menu_parent_with_child_items_divider.layoutParams = bhapps_menus_menu_vertical_menu_parent_with_child_items_divider_layout_params
                     }else{
@@ -1411,10 +1527,20 @@ class VerticalMenuAdapter(
                     }
                 }
 
-                if (verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_is_bold"] as Boolean) {
-                    bhapps_menus_menu_vertical_menu_parent_with_child_items_title.setTypeface(null, Typeface.BOLD)
+                if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString() !=null) {
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_parent_with_child_items_title,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString(),
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_is_bold"] as Boolean
+                    )
                 }else{
-                    bhapps_menus_menu_vertical_menu_parent_with_child_items_title.setTypeface(null, Typeface.NORMAL)
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_parent_with_child_items_title,
+                        null,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_is_bold"] as Boolean
+                    )
                 }
 
                 if (verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_color"] as Int != 0) {
@@ -1458,9 +1584,31 @@ class VerticalMenuAdapter(
                 }
 
                 if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean) {
-                    bhapps_menus_menu_vertical_menu_parent_with_child_items_title.setTypeface(null, Typeface.BOLD)
+                    bhapps_menus_menu_vertical_menu_parent_with_child_items_title.setTypeface(
+                        null,
+                        Typeface.BOLD
+                    )
                 }else{
-                    bhapps_menus_menu_vertical_menu_parent_with_child_items_title.setTypeface(null, Typeface.NORMAL)
+                    bhapps_menus_menu_vertical_menu_parent_with_child_items_title.setTypeface(
+                        null,
+                        Typeface.NORMAL
+                    )
+                }
+
+                if (verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString() !=null) {
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_parent_with_child_items_title,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"].toString(),
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                    )
+                }else{
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_parent_with_child_items_title,
+                        null,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                    )
                 }
 
                 if (verticalMenuItemsUISettings["vertical_menu_parent_items_active_text_color"] as Int != 0) {
@@ -1512,7 +1660,10 @@ class VerticalMenuAdapter(
             
             if(verticalMenuItemsUISettings["vertical_menu_width"] !=null){
                 if(verticalMenuItemsUISettings["vertical_menu_width"] as Int != 0){
-                    bhapps_menus_menu_vertical_menu_child_items_layout.layoutParams.width = verticalMenuItemsUISettings["vertical_menu_width"] as Int
+                    if(!(verticalMenuItemsUISettings["vertical_menu_is_matched_width"] as Boolean)) {
+                        bhapps_menus_menu_vertical_menu_child_items_layout.layoutParams.width =
+                            verticalMenuItemsUISettings["vertical_menu_width"] as Int
+                    }
                 }
             }
 
@@ -1586,9 +1737,14 @@ class VerticalMenuAdapter(
                         bhapps_menus_menu_vertical_menu_child_items_icon.visibility = View.VISIBLE
 
                         try {
-                            bhapps_menus_menu_vertical_menu_child_items_icon.setImageDrawable(visibleItems!![position].icon)
+                            bhapps_menus_menu_vertical_menu_child_items_icon.setImageDrawable(
+                                visibleItems!![position].icon
+                            )
                         }catch (exception: Exception) {
-                            Log.e("setImageDrawable", "setImageDrawable.exception: " + exception.printStackTrace())
+                            Log.e(
+                                "setImageDrawable",
+                                "setImageDrawable.exception: " + exception.printStackTrace()
+                            )
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_child_items_icon_tint_color"] as Int != 0) {
@@ -1689,6 +1845,24 @@ class VerticalMenuAdapter(
             //region set title
             bhapps_menus_menu_vertical_menu_child_items_title.text = visibleItems!![position]!!.title
 
+            //region set Typeface
+            if (verticalMenuItemsUISettings["vertical_menu_child_items_text_font"].toString() !=null) {
+                setTextTypeFace(
+                    context,
+                    bhapps_menus_menu_vertical_menu_child_items_title,
+                    verticalMenuItemsUISettings["vertical_menu_child_items_text_font"].toString(),
+                    verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                )
+            }else{
+                setTextTypeFace(
+                    context,
+                    bhapps_menus_menu_vertical_menu_child_items_title,
+                    null,
+                    verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] as Boolean
+                )
+            }
+            //endregion set Typeface
+
             if (verticalMenuItemsUISettings["vertical_menu_child_items_text_is_capitalized"] !=null) {
                 if (verticalMenuItemsUISettings["vertical_menu_child_items_text_is_capitalized"] as Boolean) {
                     bhapps_menus_menu_vertical_menu_child_items_title.isAllCaps =
@@ -1701,7 +1875,10 @@ class VerticalMenuAdapter(
 
             if (verticalMenuItemsUISettings["vertical_menu_child_items_text_size"] as Int != 0) {
                 bhapps_menus_menu_vertical_menu_child_items_title.textSize =
-                    bhapps.menus.helpers.Helpers.getIntToDp(view.context, (verticalMenuItemsUISettings["vertical_menu_child_items_text_size"] as Int)).toFloat()
+                    bhapps.menus.helpers.Helpers.getIntToDp(
+                        view.context,
+                        (verticalMenuItemsUISettings["vertical_menu_child_items_text_size"] as Int)
+                    ).toFloat()
             }
 
             if (verticalMenuItemsUISettings["vertical_menu_child_items_text_color"] as Int != 0) {
@@ -1719,24 +1896,6 @@ class VerticalMenuAdapter(
                 }
             }
 
-            if (verticalMenuItemsUISettings["vertical_menu_child_items_text_is_bold"] !=null) {
-                if (verticalMenuItemsUISettings["vertical_menu_child_items_text_is_bold"] as Boolean) {
-                    bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
-                        null,
-                        Typeface.BOLD
-                    )
-                } else {
-                    bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
-                        null,
-                        Typeface.NORMAL
-                    )
-                }
-            }else{
-                bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
-                    null,
-                    Typeface.NORMAL
-                )
-            }
             //endregion set title
 
             //region set badge
@@ -1801,13 +1960,19 @@ class VerticalMenuAdapter(
                         if (verticalMenuItemsUISettings["vertical_menu_child_items_badge_width"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_child_items_badge_layout_params.width = verticalMenuItemsUISettings["vertical_menu_child_items_badge_width"] as Int
                         }else{
-                            bhapps_menus_menu_vertical_menu_child_items_badge_layout_params.width = getIntToDp(context, VERTICALMENU_CHILDITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP)
+                            bhapps_menus_menu_vertical_menu_child_items_badge_layout_params.width = getIntToDp(
+                                context,
+                                VERTICALMENU_CHILDITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
+                            )
                         }
 
                         if (verticalMenuItemsUISettings["vertical_menu_child_items_badge_height"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_child_items_badge_layout_params.height = verticalMenuItemsUISettings["vertical_menu_child_items_badge_height"] as Int
                         }else{
-                            bhapps_menus_menu_vertical_menu_child_items_badge_layout_params.height = getIntToDp(context, VERTICALMENU_CHILDITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP)
+                            bhapps_menus_menu_vertical_menu_child_items_badge_layout_params.height = getIntToDp(
+                                context,
+                                VERTICALMENU_CHILDITEMS_BADGE_DEFAULT_WIDTHHEIGHT_DP
+                            )
                         }
 
                         bhapps_menus_menu_vertical_menu_child_items_badge.layoutParams = bhapps_menus_menu_vertical_menu_child_items_badge_layout_params
@@ -1815,7 +1980,10 @@ class VerticalMenuAdapter(
 
                         if (verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_size"] as Int != 0) {
                             bhapps_menus_menu_vertical_menu_child_items_badge_label.textSize =
-                                bhapps.menus.helpers.Helpers.getIntToDp(view.context, (verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_size"] as Int)).toFloat()
+                                bhapps.menus.helpers.Helpers.getIntToDp(
+                                    view.context,
+                                    (verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_size"] as Int)
+                                ).toFloat()
                         }
 
                         bhapps_menus_menu_vertical_menu_child_items_badge_label.text = visibleItems!![position].badge_label
@@ -1847,13 +2015,19 @@ class VerticalMenuAdapter(
                         if (verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_is_visible"] !=null) {
                             if (verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_is_visible"] as Boolean) {
                                 bhapps_menus_menu_vertical_menu_child_items_badge_label.visibility = View.VISIBLE
-                                bhapps_menus_menu_vertical_menu_child_items_badge_label.text = setBadgeLabelAsPerLimit(view.context, visibleItems!![position].badge_label)
+                                bhapps_menus_menu_vertical_menu_child_items_badge_label.text = setBadgeLabelAsPerLimit(
+                                    view.context,
+                                    visibleItems!![position].badge_label
+                                )
                             } else {
                                 bhapps_menus_menu_vertical_menu_child_items_badge_label.visibility = View.GONE
                             }
                         }else{
                             bhapps_menus_menu_vertical_menu_child_items_badge_label.visibility = View.VISIBLE
-                            bhapps_menus_menu_vertical_menu_child_items_badge_label.text = setBadgeLabelAsPerLimit(view.context, visibleItems!![position].badge_label)
+                            bhapps_menus_menu_vertical_menu_child_items_badge_label.text = setBadgeLabelAsPerLimit(
+                                view.context,
+                                visibleItems!![position].badge_label
+                            )
                         }
 
 
@@ -1914,7 +2088,12 @@ class VerticalMenuAdapter(
             }
             
             view.setOnClickListener { view ->
-                onItemClickListener!!.onItemClick(view, visibleItems!![position]!!.id, position, visibleItems!![position]!!)
+                onItemClickListener!!.onItemClick(
+                    view,
+                    visibleItems!![position]!!.id,
+                    position,
+                    visibleItems!![position]!!
+                )
                 
                 setActiveState(
                     context,
@@ -1975,22 +2154,19 @@ class VerticalMenuAdapter(
                     }
                 }
 
-                if (verticalMenuItemsUISettings["vertical_menu_child_items_active_text_is_bold"] !=null) {
-                    if (verticalMenuItemsUISettings["vertical_menu_child_items_active_text_is_bold"] as Boolean) {
-                        bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
-                            null,
-                            Typeface.BOLD
-                        )
-                    } else {
-                        bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
-                            null,
-                            Typeface.NORMAL
-                        )
-                    }
+                if (verticalMenuItemsUISettings["vertical_menu_child_items_text_font"].toString() !=null) {
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_child_items_title,
+                        verticalMenuItemsUISettings["vertical_menu_child_items_text_font"].toString(),
+                        verticalMenuItemsUISettings["vertical_menu_child_items_active_text_is_bold"] as Boolean
+                    )
                 }else{
-                    bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_child_items_title,
                         null,
-                        Typeface.NORMAL
+                        verticalMenuItemsUISettings["vertical_menu_child_items_active_text_is_bold"] as Boolean
                     )
                 }
 
@@ -2036,22 +2212,19 @@ class VerticalMenuAdapter(
                     )
                 }
 
-                if (verticalMenuItemsUISettings["vertical_menu_child_items_text_is_bold"] !=null) {
-                    if (verticalMenuItemsUISettings["vertical_menu_child_items_text_is_bold"] as Boolean) {
-                        bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
-                            null,
-                            Typeface.BOLD
-                        )
-                    } else {
-                        bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
-                            null,
-                            Typeface.NORMAL
-                        )
-                    }
+                if (verticalMenuItemsUISettings["vertical_menu_child_items_text_font"].toString() !=null) {
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_child_items_title,
+                        verticalMenuItemsUISettings["vertical_menu_child_items_text_font"].toString(),
+                        verticalMenuItemsUISettings["vertical_menu_child_items_text_is_bold"] as Boolean
+                    )
                 }else{
-                    bhapps_menus_menu_vertical_menu_child_items_title.setTypeface(
+                    setTextTypeFace(
+                        context,
+                        bhapps_menus_menu_vertical_menu_child_items_title,
                         null,
-                        Typeface.NORMAL
+                        verticalMenuItemsUISettings["vertical_menu_child_items_text_is_bold"] as Boolean
                     )
                 }
 
@@ -2116,6 +2289,16 @@ class VerticalMenuAdapter(
         var bhapps_menus_menu_vertical_menu_title_item_divider: View
         fun bind(position: Int) {
 
+            if(verticalMenuItemsUISettings["vertical_menu_width"] !=null){
+                if(verticalMenuItemsUISettings["vertical_menu_width"] as Int != 0){
+                    if(!(verticalMenuItemsUISettings["vertical_menu_is_matched_width"] as Boolean)) {
+                        bhapps_menus_menu_vertical_menu_title_item_layout.layoutParams.width =
+                            verticalMenuItemsUISettings["vertical_menu_width"] as Int
+                    }
+
+                }
+            }
+
             //region set padding
             if(verticalMenuItemsUISettings["vertical_menu_title_items_padding"] !=null) {
                 if (verticalMenuItemsUISettings["vertical_menu_title_items_padding"] as Int > 0) {
@@ -2163,10 +2346,10 @@ class VerticalMenuAdapter(
                             ConstraintLayout.LayoutParams.WRAP_CONTENT
                         )
                     bhapps_menus_menu_vertical_menu_title_item_layout_layout_params.setMargins(
-                            verticalMenuItemsUISettings["vertical_menu_title_items_margin_left"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_title_items_margin_top"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_title_items_margin_right"] as Int,
-                            verticalMenuItemsUISettings["vertical_menu_title_items_margin_bottom"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_title_items_margin_left"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_title_items_margin_top"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_title_items_margin_right"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_title_items_margin_bottom"] as Int
                     )
                     bhapps_menus_menu_vertical_menu_title_item_layout.layoutParams =
                         bhapps_menus_menu_vertical_menu_title_item_layout_layout_params
@@ -2178,6 +2361,25 @@ class VerticalMenuAdapter(
             bhapps_menus_menu_vertical_menu_title_item_parent_title.text =
                 visibleItems!![position]!!.title
 
+            //region set Typeface
+
+            if (verticalMenuItemsUISettings["vertical_menu_title_items_text_font"].toString() !=null) {
+                setTextTypeFace(
+                    context,
+                    bhapps_menus_menu_vertical_menu_title_item_parent_title,
+                    verticalMenuItemsUISettings["vertical_menu_title_items_text_font"].toString(),
+                    verticalMenuItemsUISettings["vertical_menu_title_items_text_is_bold"] as Boolean
+                )
+            }else{
+                setTextTypeFace(
+                    context,
+                    bhapps_menus_menu_vertical_menu_title_item_parent_title,
+                    null,
+                    verticalMenuItemsUISettings["vertical_menu_title_items_text_is_bold"] as Boolean
+                )
+            }
+            //endregion set Typeface
+
             if (verticalMenuItemsUISettings["vertical_menu_title_items_text_is_capitalized"] as Boolean) {
                 bhapps_menus_menu_vertical_menu_title_item_parent_title.isAllCaps =
                     verticalMenuItemsUISettings["vertical_menu_title_items_text_is_capitalized"] as Boolean
@@ -2185,7 +2387,10 @@ class VerticalMenuAdapter(
 
             if (verticalMenuItemsUISettings["vertical_menu_title_items_text_size"] as Int != 0) {
                 bhapps_menus_menu_vertical_menu_title_item_parent_title.textSize =
-                    bhapps.menus.helpers.Helpers.getIntToDp(view.context, (verticalMenuItemsUISettings["vertical_menu_title_items_text_size"] as Int)).toFloat()
+                    bhapps.menus.helpers.Helpers.getIntToDp(
+                        view.context,
+                        (verticalMenuItemsUISettings["vertical_menu_title_items_text_size"] as Int)
+                    ).toFloat()
             }
 
             if (verticalMenuItemsUISettings["vertical_menu_title_items_text_color"] as Int != 0) {
@@ -2194,11 +2399,6 @@ class VerticalMenuAdapter(
                 )
             }
 
-            if (verticalMenuItemsUISettings["vertical_menu_title_items_text_is_bold"] as Boolean) {
-                bhapps_menus_menu_vertical_menu_title_item_parent_title.setTypeface(null, Typeface.BOLD)
-            }else{
-                bhapps_menus_menu_vertical_menu_title_item_parent_title.setTypeface(null, Typeface.NORMAL)
-            }
             //endregion set title
 
             //region set divider
@@ -2219,7 +2419,7 @@ class VerticalMenuAdapter(
             //endregion set divider
 
             //region set setOnClickListener
-            view.setOnClickListener { view ->
+            view.setOnClickListener {
                 //onItemClickListener!!.onItemClick(view, visibleItems!![position]!!.id)
             }
             //endregion set setOnClickListener
@@ -2243,6 +2443,51 @@ class VerticalMenuAdapter(
         }
     }
     //endregion TitleViewHolder
+
+    fun setTextTypeFace(context: Context, view: TextView, fontName: String?, bold: Boolean){
+
+
+        try {
+
+            if(verticalMenuItemsUITypefaces[fontName!!] != null){
+                view.setTypeface(
+                    verticalMenuItemsUITypefaces[fontName!!],
+                    if (bold) {
+                        Typeface.BOLD
+                    } else {
+                        Typeface.NORMAL
+                    }
+                )
+
+            }else {
+                val typeface = Typeface.createFromAsset(
+                    context.assets,
+                    fontName
+                )
+                view.setTypeface(
+                    typeface,
+                    if (bold) {
+                        Typeface.BOLD
+                    } else {
+                        Typeface.NORMAL
+                    }
+                )
+
+                verticalMenuItemsUITypefaces[fontName!!] = typeface
+            }
+
+        }catch (exception: Exception) {
+            view.setTypeface(
+                null,
+                if(bold){
+                    Typeface.BOLD
+                }else{
+                    Typeface.NORMAL
+                }
+            )
+        }
+
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

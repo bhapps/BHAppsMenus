@@ -16,6 +16,7 @@
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <bhapps.menus.vertical.verticalmenu.VerticalMenu
+                    android:visibility="gone"
                     android:id="@+id/bhapps_menus_menu_vertical_menu_icons_only"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -74,12 +75,13 @@
 
                 <bhapps.menus.vertical.verticalmenu.VerticalMenu
                     android:id="@+id/bhapps_menus_menu_vertical_menu"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintStart_toEndOf="@+id/bhapps_menus_menu_vertical_menu_icons_only"
                     app:layout_constraintTop_toBottomOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
 
+                    app:vertical_menu_is_matched_width="true"
                     app:vertical_menu_enable_nested_scrolling="true"
                     app:vertical_menu_active_state_on_left="false"
 
@@ -110,6 +112,7 @@
 
                     app:vertical_menu_parent_items_text_is_capitalized="false"
                     app:vertical_menu_parent_items_text_is_bold="false"
+                    app:vertical_menu_parent_items_text_font="anton_regular.ttf"
                     app:vertical_menu_parent_items_text_size="16sp"
                     app:vertical_menu_parent_items_text_is_visible="true"
 
@@ -165,6 +168,7 @@
                     app:vertical_menu_collapse_icon_is_visible="true"
 
                     app:vertical_menu_title_items_padding="16dp"
+                    app:vertical_menu_title_items_text_font="anton_regular.ttf"
                     app:vertical_menu_title_items_text_size="@dimen/bhapps_menus_menu_dimension_12dp"
                     app:vertical_menu_title_items_text_is_capitalized="true"
                     app:vertical_menu_title_items_text_is_bold="true"
@@ -176,6 +180,7 @@
                     app:vertical_menu_child_items_background_color="@android:color/transparent"
                     app:vertical_menu_child_items_active_background_color="@color/defaultLightColor"
 
+                    app:vertical_menu_child_items_text_font="anton_regular.ttf"
                     app:vertical_menu_child_items_text_is_capitalized="false"
                     app:vertical_menu_child_items_text_is_bold="false"
                     app:vertical_menu_child_items_text_size="@dimen/bhapps_menus_menu_dimension_12dp"
@@ -214,6 +219,7 @@
                     />
 
                 <bhapps.menus.vertical.verticalmenu.VerticalMenu
+                    android:visibility="gone"
                     android:id="@+id/bhapps_menus_menu_vertical_menu_with_active_chip_background"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -288,6 +294,7 @@
                     />
 
                 <bhapps.menus.vertical.verticalmenu.VerticalMenu
+                    android:visibility="gone"
                     android:id="@+id/bhapps_menus_menu_vertical_menu_with_active_gradient_background"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -365,6 +372,7 @@
                     />
 
                 <bhapps.menus.vertical.verticalmenu.VerticalMenu
+                    android:visibility="gone"
                     android:id="@+id/bhapps_menus_menu_vertical_menu_icons_only_right"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

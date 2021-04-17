@@ -30,7 +30,7 @@
         <!-- todo: implement TextView/Title UI attr/app values -->
         <TextView
                 android:id="@+id/bhapps_menus_menu_vertical_menu_parent_with_child_items_title"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/bhapps_menus_menu_dimension_0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/bhapps_menus_menu_vertical_menu_parent_item_title_color"
                 android:singleLine="true"

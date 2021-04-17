@@ -5,6 +5,8 @@ import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.util.AttributeSet
+import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.ColorInt
@@ -19,6 +21,7 @@ import bhapps.menus.vertical.verticalmenu.annotations.DpAnnotation
 import bhapps.menus.vertical.verticalmenu.config.INDEX_UNSELECTED
 import bhapps.menus.vertical.verticalmenu.extensions.getIntToDp
 import bhapps.menus.vertical.verticalmenu.models.VerticalMenuItem
+import kotlin.math.absoluteValue
 
 class VerticalMenu
     @JvmOverloads
@@ -78,6 +81,7 @@ class VerticalMenu
 
     //region get/set vertical_menu values
     var _vertical_menu_is_responsive_menu: Boolean = false
+    var _vertical_menu_is_matched_width: Boolean = false
     var _vertical_menu_width: Int = 0
     var _vertical_menu_max_width: Int = 0
     var _vertical_menu_padding: Int = 0
@@ -162,6 +166,7 @@ class VerticalMenu
     var _vertical_menu_parent_items_background_drawable: Drawable? = null
     var _vertical_menu_parent_items_active_background_drawable: Drawable? = null
     var _vertical_menu_parent_items_text_color: Int = 0
+    var _vertical_menu_parent_items_text_font: String = ""
     var _vertical_menu_parent_items_text_size: Int = 0
     var _vertical_menu_parent_items_text_is_capitalized: Boolean = false
     var _vertical_menu_parent_items_text_is_bold: Boolean = false
@@ -216,6 +221,7 @@ class VerticalMenu
     var _vertical_menu_parent_items_badge_border_color: Int = 0
     var _vertical_menu_parent_items_badge_border_thickness: Int = 0
     var _vertical_menu_parent_items_badge_text_color: Int = 0
+    var _vertical_menu_parent_items_badge_text_font: String = ""
     var _vertical_menu_parent_items_badge_text_size: Int = 0
     var _vertical_menu_parent_items_badge_text_is_bold: Boolean = false
     var _vertical_menu_parent_items_badge_text_is_visible: Boolean =  true
@@ -279,6 +285,7 @@ class VerticalMenu
     var _vertical_menu_title_items_background_color: Int =  0
     var _vertical_menu_title_items_background_drawable: Int =  0
     var _vertical_menu_title_items_text_color: Int =  0
+    var _vertical_menu_title_items_text_font: String = ""
     var _vertical_menu_title_items_text_size: Int =  0
     var _vertical_menu_title_items_text_is_capitalized: Boolean =  false
     var _vertical_menu_title_items_text_is_bold: Boolean =  false
@@ -303,6 +310,7 @@ class VerticalMenu
     var _vertical_menu_child_items_background_color: Int = 0
     var _vertical_menu_child_items_active_background_color: Int = 0
     var _vertical_menu_child_items_text_color: Int = 0
+    var _vertical_menu_child_items_text_font: String = ""
     var _vertical_menu_child_items_text_size: Int = 0
     var _vertical_menu_child_items_text_is_capitalized: Boolean = true
     var _vertical_menu_child_items_text_is_bold: Boolean = true
@@ -355,6 +363,7 @@ class VerticalMenu
     var _vertical_menu_child_items_badge_border_color: Int = 0
     var _vertical_menu_child_items_badge_border_thickness: Int = 0
     var _vertical_menu_child_items_badge_text_color: Int = 0
+    var _vertical_menu_child_items_badge_text_font: String = ""
     var _vertical_menu_child_items_badge_text_size: Int = 0
     var _vertical_menu_child_items_badge_text_is_bold: Boolean = true
     var _vertical_menu_child_items_badge_is_visible: Boolean = true
@@ -370,7 +379,10 @@ class VerticalMenu
         get() = _vertical_menu_is_responsive_menu
         set(value) { _vertical_menu_is_responsive_menu = value
     }
-
+    var vertical_menu_is_matched_width: Boolean
+        get() = _vertical_menu_is_matched_width
+        set(value) { _vertical_menu_is_matched_width = value
+        }
     var vertical_menu_width: Int @Px
         get() = _vertical_menu_width
         set(@DpAnnotation value) { _vertical_menu_width = dpToPx(value)
@@ -758,6 +770,10 @@ class VerticalMenu
         get() = _vertical_menu_parent_items_text_color 
         set(@ColorInt value) { _vertical_menu_parent_items_text_color = value
     }
+    var vertical_menu_parent_items_text_font: String
+        get() = _vertical_menu_parent_items_text_font
+        set(value) { _vertical_menu_parent_items_text_font = value
+    }
     var vertical_menu_parent_items_text_size: Int @Px 
         get() = _vertical_menu_parent_items_text_size 
         set(@DpAnnotation value) { _vertical_menu_parent_items_text_size = dpToPx(value)
@@ -966,6 +982,10 @@ class VerticalMenu
         get() = _vertical_menu_parent_items_badge_text_color 
         set(@ColorInt value) { _vertical_menu_parent_items_badge_text_color = value
     }
+    var vertical_menu_parent_items_badge_text_font: String
+        get() = _vertical_menu_parent_items_badge_text_font
+        set(value) { _vertical_menu_parent_items_badge_text_font = value
+        }
     var vertical_menu_parent_items_badge_text_size: Int @Px 
         get() = _vertical_menu_parent_items_badge_text_size 
         set(@DpAnnotation value) { _vertical_menu_parent_items_badge_text_size = dpToPx(value)
@@ -1133,9 +1153,13 @@ class VerticalMenu
         set(value) { _vertical_menu_title_items_background_drawable =  value
         }
     var vertical_menu_title_items_text_color: Int @ColorInt
-    get() =	_vertical_menu_title_items_text_color
+        get() =	_vertical_menu_title_items_text_color
         set(@ColorInt value) { _vertical_menu_title_items_text_color =  value
-        }
+    }
+    var vertical_menu_title_items_text_font: String
+        get() = _vertical_menu_title_items_text_font
+        set(value) { _vertical_menu_title_items_text_font = value
+    }
     var vertical_menu_title_items_text_size: Int @Px
     get() = _vertical_menu_title_items_text_size
         set(@DpAnnotation value) { _vertical_menu_title_items_text_size = dpToPx(value)
@@ -1223,6 +1247,10 @@ class VerticalMenu
     var vertical_menu_child_items_text_color: Int @ColorInt
         get() =	_vertical_menu_child_items_text_color
         set(@ColorInt value) { _vertical_menu_child_items_text_color =  value
+    }
+    var vertical_menu_child_items_text_font: String
+        get() = _vertical_menu_child_items_text_font
+        set(value) { _vertical_menu_child_items_text_font = value
     }
     var vertical_menu_child_items_text_size: Int @Px 
         get() = _vertical_menu_child_items_text_size
@@ -1432,6 +1460,10 @@ class VerticalMenu
         get() = _vertical_menu_child_items_badge_text_color
         set(@ColorInt value) { _vertical_menu_child_items_badge_text_color =  value
     }
+    var vertical_menu_child_items_badge_text_font: String
+        get() = _vertical_menu_child_items_badge_text_font
+        set(value) { _vertical_menu_child_items_badge_text_font = value
+    }
     var vertical_menu_child_items_badge_text_size: Int @Px 
         get() = _vertical_menu_child_items_badge_text_size
         set(@DpAnnotation value) { _vertical_menu_child_items_badge_text_size = dpToPx(value)
@@ -1494,8 +1526,10 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_is_responsive_menu,
             this._vertical_menu_is_responsive_menu
         )
-
-
+        this.vertical_menu_is_matched_width = typedArray.getBoolean(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_is_matched_width,
+            this._vertical_menu_is_matched_width
+        )
         this._vertical_menu_width = typedArray.getDimensionPixelSize(
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_width,
             this._vertical_menu_width
@@ -1879,6 +1913,14 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_text_color,
             this._vertical_menu_parent_items_text_color
         )
+
+        if(typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_text_font
+            ) !=null) {
+            this._vertical_menu_parent_items_text_font = typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_text_font
+            )
+        }
         this._vertical_menu_parent_items_text_size = typedArray.getDimensionPixelSize(
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_text_size,
             this._vertical_menu_parent_items_text_size
@@ -2087,6 +2129,13 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_badge_text_color,
             this._vertical_menu_parent_items_badge_text_color
         )
+        if(typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_badge_text_font
+            )!=null) {
+            this._vertical_menu_parent_items_badge_text_font = typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_badge_text_font
+            )
+        }
         this._vertical_menu_parent_items_badge_text_size = typedArray.getDimensionPixelSize(
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_badge_text_size,
             this._vertical_menu_parent_items_badge_text_size
@@ -2107,7 +2156,6 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_badge_is_cleared_on_active,
             this._vertical_menu_parent_items_badge_is_cleared_on_active
         )
-
         this._vertical_menu_parent_items_navigation_icon_width = typedArray.getDimensionPixelSize(
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_navigation_icon_width,
             this._vertical_menu_parent_items_navigation_icon_width
@@ -2239,6 +2287,13 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_title_items_text_color,
             this._vertical_menu_title_items_text_color
         )
+        if(typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_title_items_text_font
+            )!=null) {
+            this._vertical_menu_title_items_text_font = typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_title_items_text_font
+            )
+        }
         this._vertical_menu_title_items_text_size = typedArray.getDimensionPixelSize(
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_title_items_text_size,
             this._vertical_menu_title_items_text_size
@@ -2326,6 +2381,13 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_child_items_text_color,
             this._vertical_menu_child_items_text_color
         )
+        if(typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_child_items_text_font
+            )!=null) {
+            this._vertical_menu_child_items_text_font = typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_child_items_text_font
+            )
+        }
         this._vertical_menu_child_items_text_size = typedArray.getDimensionPixelSize(
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_child_items_text_size,
             this._vertical_menu_child_items_text_size
@@ -2534,6 +2596,13 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_child_items_badge_text_color,
             this._vertical_menu_child_items_badge_text_color
         )
+        if(typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_child_items_badge_text_font
+            )!=null) {
+            this._vertical_menu_child_items_badge_text_font = typedArray.getString(
+                R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_child_items_badge_text_font
+            )
+        }
         this._vertical_menu_child_items_badge_text_size = typedArray.getDimensionPixelSize(
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_child_items_badge_text_size,
             this._vertical_menu_child_items_badge_text_size
@@ -2582,6 +2651,7 @@ class VerticalMenu
     fun setVerticalMenuItemsUISettings() {
 
         verticalMenuItemsUISettings["vertical_menu_is_responsive_menu"] = currentScreenOrientationIsPortrait
+        verticalMenuItemsUISettings["vertical_menu_is_matched_width"] = this@VerticalMenu.vertical_menu_is_matched_width
 
         if(this@VerticalMenu.vertical_menu_width > 0){
             if(this@VerticalMenu.vertical_menu_border_thickness > 0 && this@VerticalMenu.vertical_menu_border_is_visible){
@@ -2665,6 +2735,7 @@ class VerticalMenu
         verticalMenuItemsUISettings["vertical_menu_parent_items_background_drawable"] = this@VerticalMenu.vertical_menu_parent_items_background_drawable
         verticalMenuItemsUISettings["vertical_menu_parent_items_active_background_drawable"] = this@VerticalMenu.vertical_menu_parent_items_active_background_drawable
         verticalMenuItemsUISettings["vertical_menu_parent_items_text_color"] = this@VerticalMenu.vertical_menu_parent_items_text_color
+        verticalMenuItemsUISettings["vertical_menu_parent_items_text_font"] = this@VerticalMenu.vertical_menu_parent_items_text_font
         verticalMenuItemsUISettings["vertical_menu_parent_items_text_size"] = this@VerticalMenu.vertical_menu_parent_items_text_size
         verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_capitalized"] = this@VerticalMenu.vertical_menu_parent_items_text_is_capitalized
         verticalMenuItemsUISettings["vertical_menu_parent_items_text_is_bold"] = this@VerticalMenu.vertical_menu_parent_items_text_is_bold
@@ -2719,6 +2790,7 @@ class VerticalMenu
         verticalMenuItemsUISettings["vertical_menu_parent_items_badge_border_color"] = this@VerticalMenu.vertical_menu_parent_items_badge_border_color
         verticalMenuItemsUISettings["vertical_menu_parent_items_badge_border_thickness"] = this@VerticalMenu.vertical_menu_parent_items_badge_border_thickness
         verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_color"] = this@VerticalMenu.vertical_menu_parent_items_badge_text_color
+        verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_font"] = this@VerticalMenu.vertical_menu_parent_items_badge_text_font
         verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_size"] = this@VerticalMenu.vertical_menu_parent_items_badge_text_size
         verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_is_bold"] = this@VerticalMenu.vertical_menu_parent_items_badge_text_is_bold
         verticalMenuItemsUISettings["vertical_menu_parent_items_badge_text_is_visible"] = this@VerticalMenu.vertical_menu_parent_items_badge_text_is_visible
@@ -2779,6 +2851,7 @@ class VerticalMenu
         verticalMenuItemsUISettings["vertical_menu_title_items_background_color"] = this@VerticalMenu.vertical_menu_title_items_background_color
         verticalMenuItemsUISettings["vertical_menu_title_items_background_drawable"] = this@VerticalMenu.vertical_menu_title_items_background_drawable
         verticalMenuItemsUISettings["vertical_menu_title_items_text_color"] = this@VerticalMenu.vertical_menu_title_items_text_color
+        verticalMenuItemsUISettings["vertical_menu_title_items_text_font"] = this@VerticalMenu.vertical_menu_title_items_text_font
         verticalMenuItemsUISettings["vertical_menu_title_items_text_size"] = this@VerticalMenu.vertical_menu_title_items_text_size
         verticalMenuItemsUISettings["vertical_menu_title_items_text_is_capitalized"] = this@VerticalMenu.vertical_menu_title_items_text_is_capitalized
         verticalMenuItemsUISettings["vertical_menu_title_items_text_is_bold"] = this@VerticalMenu.vertical_menu_title_items_text_is_bold
@@ -2801,6 +2874,7 @@ class VerticalMenu
         verticalMenuItemsUISettings["vertical_menu_child_items_background_color"] = this@VerticalMenu.vertical_menu_child_items_background_color
         verticalMenuItemsUISettings["vertical_menu_child_items_active_background_color"] = this@VerticalMenu.vertical_menu_child_items_active_background_color
         verticalMenuItemsUISettings["vertical_menu_child_items_text_color"] = this@VerticalMenu.vertical_menu_child_items_text_color
+        verticalMenuItemsUISettings["vertical_menu_child_items_text_font"] = this@VerticalMenu.vertical_menu_child_items_text_font
         verticalMenuItemsUISettings["vertical_menu_child_items_text_size"] = this@VerticalMenu.vertical_menu_child_items_text_size
         verticalMenuItemsUISettings["vertical_menu_child_items_text_is_capitalized"] = this@VerticalMenu.vertical_menu_child_items_text_is_capitalized
         verticalMenuItemsUISettings["vertical_menu_child_items_text_is_bold"] = this@VerticalMenu.vertical_menu_child_items_text_is_bold
@@ -2853,6 +2927,7 @@ class VerticalMenu
         verticalMenuItemsUISettings["vertical_menu_child_items_badge_border_color"] = this@VerticalMenu.vertical_menu_child_items_badge_border_color
         verticalMenuItemsUISettings["vertical_menu_child_items_badge_border_thickness"] = this@VerticalMenu.vertical_menu_child_items_badge_border_thickness
         verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_color"] = this@VerticalMenu.vertical_menu_child_items_badge_text_color
+        verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_font"] = this@VerticalMenu.vertical_menu_child_items_badge_text_font
         verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_size"] = this@VerticalMenu.vertical_menu_child_items_badge_text_size
         verticalMenuItemsUISettings["vertical_menu_child_items_badge_text_is_bold"] = this@VerticalMenu.vertical_menu_child_items_badge_text_is_bold
         verticalMenuItemsUISettings["vertical_menu_child_items_badge_is_visible"] = this@VerticalMenu.vertical_menu_child_items_badge_is_visible
@@ -2893,6 +2968,17 @@ class VerticalMenu
         var setWidth = 200
         var setResponsiveWidth = 54
         var setBorderThckiness = 0
+
+        var layoutParams = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.MATCH_PARENT,
+            ConstraintLayout.LayoutParams.MATCH_PARENT
+        )
+
+        var layoutParamsForRecycleView = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.MATCH_PARENT,
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+
         if(this@VerticalMenu.vertical_menu_width > 0){
 
             if(this@VerticalMenu.vertical_menu_border_thickness > 0 && this@VerticalMenu.vertical_menu_border_is_visible){
@@ -2909,23 +2995,26 @@ class VerticalMenu
             bhappsMenusMenuVerticalMenuShimmerLayout.layoutParams.width = this@VerticalMenu.vertical_menu_width
         }else{
 
-            var getIntToDp = getIntToDp(context, 200)
-            if(this@VerticalMenu.vertical_menu_show_icons_only) {
-                getIntToDp = getIntToDp(context, 45)
-            }
-            if(this@VerticalMenu.vertical_menu_border_thickness > 0 && this@VerticalMenu.vertical_menu_border_is_visible){
-                setBorderThckiness = this@VerticalMenu.vertical_menu_border_thickness
-                bhappsMenusMenuVerticalMenuLayout.layoutParams.width = getIntToDp + this@VerticalMenu.vertical_menu_border_thickness
-                setWidth = getIntToDp + this@VerticalMenu.vertical_menu_border_thickness
+            if(!this@VerticalMenu.vertical_menu_is_matched_width) {
+                var getIntToDp = getIntToDp(context, 200)
+                if (this@VerticalMenu.vertical_menu_show_icons_only) {
+                    getIntToDp = getIntToDp(context, 45)
+                }
+                if (this@VerticalMenu.vertical_menu_border_thickness > 0 && this@VerticalMenu.vertical_menu_border_is_visible) {
+                    setBorderThckiness = this@VerticalMenu.vertical_menu_border_thickness
+                    bhappsMenusMenuVerticalMenuLayout.layoutParams.width =
+                        getIntToDp + this@VerticalMenu.vertical_menu_border_thickness
+                    setWidth = getIntToDp + this@VerticalMenu.vertical_menu_border_thickness
 
-            }else{
-                bhappsMenusMenuVerticalMenuLayout.layoutParams.width = getIntToDp
-                setWidth = getIntToDp
-            }
+                } else {
+                    bhappsMenusMenuVerticalMenuLayout.layoutParams.width = getIntToDp
+                    setWidth = getIntToDp
+                }
 
-            bhappsMenusMenuVerticalMenuWidthHolder.layoutParams.width = getIntToDp
-            bhappsMenusMenuVerticalMenuRecycleView.layoutParams.width = getIntToDp
-            bhappsMenusMenuVerticalMenuShimmerLayout.layoutParams.width = getIntToDp
+                bhappsMenusMenuVerticalMenuWidthHolder.layoutParams.width = getIntToDp
+                bhappsMenusMenuVerticalMenuRecycleView.layoutParams.width = getIntToDp
+                bhappsMenusMenuVerticalMenuShimmerLayout.layoutParams.width = getIntToDp
+            }
 
         }
 
@@ -2949,10 +3038,6 @@ class VerticalMenu
 
         if(this@VerticalMenu.vertical_menu_margin > 0){
             //setMargins(int left, int top, int right, int bottom)
-            var layoutParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                ConstraintLayout.LayoutParams.MATCH_PARENT
-            )
             layoutParams.setMargins(
                 this@VerticalMenu.vertical_menu_margin,
                 this@VerticalMenu.vertical_menu_margin,
@@ -2962,10 +3047,6 @@ class VerticalMenu
             bhappsMenusMenuVerticalMenuLayout.layoutParams = layoutParams
         }else{
             //setMargins(int left, int top, int right, int bottom)
-            var layoutParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                ConstraintLayout.LayoutParams.MATCH_PARENT
-            )
             layoutParams.setMargins(
                 this@VerticalMenu.vertical_menu_margin_left,
                 this@VerticalMenu.vertical_menu_margin_top,
@@ -2982,11 +3063,31 @@ class VerticalMenu
             bhappsMenusMenuVerticalMenuShimmerLayout.layoutParams.width = setResponsiveWidth
         }
 
-        if(this@VerticalMenu.vertical_menu_alignment_position !=null) {
-            var layoutParamsForRecycleView = ConstraintLayout.LayoutParams(
+        if(this@VerticalMenu.vertical_menu_is_matched_width){
+
+            layoutParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT
+            )
+
+            layoutParamsForRecycleView = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT
+            )
+        }else{
+
+            layoutParams = ConstraintLayout.LayoutParams(
+                setWidth,
+                ConstraintLayout.LayoutParams.MATCH_PARENT
+            )
+
+            layoutParamsForRecycleView = ConstraintLayout.LayoutParams(
                 setWidth,
                 ConstraintLayout.LayoutParams.WRAP_CONTENT
             )
+        }
+
+        if(this@VerticalMenu.vertical_menu_alignment_position !=null) {
             if (this@VerticalMenu.vertical_menu_alignment_position == 1) {
                 //top align
                 layoutParamsForRecycleView.topToBottom = bhappsMenusMenuVerticalMenuLogo.id
@@ -3007,10 +3108,6 @@ class VerticalMenu
                 layoutParamsForRecycleView.endToEnd = bhappsMenusMenuVerticalMenuLayout.id
                 bhappsMenusMenuVerticalMenuRecycleView.layoutParams = layoutParamsForRecycleView
             }else{
-                var layoutParamsForRecycleView = ConstraintLayout.LayoutParams(
-                    setWidth,
-                    ConstraintLayout.LayoutParams.WRAP_CONTENT
-                )
                 layoutParamsForRecycleView.topToBottom = bhappsMenusMenuVerticalMenuLogo.id
                 layoutParamsForRecycleView.startToStart = bhappsMenusMenuVerticalMenuLayout.id
                 layoutParamsForRecycleView.endToEnd = bhappsMenusMenuVerticalMenuLayout.id
