@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:clickable="false">
 
-    <View
+    <ConstraintLayout
             android:id="@+id/bhapps_menus_menu_vertical_menu_divider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bhapps_menus_menu_dimension_1dp"
