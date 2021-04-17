@@ -138,26 +138,26 @@
         <attr name="vertical_menu_parent_items_badge_is_visible" format="boolean" />
         <attr name="vertical_menu_parent_items_badge_is_cleared_on_active" format="boolean" />
 
-        <attr name="vertical_menu_collapse_type" format="integer" />
-        <attr name="vertical_menu_collapse_others" format="boolean" />
-        <attr name="vertical_menu_collapse_expand_delay" format="integer" />
-        <attr name="vertical_menu_collapse_icon_rotate" format="integer" />
-        <attr name="vertical_menu_collapse_icon_rotate_duration" format="integer" />
-        <attr name="vertical_menu_collapse_icon_width" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_height" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_padding" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_padding_left" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_padding_right" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_padding_top" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_padding_bottom" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_margin" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_margin_left" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_margin_right" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_margin_top" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_margin_bottom" format="dimension" />
-        <attr name="vertical_menu_collapse_icon_color" format="reference|color" />
-        <attr name="vertical_menu_collapse_icon_drawable" format="reference" />
-        <attr name="vertical_menu_collapse_icon_is_visible" format="boolean" />
+        <attr name="vertical_menu_parent_items_collapse_type" format="integer" />
+        <attr name="vertical_menu_parent_items_collapse_others" format="boolean" />
+        <attr name="vertical_menu_parent_items_collapse_expand_delay" format="integer" />
+        <attr name="vertical_menu_parent_items_collapse_icon_rotate" format="integer" />
+        <attr name="vertical_menu_parent_items_collapse_icon_rotate_duration" format="integer" />
+        <attr name="vertical_menu_parent_items_collapse_icon_width" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_height" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_padding" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_padding_left" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_padding_right" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_padding_top" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_padding_bottom" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_margin" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_margin_left" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_margin_right" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_margin_top" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_margin_bottom" format="dimension" />
+        <attr name="vertical_menu_parent_items_collapse_icon_color" format="reference|color" />
+        <attr name="vertical_menu_parent_items_collapse_icon_drawable" format="reference" />
+        <attr name="vertical_menu_parent_items_collapse_icon_is_visible" format="boolean" />
 
         <attr name="vertical_menu_parent_items_navigation_icon_width" format="dimension" />
         <attr name="vertical_menu_parent_items_navigation_icon_height" format="dimension" />
@@ -191,6 +191,22 @@
         <attr name="vertical_menu_divider_margin_top" format="dimension" />
         <attr name="vertical_menu_divider_margin_bottom" format="dimension" />
         <attr name="vertical_menu_divider_is_visible" format="boolean" />
+        
+        <!-- divider items -->
+        <attr name="vertical_menu_divider_items_color" format="reference|color" />
+        <attr name="vertical_menu_divider_items_width" format="dimension" />
+        <attr name="vertical_menu_divider_items_height" format="dimension" />
+        <attr name="vertical_menu_divider_items_padding" format="dimension" />
+        <attr name="vertical_menu_divider_items_padding_left" format="dimension" />
+        <attr name="vertical_menu_divider_items_padding_right" format="dimension" />
+        <attr name="vertical_menu_divider_items_padding_top" format="dimension" />
+        <attr name="vertical_menu_divider_items_padding_bottom" format="dimension" />
+        <attr name="vertical_menu_divider_items_margin" format="dimension" />
+        <attr name="vertical_menu_divider_items_margin_left" format="dimension" />
+        <attr name="vertical_menu_divider_items_margin_right" format="dimension" />
+        <attr name="vertical_menu_divider_items_margin_top" format="dimension" />
+        <attr name="vertical_menu_divider_items_margin_bottom" format="dimension" />
+        <attr name="vertical_menu_divider_items_is_visible" format="boolean" />
 
         <!-- Title Items -->
         <attr name="vertical_menu_title_items_width" format="dimension" />

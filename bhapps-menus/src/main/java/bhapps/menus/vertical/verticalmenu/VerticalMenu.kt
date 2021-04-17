@@ -129,7 +129,7 @@ class VerticalMenu
     var _vertical_menu_divider_margin_top: Int = 0
     var _vertical_menu_divider_margin_bottom: Int = 0
     var _vertical_menu_divider_is_visible: Boolean = true
-
+    
     var _vertical_menu_logo_width: Int = 0
     var _vertical_menu_logo_height: Int = 0
     var _vertical_menu_logo_padding: Int = 0
@@ -228,26 +228,26 @@ class VerticalMenu
     var _vertical_menu_parent_items_badge_is_visible: Boolean = true
     var _vertical_menu_parent_items_badge_is_cleared_on_active: Boolean =  false
 
-    var _vertical_menu_collapse_type: Int = 0
-    var _vertical_menu_collapse_others: Boolean =  true
-    var _vertical_menu_collapse_expand_delay: Int = 0
-    var _vertical_menu_collapse_icon_rotate: Int = 0
-    var _vertical_menu_collapse_icon_rotate_duration: Int = 0
-    var _vertical_menu_collapse_icon_width: Int = 0
-    var _vertical_menu_collapse_icon_height: Int = 0
-    var _vertical_menu_collapse_icon_padding: Int = 0
-    var _vertical_menu_collapse_icon_padding_left: Int = 0
-    var _vertical_menu_collapse_icon_padding_right: Int = 0
-    var _vertical_menu_collapse_icon_padding_top: Int = 0
-    var _vertical_menu_collapse_icon_padding_bottom: Int = 0
-    var _vertical_menu_collapse_icon_margin: Int = 0
-    var _vertical_menu_collapse_icon_margin_left: Int = 0
-    var _vertical_menu_collapse_icon_margin_right: Int = 0
-    var _vertical_menu_collapse_icon_margin_top: Int = 0
-    var _vertical_menu_collapse_icon_margin_bottom: Int = 0
-    var _vertical_menu_collapse_icon_color: Int = 0
-    var _vertical_menu_collapse_icon_drawable: Drawable? = null
-    var _vertical_menu_collapse_icon_is_visible: Boolean =  true
+    var _vertical_menu_parent_items_collapse_type: Int = 0
+    var _vertical_menu_parent_items_collapse_others: Boolean =  true
+    var _vertical_menu_parent_items_collapse_expand_delay: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_rotate: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_rotate_duration: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_width: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_height: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_padding: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_padding_left: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_padding_right: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_padding_top: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_padding_bottom: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_margin: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_margin_left: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_margin_right: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_margin_top: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_margin_bottom: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_color: Int = 0
+    var _vertical_menu_parent_items_collapse_icon_drawable: Drawable? = null
+    var _vertical_menu_parent_items_collapse_icon_is_visible: Boolean =  true
 
     var _vertical_menu_parent_items_navigation_icon_width: Int = 0
     var _vertical_menu_parent_items_navigation_icon_height: Int = 0
@@ -374,6 +374,23 @@ class VerticalMenu
     var _vertical_menu_child_items_when_active_show_parent_active_state: Boolean = true
     //endregion get/set vertical_menu_child values
     
+    //region get/set vertical_menu_divider_items values
+    var _vertical_menu_divider_items_color: Int = 0
+    var _vertical_menu_divider_items_width: Int = 0
+    var _vertical_menu_divider_items_height: Int = 1
+    var _vertical_menu_divider_items_padding: Int = 0
+    var _vertical_menu_divider_items_padding_left: Int = 0
+    var _vertical_menu_divider_items_padding_right: Int = 0
+    var _vertical_menu_divider_items_padding_top: Int = 0
+    var _vertical_menu_divider_items_padding_bottom: Int = 0
+    var _vertical_menu_divider_items_margin: Int = 0
+    var _vertical_menu_divider_items_margin_left: Int = 0
+    var _vertical_menu_divider_items_margin_right: Int = 0
+    var _vertical_menu_divider_items_margin_top: Int = 0
+    var _vertical_menu_divider_items_margin_bottom: Int = 0
+    var _vertical_menu_divider_items_is_visible: Boolean = false
+    //endregion get/set vertical_menu_divider_items values
+    
     //region get/set vertical_menu values
     var vertical_menu_is_responsive_menu: Boolean
         get() = _vertical_menu_is_responsive_menu
@@ -467,85 +484,85 @@ class VerticalMenu
         get() = _vertical_menu_show_icons_only
         set(value) { _vertical_menu_show_icons_only = value
     }
-    var vertical_menu_collapse_type: Int 
-        get() = _vertical_menu_collapse_type
-        set(value) { _vertical_menu_collapse_type = value
+    var vertical_menu_parent_items_collapse_type: Int 
+        get() = _vertical_menu_parent_items_collapse_type
+        set(value) { _vertical_menu_parent_items_collapse_type = value
      }
-    var vertical_menu_collapse_others: Boolean 
-        get() = _vertical_menu_collapse_others
-        set(value) { _vertical_menu_collapse_others = value
+    var vertical_menu_parent_items_collapse_others: Boolean 
+        get() = _vertical_menu_parent_items_collapse_others
+        set(value) { _vertical_menu_parent_items_collapse_others = value
      }
-    var vertical_menu_collapse_expand_delay: Int 
-        get() = _vertical_menu_collapse_expand_delay
-        set(value) { _vertical_menu_collapse_expand_delay = value
+    var vertical_menu_parent_items_collapse_expand_delay: Int 
+        get() = _vertical_menu_parent_items_collapse_expand_delay
+        set(value) { _vertical_menu_parent_items_collapse_expand_delay = value
      }
-    var vertical_menu_collapse_icon_rotate: Int 
-        get() = _vertical_menu_collapse_icon_rotate
-        set(value) { _vertical_menu_collapse_icon_rotate = value
+    var vertical_menu_parent_items_collapse_icon_rotate: Int 
+        get() = _vertical_menu_parent_items_collapse_icon_rotate
+        set(value) { _vertical_menu_parent_items_collapse_icon_rotate = value
      }
-    var vertical_menu_collapse_icon_rotate_duration: Int 
-        get() = _vertical_menu_collapse_icon_rotate_duration
-        set(value) { _vertical_menu_collapse_icon_rotate_duration = value
+    var vertical_menu_parent_items_collapse_icon_rotate_duration: Int 
+        get() = _vertical_menu_parent_items_collapse_icon_rotate_duration
+        set(value) { _vertical_menu_parent_items_collapse_icon_rotate_duration = value
      }
-    var vertical_menu_collapse_icon_width: Int @Px 
-        get() = _vertical_menu_collapse_icon_width
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_width = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_width: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_width
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_width = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_height: Int @Px 
-        get() = _vertical_menu_collapse_icon_height
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_height = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_height: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_height
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_height = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_padding: Int @Px 
-        get() = _vertical_menu_collapse_icon_padding
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_padding = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_padding: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_padding
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_padding = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_padding_left: Int @Px 
-        get() = _vertical_menu_collapse_icon_padding_left
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_padding_left = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_padding_left: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_padding_left
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_padding_left = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_padding_right: Int @Px 
-        get() = _vertical_menu_collapse_icon_padding_right
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_padding_right = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_padding_right: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_padding_right
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_padding_right = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_padding_top: Int @Px 
-        get() = _vertical_menu_collapse_icon_padding_top
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_padding_top = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_padding_top: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_padding_top
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_padding_top = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_padding_bottom: Int @Px 
-        get() = _vertical_menu_collapse_icon_padding_bottom
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_padding_bottom = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_padding_bottom: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_padding_bottom
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_padding_bottom = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_margin: Int @Px 
-        get() = _vertical_menu_collapse_icon_margin
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_margin = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_margin: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_margin
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_margin = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_margin_left: Int @Px 
-        get() = _vertical_menu_collapse_icon_margin_left
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_margin_left = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_margin_left: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_margin_left
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_margin_left = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_margin_right: Int @Px 
-        get() = _vertical_menu_collapse_icon_margin_right
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_margin_right = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_margin_right: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_margin_right
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_margin_right = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_margin_top: Int @Px 
-        get() = _vertical_menu_collapse_icon_margin_top
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_margin_top = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_margin_top: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_margin_top
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_margin_top = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_margin_bottom: Int @Px 
-        get() = _vertical_menu_collapse_icon_margin_bottom
-        set(@DpAnnotation value) { _vertical_menu_collapse_icon_margin_bottom = dpToPx(value)
+    var vertical_menu_parent_items_collapse_icon_margin_bottom: Int @Px 
+        get() = _vertical_menu_parent_items_collapse_icon_margin_bottom
+        set(@DpAnnotation value) { _vertical_menu_parent_items_collapse_icon_margin_bottom = dpToPx(value)
      }
-    var vertical_menu_collapse_icon_color: Int @ColorInt 
-        get() = _vertical_menu_collapse_icon_color
-        set(@ColorInt value) { _vertical_menu_collapse_icon_color = value
+    var vertical_menu_parent_items_collapse_icon_color: Int @ColorInt 
+        get() = _vertical_menu_parent_items_collapse_icon_color
+        set(@ColorInt value) { _vertical_menu_parent_items_collapse_icon_color = value
      }
-    var vertical_menu_collapse_icon_drawable: Drawable?
-        get() = _vertical_menu_collapse_icon_drawable
-        set(value) { _vertical_menu_collapse_icon_drawable = value
+    var vertical_menu_parent_items_collapse_icon_drawable: Drawable?
+        get() = _vertical_menu_parent_items_collapse_icon_drawable
+        set(value) { _vertical_menu_parent_items_collapse_icon_drawable = value
      }
-    var vertical_menu_collapse_icon_is_visible: Boolean 
-        get() = _vertical_menu_collapse_icon_is_visible
-        set(value) { _vertical_menu_collapse_icon_is_visible = value
+    var vertical_menu_parent_items_collapse_icon_is_visible: Boolean 
+        get() = _vertical_menu_parent_items_collapse_icon_is_visible
+        set(value) { _vertical_menu_parent_items_collapse_icon_is_visible = value
      }
     var vertical_menu_border_is_visible: Boolean 
         get() = _vertical_menu_border_is_visible
@@ -700,6 +717,65 @@ class VerticalMenu
         set(value) { _vertical_menu_logo_position =  value	
     }
     //endregion get/set vertical_menu values
+    
+    //region vertical_menu_divider_items
+    var vertical_menu_divider_items_color: Int @ColorInt
+    get() = _vertical_menu_divider_items_color
+        set(@ColorInt value) { _vertical_menu_divider_items_color = value
+        }
+    var vertical_menu_divider_items_width: Int @Px
+    get() = _vertical_menu_divider_items_width
+        set(@DpAnnotation value) { _vertical_menu_divider_items_width = dpToPx(value)
+        }
+    var vertical_menu_divider_items_height: Int @Px
+    get() = _vertical_menu_divider_items_height
+        set(@DpAnnotation value) { _vertical_menu_divider_items_height = dpToPx(value)
+        }
+    var vertical_menu_divider_items_padding: Int @Px
+    get() = _vertical_menu_divider_items_padding
+        set(@DpAnnotation value) { _vertical_menu_divider_items_padding = dpToPx(value)
+        }
+    var vertical_menu_divider_items_padding_left: Int @Px
+    get() = _vertical_menu_divider_items_padding_left
+        set(@DpAnnotation value) { _vertical_menu_divider_items_padding_left = dpToPx(value)
+        }
+    var vertical_menu_divider_items_padding_right: Int @Px
+    get() = _vertical_menu_divider_items_padding_right
+        set(@DpAnnotation value) { _vertical_menu_divider_items_padding_right = dpToPx(value)
+        }
+    var vertical_menu_divider_items_padding_top: Int @Px
+    get() = _vertical_menu_divider_items_padding_top
+        set(@DpAnnotation value) { _vertical_menu_divider_items_padding_top = dpToPx(value)
+        }
+    var vertical_menu_divider_items_padding_bottom: Int @Px
+    get() = _vertical_menu_divider_items_padding_bottom
+        set(@DpAnnotation value) { _vertical_menu_divider_items_padding_bottom = dpToPx(value)
+        }
+    var vertical_menu_divider_items_margin: Int @Px
+    get() = _vertical_menu_divider_items_margin
+        set(@DpAnnotation value) { _vertical_menu_divider_items_margin = dpToPx(value)
+        }
+    var vertical_menu_divider_items_margin_left: Int @Px
+    get() = _vertical_menu_divider_items_margin_left
+        set(@DpAnnotation value) { _vertical_menu_divider_items_margin_left = dpToPx(value)
+        }
+    var vertical_menu_divider_items_margin_right: Int @Px
+    get() = _vertical_menu_divider_items_margin_right
+        set(@DpAnnotation value) { _vertical_menu_divider_items_margin_right = dpToPx(value)
+        }
+    var vertical_menu_divider_items_margin_top: Int @Px
+    get() = _vertical_menu_divider_items_margin_top
+        set(@DpAnnotation value) { _vertical_menu_divider_items_margin_top = dpToPx(value)
+        }
+    var vertical_menu_divider_items_margin_bottom: Int @Px
+    get() = _vertical_menu_divider_items_margin_bottom
+        set(@DpAnnotation value) { _vertical_menu_divider_items_margin_bottom = dpToPx(value)
+        }
+    var vertical_menu_divider_items_is_visible: Boolean
+        get() = _vertical_menu_divider_items_is_visible
+        set(value) { _vertical_menu_divider_items_is_visible =  value
+        }
+    //endregion vertical_menu_divider_items
 
     //region get/set vertical_menu_parent values
     var vertical_menu_parent_items_width: Int @Px 
@@ -1614,84 +1690,84 @@ class VerticalMenu
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_show_icons_only,
             this._vertical_menu_show_icons_only
         )
-        this._vertical_menu_collapse_type = typedArray.getInt(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_type,
-            this._vertical_menu_collapse_type
+        this._vertical_menu_parent_items_collapse_type = typedArray.getInt(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_type,
+            this._vertical_menu_parent_items_collapse_type
         )
-        this._vertical_menu_collapse_others = typedArray.getBoolean(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_others,
-            this._vertical_menu_collapse_others
+        this._vertical_menu_parent_items_collapse_others = typedArray.getBoolean(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_others,
+            this._vertical_menu_parent_items_collapse_others
         )
-        this._vertical_menu_collapse_expand_delay = typedArray.getInt(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_expand_delay,
-            this._vertical_menu_collapse_expand_delay
+        this._vertical_menu_parent_items_collapse_expand_delay = typedArray.getInt(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_expand_delay,
+            this._vertical_menu_parent_items_collapse_expand_delay
         )
-        this._vertical_menu_collapse_icon_rotate = typedArray.getInt(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_rotate,
-            this._vertical_menu_collapse_icon_rotate
+        this._vertical_menu_parent_items_collapse_icon_rotate = typedArray.getInt(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_rotate,
+            this._vertical_menu_parent_items_collapse_icon_rotate
         )
-        this._vertical_menu_collapse_icon_rotate_duration = typedArray.getInt(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_rotate_duration,
-            this._vertical_menu_collapse_icon_rotate_duration
+        this._vertical_menu_parent_items_collapse_icon_rotate_duration = typedArray.getInt(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_rotate_duration,
+            this._vertical_menu_parent_items_collapse_icon_rotate_duration
         )
-        this._vertical_menu_collapse_icon_width = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_width,
-            this._vertical_menu_collapse_icon_width
+        this._vertical_menu_parent_items_collapse_icon_width = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_width,
+            this._vertical_menu_parent_items_collapse_icon_width
         )
-        this._vertical_menu_collapse_icon_height = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_height,
-            this._vertical_menu_collapse_icon_height
+        this._vertical_menu_parent_items_collapse_icon_height = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_height,
+            this._vertical_menu_parent_items_collapse_icon_height
         )
-        this._vertical_menu_collapse_icon_padding = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_padding,
-            this._vertical_menu_collapse_icon_padding
+        this._vertical_menu_parent_items_collapse_icon_padding = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_padding,
+            this._vertical_menu_parent_items_collapse_icon_padding
         )
-        this._vertical_menu_collapse_icon_padding_left = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_padding_left,
-            this._vertical_menu_collapse_icon_padding_left
+        this._vertical_menu_parent_items_collapse_icon_padding_left = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_padding_left,
+            this._vertical_menu_parent_items_collapse_icon_padding_left
         )
-        this._vertical_menu_collapse_icon_padding_right = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_padding_right,
-            this._vertical_menu_collapse_icon_padding_right
+        this._vertical_menu_parent_items_collapse_icon_padding_right = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_padding_right,
+            this._vertical_menu_parent_items_collapse_icon_padding_right
         )
-        this._vertical_menu_collapse_icon_padding_top = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_padding_top,
-            this._vertical_menu_collapse_icon_padding_top
+        this._vertical_menu_parent_items_collapse_icon_padding_top = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_padding_top,
+            this._vertical_menu_parent_items_collapse_icon_padding_top
         )
-        this._vertical_menu_collapse_icon_padding_bottom = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_padding_bottom,
-            this._vertical_menu_collapse_icon_padding_bottom
+        this._vertical_menu_parent_items_collapse_icon_padding_bottom = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_padding_bottom,
+            this._vertical_menu_parent_items_collapse_icon_padding_bottom
         )
-        this._vertical_menu_collapse_icon_margin = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_margin,
-            this._vertical_menu_collapse_icon_margin
+        this._vertical_menu_parent_items_collapse_icon_margin = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_margin,
+            this._vertical_menu_parent_items_collapse_icon_margin
         )
-        this._vertical_menu_collapse_icon_margin_left = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_margin_left,
-            this._vertical_menu_collapse_icon_margin_left
+        this._vertical_menu_parent_items_collapse_icon_margin_left = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_margin_left,
+            this._vertical_menu_parent_items_collapse_icon_margin_left
         )
-        this._vertical_menu_collapse_icon_margin_right = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_margin_right,
-            this._vertical_menu_collapse_icon_margin_right
+        this._vertical_menu_parent_items_collapse_icon_margin_right = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_margin_right,
+            this._vertical_menu_parent_items_collapse_icon_margin_right
         )
-        this._vertical_menu_collapse_icon_margin_top = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_margin_top,
-            this._vertical_menu_collapse_icon_margin_top
+        this._vertical_menu_parent_items_collapse_icon_margin_top = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_margin_top,
+            this._vertical_menu_parent_items_collapse_icon_margin_top
         )
-        this._vertical_menu_collapse_icon_margin_bottom = typedArray.getDimensionPixelSize(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_margin_bottom,
-            this._vertical_menu_collapse_icon_margin_bottom
+        this._vertical_menu_parent_items_collapse_icon_margin_bottom = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_margin_bottom,
+            this._vertical_menu_parent_items_collapse_icon_margin_bottom
         )
-        this._vertical_menu_collapse_icon_color = typedArray.getColor(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_color,
-            this._vertical_menu_collapse_icon_color
+        this._vertical_menu_parent_items_collapse_icon_color = typedArray.getColor(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_color,
+            this._vertical_menu_parent_items_collapse_icon_color
         )
-        this._vertical_menu_collapse_icon_drawable = typedArray.getDrawable(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_drawable
+        this._vertical_menu_parent_items_collapse_icon_drawable = typedArray.getDrawable(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_drawable
         )
-        this._vertical_menu_collapse_icon_is_visible = typedArray.getBoolean(
-            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_collapse_icon_is_visible,
-            this._vertical_menu_collapse_icon_is_visible
+        this._vertical_menu_parent_items_collapse_icon_is_visible = typedArray.getBoolean(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_parent_items_collapse_icon_is_visible,
+            this._vertical_menu_parent_items_collapse_icon_is_visible
         )
         this._vertical_menu_border_is_visible = typedArray.getBoolean(
             R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_border_is_visible,
@@ -1845,6 +1921,65 @@ class VerticalMenu
             this._vertical_menu_logo_position
         )
         //endregion get/set vertical_menu values
+        
+        //region vertical_menu_divider_items
+        this._vertical_menu_divider_items_color = typedArray.getColor(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_color,
+            this._vertical_menu_divider_items_color
+        )
+        this._vertical_menu_divider_items_width = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_width,
+            this._vertical_menu_divider_items_width
+        )
+        this._vertical_menu_divider_items_height = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_height,
+            this._vertical_menu_divider_items_height
+        )
+        this._vertical_menu_divider_items_padding = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_padding,
+            this._vertical_menu_divider_items_padding
+        )
+        this._vertical_menu_divider_items_padding_left = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_padding_left,
+            this._vertical_menu_divider_items_padding_left
+        )
+        this._vertical_menu_divider_items_padding_right = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_padding_right,
+            this._vertical_menu_divider_items_padding_right
+        )
+        this._vertical_menu_divider_items_padding_top = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_padding_top,
+            this._vertical_menu_divider_items_padding_top
+        )
+        this._vertical_menu_divider_items_padding_bottom = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_padding_bottom,
+            this._vertical_menu_divider_items_padding_bottom
+        )
+        this._vertical_menu_divider_items_margin = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_margin,
+            this._vertical_menu_divider_items_margin
+        )
+        this._vertical_menu_divider_items_margin_left = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_margin_left,
+            this._vertical_menu_divider_items_margin_left
+        )
+        this._vertical_menu_divider_items_margin_right = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_margin_right,
+            this._vertical_menu_divider_items_margin_right
+        )
+        this._vertical_menu_divider_items_margin_top = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_margin_top,
+            this._vertical_menu_divider_items_margin_top
+        )
+        this._vertical_menu_divider_items_margin_bottom = typedArray.getDimensionPixelSize(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_margin_bottom,
+            this._vertical_menu_divider_items_margin_bottom
+        )
+        this._vertical_menu_divider_items_is_visible = typedArray.getBoolean(
+            R.styleable.BHAppsMenus_Menu_Declarables_Vertical_VerticalMenu_vertical_menu_divider_items_is_visible,
+            this._vertical_menu_divider_items_is_visible
+        )
+        //endregion vertical_menu_divider_items
 
         //region get/set vertical_menu_parent values
         this._vertical_menu_parent_items_width = typedArray.getDimensionPixelSize(
@@ -2717,6 +2852,21 @@ class VerticalMenu
         verticalMenuItemsUISettings["vertical_menu_logo_drawable"] = this@VerticalMenu.vertical_menu_logo_drawable
         verticalMenuItemsUISettings["vertical_menu_logo_is_visible"] = this@VerticalMenu.vertical_menu_logo_is_visible
         verticalMenuItemsUISettings["vertical_menu_logo_position"] = this@VerticalMenu.vertical_menu_logo_position
+
+        verticalMenuItemsUISettings["vertical_menu_divider_items_color"] = this@VerticalMenu.vertical_menu_divider_items_color
+        verticalMenuItemsUISettings["vertical_menu_divider_items_width"] = this@VerticalMenu.vertical_menu_divider_items_width
+        verticalMenuItemsUISettings["vertical_menu_divider_items_height"] = this@VerticalMenu.vertical_menu_divider_items_height
+        verticalMenuItemsUISettings["vertical_menu_divider_items_padding"] = this@VerticalMenu.vertical_menu_divider_items_padding
+        verticalMenuItemsUISettings["vertical_menu_divider_items_padding_left"] = this@VerticalMenu.vertical_menu_divider_items_padding_left
+        verticalMenuItemsUISettings["vertical_menu_divider_items_padding_right"] = this@VerticalMenu.vertical_menu_divider_items_padding_right
+        verticalMenuItemsUISettings["vertical_menu_divider_items_padding_top"] = this@VerticalMenu.vertical_menu_divider_items_padding_top
+        verticalMenuItemsUISettings["vertical_menu_divider_items_padding_bottom"] = this@VerticalMenu.vertical_menu_divider_items_padding_bottom
+        verticalMenuItemsUISettings["vertical_menu_divider_items_margin"] = this@VerticalMenu.vertical_menu_divider_items_margin
+        verticalMenuItemsUISettings["vertical_menu_divider_items_margin_left"] = this@VerticalMenu.vertical_menu_divider_items_margin_left
+        verticalMenuItemsUISettings["vertical_menu_divider_items_margin_right"] = this@VerticalMenu.vertical_menu_divider_items_margin_right
+        verticalMenuItemsUISettings["vertical_menu_divider_items_margin_top"] = this@VerticalMenu.vertical_menu_divider_items_margin_top
+        verticalMenuItemsUISettings["vertical_menu_divider_items_margin_bottom"] = this@VerticalMenu.vertical_menu_divider_items_margin_bottom
+        verticalMenuItemsUISettings["vertical_menu_divider_items_is_visible"] = this@VerticalMenu.vertical_menu_divider_items_is_visible
         
         verticalMenuItemsUISettings["vertical_menu_parent_items_width"] = this@VerticalMenu.vertical_menu_parent_items_width
         verticalMenuItemsUISettings["vertical_menu_parent_items_height"] = this@VerticalMenu.vertical_menu_parent_items_height
@@ -2797,26 +2947,26 @@ class VerticalMenu
         verticalMenuItemsUISettings["vertical_menu_parent_items_badge_is_visible"] = this@VerticalMenu.vertical_menu_parent_items_badge_is_visible
         verticalMenuItemsUISettings["vertical_menu_parent_items_badge_is_cleared_on_active"] = this@VerticalMenu.vertical_menu_parent_items_badge_is_cleared_on_active
 
-        verticalMenuItemsUISettings["vertical_menu_collapse_type"] = this@VerticalMenu.vertical_menu_collapse_type
-        verticalMenuItemsUISettings["vertical_menu_collapse_others"] = this@VerticalMenu.vertical_menu_collapse_others
-        verticalMenuItemsUISettings["vertical_menu_collapse_expand_delay"] = this@VerticalMenu.vertical_menu_collapse_expand_delay
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_rotate"] = this@VerticalMenu.vertical_menu_collapse_icon_rotate
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_rotate_duration"] = this@VerticalMenu.vertical_menu_collapse_icon_rotate_duration
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_width"] = this@VerticalMenu.vertical_menu_collapse_icon_width
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_height"] = this@VerticalMenu.vertical_menu_collapse_icon_height
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding"] = this@VerticalMenu.vertical_menu_collapse_icon_padding
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_left"] = this@VerticalMenu.vertical_menu_collapse_icon_padding_left
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_right"] = this@VerticalMenu.vertical_menu_collapse_icon_padding_right
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_top"] = this@VerticalMenu.vertical_menu_collapse_icon_padding_top
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_bottom"] = this@VerticalMenu.vertical_menu_collapse_icon_padding_bottom
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin"] = this@VerticalMenu.vertical_menu_collapse_icon_margin
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_left"] = this@VerticalMenu.vertical_menu_collapse_icon_margin_left
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_right"] = this@VerticalMenu.vertical_menu_collapse_icon_margin_right
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_top"] = this@VerticalMenu.vertical_menu_collapse_icon_margin_top
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_bottom"] = this@VerticalMenu.vertical_menu_collapse_icon_margin_bottom
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_color"] = this@VerticalMenu.vertical_menu_collapse_icon_color
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_drawable"] = this@VerticalMenu.vertical_menu_collapse_icon_drawable
-        verticalMenuItemsUISettings["vertical_menu_collapse_icon_is_visible"] = this@VerticalMenu.vertical_menu_collapse_icon_is_visible
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_type"] = this@VerticalMenu.vertical_menu_parent_items_collapse_type
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_others"] = this@VerticalMenu.vertical_menu_parent_items_collapse_others
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_expand_delay"] = this@VerticalMenu.vertical_menu_parent_items_collapse_expand_delay
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_rotate"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_rotate
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_rotate_duration"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_rotate_duration
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_width"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_width
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_height"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_height
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_padding
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding_left"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_padding_left
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding_right"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_padding_right
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding_top"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_padding_top
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding_bottom"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_padding_bottom
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_margin
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin_left"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_margin_left
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin_right"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_margin_right
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin_top"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_margin_top
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin_bottom"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_margin_bottom
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_color"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_color
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_drawable"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_drawable
+        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_is_visible"] = this@VerticalMenu.vertical_menu_parent_items_collapse_icon_is_visible
 
         verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_width"] = this@VerticalMenu.vertical_menu_parent_items_navigation_icon_width
         verticalMenuItemsUISettings["vertical_menu_parent_items_navigation_icon_height"] = this@VerticalMenu.vertical_menu_parent_items_navigation_icon_height
@@ -3257,7 +3407,7 @@ class VerticalMenu
 
         bhappsMenusMenuVerticalMenuRecycleView.adapter = null
 
-        if(this@VerticalMenu.vertical_menu_collapse_type == 1){
+        if(this@VerticalMenu.vertical_menu_parent_items_collapse_type == 1){
             verticalMenuAdapter!!.mode = 1
         }else{
             verticalMenuAdapter!!.mode = 0
