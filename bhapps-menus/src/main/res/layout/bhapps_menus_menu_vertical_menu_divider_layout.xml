@@ -8,16 +8,9 @@
     android:clickable="false">
 
     <View
+            android:id="@+id/bhapps_menus_menu_vertical_menu_divider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bhapps_menus_menu_dimension_1dp"
             android:background="@color/bhapps_menus_menu_vertical_menu_divider_color" />
-
-    <TextView
-        android:id="@+id/bhapps_menus_menu_vertical_menu_divider_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/bhapps_menus_menu_vertical_menu_divider_padding"
-        android:textSize="@dimen/bhapps_menus_menu_vertical_menu_parent_item_divider_title_text_size"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
 
 </LinearLayout>

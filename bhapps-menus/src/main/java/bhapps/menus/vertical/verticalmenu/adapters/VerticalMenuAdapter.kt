@@ -2263,19 +2263,93 @@ class VerticalMenuAdapter(
     //region DividerViewHolder
     inner class DividerViewHolder(var view: View) :
         ViewHolder(view) {
-        var bhapps_menus_menu_vertical_menu_divider_title: TextView
+        var bhapps_menus_menu_vertical_menu_divider: View
         fun bind(position: Int) {
-            if (visibleItems!![position]!!.title.isEmpty()) {
-                bhapps_menus_menu_vertical_menu_divider_title.visibility = View.GONE
-            } else {
-                bhapps_menus_menu_vertical_menu_divider_title.visibility = View.VISIBLE
-                bhapps_menus_menu_vertical_menu_divider_title.text = visibleItems!![position]!!.title
+            if(verticalMenuItemsUISettings["vertical_menu_divider_is_visible"] as Boolean) {
+
+                if (verticalMenuItemsUISettings["vertical_menu_width"] != null) {
+                    if (verticalMenuItemsUISettings["vertical_menu_width"] as Int != 0) {
+                        if (!(verticalMenuItemsUISettings["vertical_menu_is_matched_width"] as Boolean)) {
+                            bhapps_menus_menu_vertical_menu_divider.layoutParams.width =
+                                verticalMenuItemsUISettings["vertical_menu_width"] as Int
+                        }
+                    }
+                }
+
+                var dividerHeight = ConstraintLayout.LayoutParams.WRAP_CONTENT
+                if (verticalMenuItemsUISettings["vertical_menu_divider_height"] != null) {
+                    if (verticalMenuItemsUISettings["vertical_menu_divider_height"] as Int != 0) {
+                            bhapps_menus_menu_vertical_menu_divider.layoutParams.height = verticalMenuItemsUISettings["vertical_menu_divider_height"] as Int
+                            dividerHeight = verticalMenuItemsUISettings["vertical_menu_divider_height"] as Int
+                    }
+                }
+
+                if (verticalMenuItemsUISettings["vertical_menu_divider_color"] as Int != 0) {
+                    bhapps_menus_menu_vertical_menu_divider.setBackgroundColor(
+                        verticalMenuItemsUISettings["vertical_menu_divider_color"] as Int
+                    )
+                }
+
+                //region set padding
+                if(verticalMenuItemsUISettings["vertical_menu_divider_padding"] as Int > 0){
+                    //setPadding(int left, int top, int right, int bottom)
+                    bhapps_menus_menu_vertical_menu_divider.setPadding(
+                        verticalMenuItemsUISettings["vertical_menu_divider_padding"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_padding"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_padding"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_padding"] as Int
+                    )
+                }else{
+                    //setPadding(int left, int top, int right, int bottom)
+
+                    bhapps_menus_menu_vertical_menu_divider.setPadding(
+                        verticalMenuItemsUISettings["vertical_menu_divider_padding_left"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_padding_top"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_padding_right"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_padding_bottom"] as Int
+                    )
+                }
+                //endregion set padding
+
+                //region set margin
+                if(verticalMenuItemsUISettings["vertical_menu_divider_margin"] as Int > 0){
+                    //setMargins(int left, int top, int right, int bottom)
+                    val bhapps_menus_menu_vertical_menu_divider_layout_params =
+                        ConstraintLayout.LayoutParams(
+                            ConstraintLayout.LayoutParams.MATCH_PARENT,
+                            dividerHeight
+                        )
+                    bhapps_menus_menu_vertical_menu_divider_layout_params.setMargins(
+                        verticalMenuItemsUISettings["vertical_menu_divider_margin"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_margin"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_margin"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_margin"] as Int
+                    )
+                    bhapps_menus_menu_vertical_menu_divider.layoutParams = bhapps_menus_menu_vertical_menu_divider_layout_params
+                }else{
+                    //setMargins(int left, int top, int right, int bottom)
+                    val bhapps_menus_menu_vertical_menu_divider_layout_params =
+                        ConstraintLayout.LayoutParams(
+                            ConstraintLayout.LayoutParams.MATCH_PARENT,
+                            dividerHeight
+                        )
+                    bhapps_menus_menu_vertical_menu_divider_layout_params.setMargins(
+                        verticalMenuItemsUISettings["vertical_menu_divider_margin_left"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_margin_top"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_margin_right"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_divider_margin_bottom"] as Int
+                    )
+                    bhapps_menus_menu_vertical_menu_divider.layoutParams = bhapps_menus_menu_vertical_menu_divider_layout_params
+                }
+                //endregion set margin
+                
+            }else{
+                bhapps_menus_menu_vertical_menu_divider.visibility = View.GONE
             }
         }
 
         init {
-            bhapps_menus_menu_vertical_menu_divider_title =
-                view.findViewById<View>(R.id.bhapps_menus_menu_vertical_menu_divider_title) as TextView
+            bhapps_menus_menu_vertical_menu_divider = view.findViewById<View>(R.id.bhapps_menus_menu_vertical_menu_divider) as View
         }
     }
     //endregion DividerViewHolder
@@ -2446,7 +2520,6 @@ class VerticalMenuAdapter(
 
     fun setTextTypeFace(context: Context, view: TextView, fontName: String?, bold: Boolean){
 
-
         try {
 
             if(verticalMenuItemsUITypefaces[fontName!!] != null){
@@ -2493,6 +2566,7 @@ class VerticalMenuAdapter(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
+        /*
         val divider = View(context)
         divider.layoutParams = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
@@ -2501,65 +2575,80 @@ class VerticalMenuAdapter(
         divider.setBackgroundColor(
             context.resources.getColor(R.color.bhapps_menus_menu_vertical_menu_divider_color)
         )
-        return if (viewType == PARENT) {
-            ParentOnlyMenuTypeViewHolder(
-                inflate(
-                    R.layout.bhapps_menus_menu_vertical_menu_parent_item_layout,
-                    parent
+        */
+        return when (viewType) {
+            PARENT -> {
+                ParentOnlyMenuTypeViewHolder(
+                    inflate(
+                        R.layout.bhapps_menus_menu_vertical_menu_parent_item_layout,
+                        parent
+                    )
                 )
-            )
-        } else if (viewType == PARENTWITHCHILDREN) {
-            ParentWithChildItemsMenuTypeViewHolder(
-                inflate(
-                    R.layout.bhapps_menus_menu_vertical_menu_parent_with_child_items_layout,
-                    parent
+            }
+            PARENTWITHCHILDREN -> {
+                ParentWithChildItemsMenuTypeViewHolder(
+                    inflate(
+                        R.layout.bhapps_menus_menu_vertical_menu_parent_with_child_items_layout,
+                        parent
+                    )
                 )
-            )
-        } else if (viewType == CHILD) {
-            ChildMenuTypeViewHolder(
-                inflate(
-                    R.layout.bhapps_menus_menu_vertical_menu_child_item_layout,
-                    parent
+            }
+            CHILD -> {
+                ChildMenuTypeViewHolder(
+                    inflate(
+                        R.layout.bhapps_menus_menu_vertical_menu_child_item_layout,
+                        parent
+                    )
                 )
-            )
-        } else if (viewType == DIVIDER) {
-            DividerViewHolder(
-                inflate(
-                    R.layout.bhapps_menus_menu_vertical_menu_divider_layout,
-                    parent
+            }
+            DIVIDER -> {
+                DividerViewHolder(
+                    inflate(
+                        R.layout.bhapps_menus_menu_vertical_menu_divider_layout,
+                        parent
+                    )
                 )
-            )
-        } else if (viewType == TITLE) {
-            TitleViewHolder(
-                inflate(
-                    R.layout.bhapps_menus_menu_vertical_menu_title_item_layout,
-                    parent
+            }
+            TITLE -> {
+                TitleViewHolder(
+                    inflate(
+                        R.layout.bhapps_menus_menu_vertical_menu_title_item_layout,
+                        parent
+                    )
                 )
-            )
-        } else {
-            ParentOnlyMenuTypeViewHolder(
-                inflate(
-                    R.layout.bhapps_menus_menu_vertical_menu_parent_item_layout,
-                    parent
+            }
+            else -> {
+                ParentOnlyMenuTypeViewHolder(
+                    inflate(
+                        R.layout.bhapps_menus_menu_vertical_menu_parent_item_layout,
+                        parent
+                    )
                 )
-            )
+            }
         }
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val viewType = getItemViewType(position)
-        if (viewType == PARENT) {
-            (holder as ParentOnlyMenuTypeViewHolder).bind(position)
-        } else if (viewType == PARENTWITHCHILDREN) {
-            (holder as ParentWithChildItemsMenuTypeViewHolder).bind(position)
-        } else if (viewType == CHILD) {
-            (holder as ChildMenuTypeViewHolder).bind(position)
-        } else if (viewType == DIVIDER) {
-            (holder as DividerViewHolder).bind(position)
-        } else if (viewType == TITLE) {
-            (holder as TitleViewHolder).bind(position)
-        } else {
-            (holder as ParentOnlyMenuTypeViewHolder).bind(position)
+        when (viewType) {
+            PARENT -> {
+                (holder as ParentOnlyMenuTypeViewHolder).bind(position)
+            }
+            PARENTWITHCHILDREN -> {
+                (holder as ParentWithChildItemsMenuTypeViewHolder).bind(position)
+            }
+            CHILD -> {
+                (holder as ChildMenuTypeViewHolder).bind(position)
+            }
+            DIVIDER -> {
+                (holder as DividerViewHolder).bind(position)
+            }
+            TITLE -> {
+                (holder as TitleViewHolder).bind(position)
+            }
+            else -> {
+                (holder as ParentOnlyMenuTypeViewHolder).bind(position)
+            }
         }
     }
 
