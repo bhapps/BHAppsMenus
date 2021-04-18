@@ -1293,39 +1293,39 @@ class VerticalMenuAdapter(
             //endregion set badge
 
             //region set collapse_icon
-            if (verticalMenuItemsUISettings["vertical_menu_collapse_icon_is_visible"] as Boolean) {
+            if (verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_is_visible"] as Boolean) {
                 bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.visibility = View.VISIBLE
 
-                if (verticalMenuItemsUISettings["vertical_menu_collapse_icon_width"] as Int != 0) {
-                    bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.layoutParams.width = verticalMenuItemsUISettings["vertical_menu_collapse_icon_width"] as Int
+                if (verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_width"] as Int != 0) {
+                    bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.layoutParams.width = verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_width"] as Int
                 }
 
-                if (verticalMenuItemsUISettings["vertical_menu_collapse_icon_height"] as Int != 0) {
-                    bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.layoutParams.height = verticalMenuItemsUISettings["vertical_menu_collapse_icon_height"] as Int
+                if (verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_height"] as Int != 0) {
+                    bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.layoutParams.height = verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_height"] as Int
                 }
 
                 //region set padding
-                if(verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding"] as Int > 0){
+                if(verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding"] as Int > 0){
                     //setPadding(int left, int top, int right, int bottom)
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.setPadding(
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding"] as Int
                     )
                 }else{
                     //setPadding(int left, int top, int right, int bottom)
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.setPadding(
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_left"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_top"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_right"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_padding_bottom"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding_left"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding_top"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding_right"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_padding_bottom"] as Int
                     )
                 }
                 //endregion set padding
 
                 //region set margin
-                if(verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin"] as Int > 0){
+                if(verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin"] as Int > 0){
                     //setMargins(int left, int top, int right, int bottom)
                     val bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params =
                         ConstraintLayout.LayoutParams(
@@ -1338,10 +1338,10 @@ class VerticalMenuAdapter(
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params.endToEnd = bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.id
 
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params.setMargins(
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin"] as Int
                     )
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.layoutParams = bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params
                 }else{
@@ -1357,24 +1357,24 @@ class VerticalMenuAdapter(
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params.endToEnd = bhapps_menus_menu_vertical_menu_parent_with_child_items_layout.id
 
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params.setMargins(
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_left"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_top"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_right"] as Int,
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_margin_bottom"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin_left"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin_top"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin_right"] as Int,
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_margin_bottom"] as Int
                     )
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.layoutParams = bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow_layout_params
                 }
                 //endregion set margin
 
-                if (verticalMenuItemsUISettings["vertical_menu_collapse_icon_drawable"] != null) {
+                if (verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_drawable"] != null) {
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.setImageDrawable(
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_drawable"] as Drawable
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_drawable"] as Drawable
                     )
                 }
 
-                if (verticalMenuItemsUISettings["vertical_menu_collapse_icon_color"] as Int != 0) {
+                if (verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_color"] as Int != 0) {
                     bhapps_menus_menu_vertical_menu_parent_with_child_items_arrow.setColorFilter(
-                        verticalMenuItemsUISettings["vertical_menu_collapse_icon_color"] as Int
+                        verticalMenuItemsUISettings["vertical_menu_parent_items_collapse_icon_color"] as Int
                     )
                 }
 
@@ -2263,7 +2263,7 @@ class VerticalMenuAdapter(
     //region DividerViewHolder
     inner class DividerViewHolder(var view: View) :
         ViewHolder(view) {
-        var bhapps_menus_menu_vertical_menu_divider: ConstraintLayout
+        var bhapps_menus_menu_vertical_menu_divider: ConstraintLayout = view.findViewById<View>(R.id.bhapps_menus_menu_vertical_menu_divider) as ConstraintLayout
         fun bind(position: Int) {
             if(verticalMenuItemsUISettings["vertical_menu_divider_items_is_visible"] as Boolean) {
 
@@ -2348,9 +2348,6 @@ class VerticalMenuAdapter(
             }
         }
 
-        init {
-            bhapps_menus_menu_vertical_menu_divider = view.findViewById<View>(R.id.bhapps_menus_menu_vertical_menu_divider) as ConstraintLayout
-        }
     }
     //endregion DividerViewHolder
 
