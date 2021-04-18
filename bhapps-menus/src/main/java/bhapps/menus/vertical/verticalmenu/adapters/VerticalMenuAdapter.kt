@@ -2263,7 +2263,7 @@ class VerticalMenuAdapter(
     //region DividerViewHolder
     inner class DividerViewHolder(var view: View) :
         ViewHolder(view) {
-        var bhapps_menus_menu_vertical_menu_divider: View
+        var bhapps_menus_menu_vertical_menu_divider: ConstraintLayout
         fun bind(position: Int) {
             if(verticalMenuItemsUISettings["vertical_menu_divider_items_is_visible"] as Boolean) {
 
@@ -2349,7 +2349,7 @@ class VerticalMenuAdapter(
         }
 
         init {
-            bhapps_menus_menu_vertical_menu_divider = view.findViewById<View>(R.id.bhapps_menus_menu_vertical_menu_divider) as View
+            bhapps_menus_menu_vertical_menu_divider = view.findViewById<View>(R.id.bhapps_menus_menu_vertical_menu_divider) as ConstraintLayout
         }
     }
     //endregion DividerViewHolder
