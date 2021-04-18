@@ -2263,6 +2263,7 @@ class VerticalMenuAdapter(
     //region DividerViewHolder
     inner class DividerViewHolder(var view: View) :
         ViewHolder(view) {
+        var bhapps_menus_menu_vertical_menu_divider_layout: ConstraintLayout = view.findViewById<View>(R.id.bhapps_menus_menu_vertical_menu_divider_layout) as ConstraintLayout
         var bhapps_menus_menu_vertical_menu_divider: ConstraintLayout = view.findViewById<View>(R.id.bhapps_menus_menu_vertical_menu_divider) as ConstraintLayout
         fun bind(position: Int) {
             if(verticalMenuItemsUISettings["vertical_menu_divider_items_is_visible"] as Boolean) {
@@ -2293,7 +2294,7 @@ class VerticalMenuAdapter(
                 //region set padding
                 if(verticalMenuItemsUISettings["vertical_menu_divider_items_padding"] as Int > 0){
                     //setPadding(int left, int top, int right, int bottom)
-                    bhapps_menus_menu_vertical_menu_divider.setPadding(
+                    bhapps_menus_menu_vertical_menu_divider_layout.setPadding(
                         verticalMenuItemsUISettings["vertical_menu_divider_items_padding"] as Int,
                         verticalMenuItemsUISettings["vertical_menu_divider_items_padding"] as Int,
                         verticalMenuItemsUISettings["vertical_menu_divider_items_padding"] as Int,
@@ -2302,7 +2303,7 @@ class VerticalMenuAdapter(
                 }else{
                     //setPadding(int left, int top, int right, int bottom)
 
-                    bhapps_menus_menu_vertical_menu_divider.setPadding(
+                    bhapps_menus_menu_vertical_menu_divider_layout.setPadding(
                         verticalMenuItemsUISettings["vertical_menu_divider_items_padding_left"] as Int,
                         verticalMenuItemsUISettings["vertical_menu_divider_items_padding_top"] as Int,
                         verticalMenuItemsUISettings["vertical_menu_divider_items_padding_right"] as Int,
@@ -2325,7 +2326,7 @@ class VerticalMenuAdapter(
                         verticalMenuItemsUISettings["vertical_menu_divider_items_margin"] as Int,
                         verticalMenuItemsUISettings["vertical_menu_divider_items_margin"] as Int
                     )
-                    bhapps_menus_menu_vertical_menu_divider.layoutParams = bhapps_menus_menu_vertical_menu_divider_items_layout_params
+                    bhapps_menus_menu_vertical_menu_divider_layout.layoutParams = bhapps_menus_menu_vertical_menu_divider_items_layout_params
                 }else{
                     //setMargins(int left, int top, int right, int bottom)
                     val bhapps_menus_menu_vertical_menu_divider_items_layout_params =
@@ -2339,12 +2340,12 @@ class VerticalMenuAdapter(
                         verticalMenuItemsUISettings["vertical_menu_divider_items_margin_right"] as Int,
                         verticalMenuItemsUISettings["vertical_menu_divider_items_margin_bottom"] as Int
                     )
-                    bhapps_menus_menu_vertical_menu_divider.layoutParams = bhapps_menus_menu_vertical_menu_divider_items_layout_params
+                    bhapps_menus_menu_vertical_menu_divider_layout.layoutParams = bhapps_menus_menu_vertical_menu_divider_items_layout_params
                 }
                 //endregion set margin
                 
             }else{
-                bhapps_menus_menu_vertical_menu_divider.visibility = View.GONE
+                bhapps_menus_menu_vertical_menu_divider_layout.visibility = View.GONE
             }
         }
 
