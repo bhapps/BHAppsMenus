@@ -367,6 +367,13 @@ class MainActivity : AppCompatActivity() {
         verticalMenuParentItem0.active = false
         list.add(verticalMenuParentItem0)
 
+        var verticalMenuParentItemDivider0 = VerticalMenuParentItem(Random.nextInt(1, 999))
+        var verticalMenuParentItemDivider0Group = Random.nextInt(1, 999).toString()
+        verticalMenuParentItemDivider0.id = Random.nextInt(1, 999)
+        verticalMenuParentItemDivider0.group = verticalMenuParentItemDivider0Group
+        verticalMenuParentItemDivider0.vertical_menu_type = VerticalMenuType.DIVIDER
+        list.add(verticalMenuParentItemDivider0)
+
         var verticalMenuParentItem1 = VerticalMenuParentItem(Random.nextInt(1, 999))
         var verticalMenuParentItem1Group = Random.nextInt(1, 999).toString()
         verticalMenuParentItem1.id = Random.nextInt(1, 999)
