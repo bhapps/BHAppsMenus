@@ -177,7 +177,10 @@
                     app:vertical_menu_divider_items_color="@color/colorPrimaryDark"
                     app:vertical_menu_divider_items_is_visible="true"
                     app:vertical_menu_divider_items_height="@dimen/bhapps_menus_menu_dimension_1dp"
-                    app:vertical_menu_divider_items_padding="@dimen/bhapps_menus_menu_dimension_8dp"
+                    app:vertical_menu_divider_items_padding_left="@dimen/bhapps_menus_menu_dimension_0dp"
+                    app:vertical_menu_divider_items_margin_top="@dimen/bhapps_menus_menu_dimension_24dp"
+                    app:vertical_menu_divider_items_margin_bottom="@dimen/bhapps_menus_menu_dimension_24dp"
+                    app:vertical_menu_divider_items_padding_right="@dimen/bhapps_menus_menu_dimension_0dp"
 
                     app:vertical_menu_child_items_padding="@dimen/bhapps_menus_menu_dimension_8dp"
                     app:vertical_menu_child_items_background_color="@android:color/transparent"

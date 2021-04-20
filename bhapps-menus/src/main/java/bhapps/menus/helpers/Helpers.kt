@@ -7,9 +7,10 @@ import android.view.View
 
 object Helpers {
 
-    fun View.dpToPx(dp: Int): Int {
-        return (dp * context.resources.displayMetrics.density).toInt()
+    fun getDpToPx(context: Context, dp: Int): Float {
+        return (dp * context.resources.displayMetrics.density)
     }
+
 
     /*
        *
@@ -42,7 +43,7 @@ object Helpers {
    */
 
     fun getDpToPx(context: Context, dp: Float): Float {
-        val metrics: DisplayMetrics = context.getResources().getDisplayMetrics()
+        val metrics: DisplayMetrics = context.resources.displayMetrics
         return dp * (metrics.densityDpi / 160f)
     }
 
